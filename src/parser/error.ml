@@ -37,3 +37,4 @@ let accumulate_warnings f =
   { value; warnings = List.rev !warnings }
 
 let warning accumulator error = accumulator := error :: !accumulator
+
