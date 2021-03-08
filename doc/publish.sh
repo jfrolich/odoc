@@ -4,6 +4,7 @@ set -e
 
 
 dune build @doc
+dune build @docgen
 
 cd _build/default/doc
 
