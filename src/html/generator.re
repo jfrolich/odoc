@@ -107,7 +107,24 @@ module rec InlineElement: {
          | (InternalLink(Resolved((_, _))), None) =>
            <InlineElement emph_level content />
          | (InternalLink(Resolved((uri, content))), Some(resolve)) => [
-             <a href={Link.href(~resolve, uri)} class_=?{classNames(t.attr)}>
+             <a
+               href={Link.href(~resolve, uri)}
+               id={
+                 Link.Path.for_printing(uri.page)
+                 |> List.rev
+                 |> List.fold_left(
+                      identifier =>
+                        fun
+                        | "" => identifier
+                        | aggr =>
+                          switch (identifier) {
+                          | "" => aggr
+                          | identifier => aggr ++ "." ++ identifier
+                          },
+                      "",
+                    )
+               }
+               class_=?{classNames(t.attr)}>
                ...<InlineElement emph_level content resolve />
              </a>,
            ]
