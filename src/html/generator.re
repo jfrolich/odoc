@@ -19,15 +19,6 @@ open Odoc_document.Types;
 module Doctree = Odoc_document.Doctree;
 open React.StaticReact;
 
-// let rec classNames = (~classStr: option(string)=?, classes) => {
-//   switch((classStr, classes)) {
-//   | (className, []) =>className
-//   | (None, [className, ...classes]) => classNames(~classStr=?className, classes)
-//   | (Some(classStr), [None, ...classes]) => classNames(~classStr, classes)
-//   | (Some(classStr), [Some(className), ...classes]) => classNames(~classStr=(classStr ++ " " ++ className), classes)
-//   }
-// }
-
 let rec classNames = (~classStr: option(string)=?, classes: list(string)) => {
   switch (classStr, classes) {
   | (className, []) => className
@@ -48,8 +39,13 @@ module AnchorLink = {
 
 module RawMarkup = {
   let createElement = (~t: Raw_markup.t, ~children as _=?, ()) => {
-    switch (t) {
-    | (`Html, content) => [
+    let (target, content) = t;
+    switch (Astring.String.Ascii.lowercase(target)) {
+    | "html" => [
+        /* This is OK because we output *textual* HTML.
+              In theory, we should try to parse the HTML with lambdasoup and rebuild
+              the HTML tree from there.
+           */
         React.ReactDomStatic.unsafe(content),
         // <div dangerouslySetInnerHTML={__html: content} />,
       ]
@@ -81,6 +77,7 @@ module rec InlineElement: {
            } else {
              [<span class_=?{classNames(t.attr)}> inner </span>];
            };
+         | (Text(""), _) => []
          | (Text(s), _) =>
            let inner = string(s);
            if (t.attr == []) {
@@ -147,7 +144,13 @@ and SourceElement: {
     let rec token = (x: Source.token) =>
       switch (x) {
       | Elt(i) => container(i)
-      | Tag(None, l) => [<span> ...{tokens(l)} </span>]
+      | Tag(None, l) =>
+        let content = tokens(l);
+        if (content == []) {
+          [];
+        } else {
+          [<span> ...{tokens(l)} </span>];
+        };
       | Tag(Some(s), l) => [
           <span class_=?{classNames([s])}> ...{tokens(l)} </span>,
         ]
@@ -180,42 +183,6 @@ and StyledElement: {
     };
   };
 };
-
-// module Anchor = {
-//   let createElement = (~anchor, ()) => {
-//     switch (anchor) {
-//     | None => []
-//     | Some({Odoc_document.Url.Anchor.anchor, _}) => [
-//         <a id=anchor href={"#" ++ anchor} class_=["anchor", "anchored"] />,
-//       ]
-//     };
-//   };
-// };
-
-// let class_ = (l: Class.t) =>
-//   if (l == []) {
-//     [];
-//   } else {
-//     [Html.a_class(l)];
-//   }
-// and raw_markup = (t: Raw_markup.t) => {
-//   let (target, content) = t;
-//   if (`Html == target) {
-//     [Html.Unsafe.data(content)];
-//   } else {
-//     [];
-//       /* This is wrong */
-//   };
-// };
-
-// module Details = {
-//   let createElement = (~is_open, ~summary as passedSummary, ~children, ()) =>
-//     if (is_open) {
-//       <details> ...{[<summary> passedSummary </summary>, ...children]} </details>;
-//     } else {
-//       <details open_=()> ...{[<summary> passedSummary </summary>, ...children]} </details>;
-//     };
-// };
 
 module Heading = {
   let createElement =
@@ -275,20 +242,15 @@ let rec block = (~resolve, l: Block.t): list(element) => {
                 }
            </ul>,
          ]
-       | Description(l) => [
-           <dl class_=?{classNames(t.attr)}>
-             ...{
-                  l
-                  |> List.map(((i, b)) => {
-                       [
-                         <dt> ...<InlineElement resolve content=i /> </dt>,
-                         <dd> ...{block(~resolve, b)} </dd>,
-                       ]
-                     })
-                  |> List.concat
-                }
-           </dl>,
-         ]
+       | Description(l) =>
+         let item = (i: Description.one) => {
+           let term = <InlineElement resolve content={i.Description.key} />;
+           let def = block(~resolve, i.Description.definition);
+           <li class_=?{classNames(i.Description.attr)}>
+             ...{term @ [string(" "), ...def]}
+           </li>;
+         };
+         [<ul class_=?{classNames(t.attr)}> ...{List.map(item, l)} </ul>];
        | Raw_markup(r) => <RawMarkup t=r />
        | Verbatim(s) => [
            <pre class_=?{classNames(t.attr)}> {string(s)} </pre>,
@@ -305,33 +267,25 @@ let rec block = (~resolve, l: Block.t): list(element) => {
   |> List.concat;
 };
 
-let rec is_only_text = l => {
-  let is_text: Item.t => _ =
-    fun
-    | Heading(_)
-    | Text(_) => true
-    | Declaration(_) => false
-    | Include({content: {content, _}, _}) => is_only_text(content);
+let spec_class =
+  fun
+  | [] => []
+  | attr => ["spec", ...attr];
 
-  List.for_all(is_text, l);
+module SpecDocDiv = {
+  let createElement = (~docs, ~resolve, ~children as _=?, ()) => {
+    switch (docs) {
+    | [] => []
+    | docs => [<div class_="spec-doc"> ...{block(~resolve, docs)} </div>]
+    };
+  };
 };
-
-// let class_of_kind = kind =>
-//   switch (kind) {
-//   | Some(spec) => class_(["spec", spec])
-//   | None => []
-//   };
 
 module Details = {
   let createElement =
       (~children: list(element), ~summary as summary_, ~open_, ()) => {
     <details open_>
-      ...{
-           [
-             <summary> <span class_="def"> ...summary_ </span> </summary>,
-             ...children,
-           ]
-         }
+      ...{[<span class_="def"> ...summary_ </span>, ...children]}
     </details>;
   };
 };
@@ -353,10 +307,14 @@ let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
       l,
       ~classify=
         fun
-        | Documented({attrs, anchor, code, doc}) =>
-          Accum([{DocumentedSrc.attrs, anchor, code: `D(code), doc}])
-        | Nested({attrs, anchor, code, doc}) =>
-          Accum([{DocumentedSrc.attrs, anchor, code: `N(code), doc}])
+        | Documented({attrs, anchor, code, doc, markers}) =>
+          Accum([
+            {DocumentedSrc.attrs, anchor, code: `D(code), doc, markers},
+          ])
+        | Nested({attrs, anchor, code, doc, markers}) =>
+          Accum([
+            {DocumentedSrc.attrs, anchor, code: `N(code), doc, markers},
+          ])
         | _ => Stop_and_keep,
     );
 
@@ -370,7 +328,7 @@ let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
     | [Subpage(subp), ..._] => subpage(~resolve, subp)
     | [Documented(_) | Nested(_), ..._] =>
       let (l, _, rest) = take_descr(t);
-      let one = ({attrs, anchor, code, doc}) => {
+      let one = ({attrs, anchor, code, doc, markers}) => {
         let content =
           switch (code) {
           | `D(code) => <InlineElement resolve content=code />
@@ -378,9 +336,25 @@ let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
           };
 
         let doc =
-          switch (block(~resolve, doc)) {
+          switch (doc) {
           | [] => []
-          | block => [<td class_="doc"> ...block </td>]
+          | doc =>
+            let (opening, closing) = markers;
+            [
+              <td class_="def-doc">
+                ...{
+                     [
+                       <span class_="comment-delim"> {string(opening)} </span>,
+                       ...block(~resolve, doc),
+                     ]
+                     @ [
+                       <span class_="comment-delim">
+                         {string(closing)}
+                       </span>,
+                     ]
+                   }
+              </td>,
+            ];
           };
 
         switch (anchor) {
@@ -409,155 +383,121 @@ let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
 }
 and subpage = (~resolve, subp: Subpage.t): list(element) =>
   items(~resolve, subp.content.items)
-and items = (~resolve, l): list(element) =>
-  [@tailcall]
-  {
-    let rec walk_items = (~only_text, acc, t: list(Item.t)): list(element) => {
-      let continue_with = (rest, elts) =>
-        walk_items(~only_text, List.rev_append(elts, acc), rest);
+and items = (~resolve, l): list(element) => {
+  let rec walk_items = (acc, t: list(Item.t)): list(element) => {
+    let continue_with = (rest, elts) =>
+      ([@tailcall] walk_items)(List.rev_append(elts, acc), rest);
 
-      switch (t) {
-      | [] => List.rev(acc)
-      | [Text(_), ..._] as t =>
-        let (text, _, rest) =
-          Doctree.Take.until(
-            t,
-            ~classify=
-              fun
-              | Item.Text(text) => Accum(text)
-              | _ => Stop_and_keep,
-          );
+    switch (t) {
+    | [] => List.rev(acc)
+    | [Text(_), ..._] as t =>
+      let (text, _, rest) =
+        Doctree.Take.until(
+          t,
+          ~classify=
+            fun
+            | Item.Text(text) => Accum(text)
+            | _ => Stop_and_keep,
+        );
 
-        let content = block(~resolve, text);
-        let elts =
-          if (only_text) {
-            content;
-          } else {
-            [<aside> ...{[string(""), ...content]} </aside>];
-          };
+      let content = block(~resolve, text);
 
-        elts |> continue_with(rest);
-      | [Heading(h), ...rest] =>
-        [<Heading resolve label={h.label} level={h.level} title={h.title} />]
-        |> continue_with(rest)
-      | [
-          Include({
-            kind,
-            anchor,
-            doc,
-            content: {summary: summary_, status, content},
-          }),
-          ...rest,
-        ] =>
-        let included_html = items(content);
-        let docs = block(~resolve, doc);
-        let container = element => <InlineElement resolve content=element />;
-        let summary_ = <SourceElement source=summary_ container />;
-
-        let content = {
-          switch (status) {
-          | `Inline => included_html
-          | other => [
-              <Details
-                open_={
-                  switch (other) {
-                  | `Closed => false
-                  | `Open => true
-                  | `Inline
-                  | `Default => Tree.open_details^
-                  }
-                }
-                summary=summary_>
-                ...included_html
-              </Details>,
-            ]
-          };
+      content |> ([@tailcal] continue_with)(rest);
+    | [Heading(h), ...rest] =>
+      [<Heading resolve label={h.label} level={h.level} title={h.title} />]
+      |> ([@tailcal] continue_with)(rest)
+    | [
+        Include({
+          attr,
+          anchor,
+          doc,
+          content: {summary: summary_, status, content},
+        }),
+        ...rest,
+      ] =>
+      let doc = <SpecDocDiv resolve docs=doc />;
+      let included_html = items(content);
+      // let docs = block(~resolve, doc);
+      let anchor_link =
+        switch (anchor) {
+        | Some(anchor) => [<AnchorLink id={anchor.anchor} />]
+        | None => []
         };
+      let classes = spec_class(attr) @ ["anchor"];
 
-        /* TODO : Why double div ??? */
-        let content = [
-          <div class_="doc"> ...{List.append(docs, content)} </div>,
-        ];
-        let classes =
-          switch (kind) {
-          | Some(spec) => ["spec", spec]
-          | None => []
-          };
-        {
-          switch (anchor) {
-          | None => [
-              <div>
-                <div class_=?{classNames(classes)}> ...content </div>
-              </div>,
-            ]
-          | Some({Odoc_document.Url.Anchor.anchor, _}) => [
-              <div>
-                <div
-                  id=anchor class_=?{classNames(classes)} class2="anchored">
-                  ...{[<AnchorLink id=anchor classes=[] />, ...content]}
-                </div>
-              </div>,
-            ]
-          };
-        }
-        |> continue_with(rest);
+      let summary_ =
+        <SourceElement
+          source=summary_
+          container={element => <InlineElement resolve content=element />}
+        />;
 
-      | [Declaration({Item.kind, anchor, content, doc}), ...rest] =>
-        let classes =
-          switch (kind) {
-          | Some(spec) => ["spec", spec]
-          | None => []
-          };
-        let anchor_link =
-          switch (anchor) {
-          | None => []
-          | Some({Odoc_document.Url.Anchor.anchor, _}) => [
-              <AnchorLink id=anchor classes=[] />,
-            ]
-          };
-        let id =
-          switch (anchor) {
-          | None => None
-          | Some({Odoc_document.Url.Anchor.anchor, _}) => Some(anchor)
-          };
-        let content = anchor_link @ documentedSrc(~resolve, content);
-        {
-          switch (doc) {
-          | [] => [
-              <div
-                class_=?{classNames(classes)}
-                ?id
-                class2=?{Option.map(_ => "anchored", id)}>
-                ...content
-              </div>,
-            ]
-          | docs => [
-              <div>
-                <div
-                  class_=?{classNames(classes)}
-                  ?id
-                  class2=?{Option.map(_ => "anchored", id)}>
-                  ...content
-                </div>
-                <div> ...{block(~resolve, docs)} </div>
-              </div>,
-            ]
-          };
-        }
-        |> continue_with(rest);
+      let content = {
+        switch (status) {
+        | `Inline => included_html
+        | other => [
+            <Details
+              open_={
+                switch (other) {
+                | `Closed => false
+                | `Open => true
+                | `Inline
+                | `Default => Tree.open_details^
+                }
+              }
+              summary=[
+                <summary class_=?{classNames(classes)}>
+                  ...{anchor_link @ summary_}
+                </summary>,
+              ]>
+              ...included_html
+            </Details>,
+          ]
+        };
       };
-    }
-    and items = l => walk_items(~only_text=is_only_text(l), [], l);
-    items(l);
-  };
+
+      [<div class_="odoc-include"> ...{doc @ content} </div>]
+      |> ([@tailcall] continue_with)(rest);
+
+    | [Declaration({Item.attr, anchor, content, doc}), ...rest] =>
+      let classes = spec_class(attr);
+      let anchor_link =
+        switch (anchor) {
+        | None => []
+        | Some({Odoc_document.Url.Anchor.anchor, _}) => [
+            <AnchorLink id=anchor classes=[] />,
+          ]
+        };
+      let id =
+        switch (anchor) {
+        | None => None
+        | Some({Odoc_document.Url.Anchor.anchor, _}) => Some(anchor)
+        };
+      let content = anchor_link @ documentedSrc(~resolve, content);
+      let doc = <SpecDocDiv resolve docs=doc />;
+
+      [
+        <div class_="odoc-spec">
+          <div
+            class_=?{classNames(classes)}
+            class2=?{Option.map(_ => "anchored", id)}>
+            ...{content @ doc}
+          </div>
+        </div>,
+      ]
+      |> ([@tailcall] continue_with)(rest);
+    };
+  }
+  and items = l => walk_items([], l);
+  items(l);
+};
 
 module Toc = {
   open Odoc_document.Doctree;
 
-  let render_toc = (toc: Toc.t) => {
-    let rec section = ({Toc.anchor, text, children}) => {
-      let link =
-        <a href={"#" ++ anchor}> ...<InlineElement content=text /> </a>;
+  let render_toc = (~resolve, toc: Toc.t) => {
+    let rec section = ({Toc.url, text, children}) => {
+      let href = Link.href(~resolve, url);
+      let link = <a href> ...<InlineElement content=text /> </a>;
 
       switch (children) {
       | [] => [link]
@@ -574,7 +514,7 @@ module Toc = {
 
     switch (toc) {
     | [] => []
-    | _ => [<nav class_="toc"> {sections(toc)} </nav>]
+    | _ => [<nav class_="odoc-toc"> {sections(toc)} </nav>]
     };
   };
 
@@ -585,7 +525,8 @@ module Toc = {
     | `Default => false
     | `Inline => true;
 
-  let from_items = i => render_toc @@ Toc.compute(~on_sub, i);
+  let from_items = (~resolve, ~path, i) =>
+    render_toc(~resolve) @@ Toc.compute(path, ~on_sub, i);
 };
 
 module Page = {
@@ -600,27 +541,37 @@ module Page = {
       | `Inline => Some(0)
       };
 
-  let rec include_ = (~theme_uri=?, {Subpage.content, _}) => [
-    page(~theme_uri?, content),
+  let rec include_ = (~theme_uri=?, indent, {Subpage.content, _}) => [
+    page(~theme_uri?, indent, content),
   ]
-  and subpages = (~theme_uri=?, i) =>
-    Utils.list_concat_map(~f=include_(~theme_uri?)) @@
+  and subpages = (~theme_uri=?, indent, i) =>
+    Utils.list_concat_map(~f=include_(~theme_uri?, indent)) @@
     Doctree.Subpages.compute(i)
-  and page = (~theme_uri=?, {Page.title, header, items: i, url} as p) => {
+  and page = (~theme_uri=?, indent, {Page.title, header, items: i, url} as p) => {
     let resolve = Link.Current(url);
     let i = Doctree.Shift.compute(~on_sub, i);
-    let toc = Toc.from_items(i);
-    let subpages = subpages(~theme_uri?, p);
+    let toc = Toc.from_items(~resolve, ~path=url, i);
+    let subpages = subpages(~theme_uri?, indent, p);
     let header = items(~resolve, header);
     let content = items(~resolve, i);
     let page =
-      Tree.make(~theme_uri?, ~header, ~toc, ~url, title, content, subpages);
+      Tree.make(
+        ~theme_uri?,
+        ~indent,
+        ~header,
+        ~toc,
+        ~url,
+        title,
+        content,
+        subpages,
+      );
 
     page;
   };
 };
 
-let render = (~theme_uri=?, page) => Page.page(~theme_uri?, page);
+let render = (~theme_uri=?, ~indent, page) =>
+  Page.page(~theme_uri?, indent, page);
 
 let doc = (~xref_base_uri, b) => {
   let resolve = Link.Base(xref_base_uri);

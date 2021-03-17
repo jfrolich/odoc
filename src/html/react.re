@@ -24,7 +24,7 @@ module type REACT_RENDERER = {
 
 module ReactDomStatic: {
   include REACT_RENDERER;
-  let to_content: (list(t), Format.formatter) => unit;
+  let to_content: (~indent: bool, list(t), Format.formatter) => unit;
   let render_to_buffer: list(t) => Buffer.t;
 } = {
   // the source of this was originally copy-pasted from
@@ -225,8 +225,8 @@ module ReactDomStatic: {
       ) =>
     Format.fprintf(fmt, "%s", encode_unsafe_char(str));
 
-  let to_content = (elements, formatter) => {
-    Format.pp_print_list((fmt, el) => el(false, fmt), formatter, elements);
+  let to_content = (~indent, elements, formatter) => {
+    Format.pp_print_list((fmt, el) => el(indent, fmt), formatter, elements);
   };
 
   let render_to_buffer = elements => {

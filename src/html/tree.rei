@@ -35,6 +35,7 @@ type uri =
 let make:
   (
     ~theme_uri: uri=?,
+    ~indent: bool,
     ~url: Url.Path.t,
     ~header: list(React.StaticReact.element),
     ~toc: list(React.StaticReact.element),

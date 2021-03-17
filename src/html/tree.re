@@ -22,7 +22,7 @@ type uri =
 
 let page_creator =
     (~theme_uri=Relative("./"), ~url, name, header, toc, content) => {
-  let is_page = Link.Path.is_page(url);
+  let is_leaf_page = Link.Path.is_leaf_page(url);
   let path = Link.Path.for_printing(url);
   let rec add_dotdot = (~n, acc) =>
     if (n <= 0) {
@@ -45,7 +45,7 @@ let page_creator =
       List.length(path)
       - (
         /* This is just horrible. */
-        if (is_page) {1} else {0}
+        if (is_leaf_page) {1} else {0}
       );
 
     add_dotdot(uri, ~n);
@@ -88,7 +88,7 @@ let page_creator =
       };
     let dotdot = add_dotdot(~n=1, dot);
     let up_href =
-      if (is_page && name != "index") {
+      if (is_leaf_page && name != "index") {
         dot;
       } else {
         dotdot;
@@ -100,14 +100,14 @@ let page_creator =
         /* Create breadcrumbs */
         @ {
           let breadcrumb_spec =
-            if (is_page) {
+            if (is_leaf_page) {
               (n, x) => (n, dot, x);
             } else {
               (n, x) => (n, add_dotdot(~n, dot), x);
             };
 
           let rev_path =
-            if (is_page && name == "index") {
+            if (is_leaf_page && name == "index") {
               List.tl(List.rev(path));
             } else {
               List.rev(path);
@@ -128,7 +128,7 @@ let page_creator =
           |> List.flatten;
         };
 
-      [<nav> ...l </nav>];
+      [<nav class_="odoc-nav"> ...l </nav>];
     } else {
       [];
     };
@@ -137,25 +137,26 @@ let page_creator =
   let myHeader = React.StaticReact.header;
   let myBody =
     breadcrumbs
-    @ [<myHeader> ...header </myHeader>]
+    @ [<myHeader class_="odoc-preamble"> ...header </myHeader>]
     @ toc
     // @ [Html.div(~a=[Html.a_class(["content"])], content)];
-    @ [<div class_="content"> ...{[string(""), ...content]} </div>];
+    @ [<div class_="odoc-content"> ...{[string(""), ...content]} </div>];
   React.ReactDomStatic.[
     unsafe("<!DOCTYPE html>"),
     <html xmlns="http://www.w3.org/1999/xhtml">
       head_element
-      <body> ...myBody </body>
+      <body class_="odoc"> ...myBody </body>
     </html>,
   ];
   // Html.html(head, Html.body(body));
 };
 
-let make = (~theme_uri=?, ~url, ~header, ~toc, title, content, children) => {
+let make =
+    (~theme_uri=?, ~indent, ~url, ~header, ~toc, title, content, children) => {
   let filename = Link.Path.as_filename(url);
   let html = page_creator(~theme_uri?, ~url, title, header, toc, content);
 
-  let content = React.ReactDomStatic.to_content(html);
+  let content = React.ReactDomStatic.to_content(~indent, html);
   {Odoc_document.Renderer.filename, content, children};
 };
 
