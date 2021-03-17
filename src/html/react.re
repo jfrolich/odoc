@@ -25,7 +25,7 @@ module type REACT_RENDERER = {
 module ReactDomStatic: {
   include REACT_RENDERER;
   let to_content: (~indent: bool, list(t), Format.formatter) => unit;
-  let render_to_buffer: list(t) => Buffer.t;
+  let render_to_buffer: (~indent: bool, list(t)) => Buffer.t;
 } = {
   // the source of this was originally copy-pasted from
   // https://github.com/ocsigen/tyxml/blob/lib/xml_print.ml
@@ -45,6 +45,32 @@ module ReactDomStatic: {
     let cc = Char.code(c);
     cc <= 8 || cc == 11 || cc == 12 || 14 <= cc && cc <= 31 || cc == 127;
   };
+  let emptytags = [
+    "area",
+    "base",
+    "br",
+    "col",
+    "command",
+    "embed",
+    "hr",
+    "img",
+    "input",
+    "keygen",
+    "link",
+    "meta",
+    "param",
+    "source",
+    "wbr",
+  ];
+
+  module S = Set.Make(String);
+  let is_emptytag =
+    switch (emptytags) {
+    | [] => (_ => false)
+    | l =>
+      let set = List.fold_left((s, x) => S.add(x, s), S.empty, l);
+      (x => S.mem(x, set));
+    };
 
   let add_unsafe_char = b =>
     fun
@@ -102,18 +128,18 @@ module ReactDomStatic: {
     };
   let pp_noop = (_, _) => ();
 
-  // let open_box = (indent, fmt) =>
-  //   if (indent) {
-  //     Format.pp_open_box(fmt, 0);
-  //   } else {
-  //     ();
-  //   };
-  // let close_box = (indent, fmt) =>
-  //   if (indent) {
-  //     Format.pp_close_box(fmt, ());
-  //   } else {
-  //     ();
-  //   };
+  let open_box = (indent, fmt) =>
+    if (indent) {
+      Format.pp_open_box(fmt, 0);
+    } else {
+      ();
+    };
+  let close_box = (indent, fmt) =>
+    if (indent) {
+      Format.pp_close_box(fmt, ());
+    } else {
+      ();
+    };
   let sp = (indent, fmt) =>
     if (indent) {
       Format.pp_print_space(fmt, ());
@@ -172,7 +198,7 @@ module ReactDomStatic: {
     Format.pp_print_list(~pp_sep=pp_noop, pp_attrib(encode, indent));
 
   let pp_tag_and_attribs = (encode, indent, fmt, (tag, attrs)) => {
-    // open_box(indent, fmt);
+    open_box(indent, fmt);
     Format.fprintf(
       fmt,
       "%s%a%t",
@@ -180,40 +206,58 @@ module ReactDomStatic: {
       pp_attribs(encode, indent),
       attrs |> List.filter_map(a => a),
       cut(indent),
-      // close_box(indent, fmt);
     );
+    close_box(indent, fmt);
   };
 
   let pp_closedtag = (encode, indent, fmt, tag, attrs) =>
-    Format.fprintf(
-      fmt,
-      "<%a/>",
-      pp_tag_and_attribs(encode, indent),
-      (tag, attrs),
+    if (is_emptytag(tag)) {
+      Format.fprintf(
+        fmt,
+        "<%a/>",
+        pp_tag_and_attribs(encode, indent),
+        (tag, attrs),
+      );
+    } else {
+      open_box(indent, fmt);
+      Format.fprintf(
+        fmt,
+        "<%a>%t</%s>",
+        pp_tag_and_attribs(encode, indent),
+        (tag, attrs),
+        cut(indent),
+        tag,
+      );
+      close_box(indent, fmt);
+    };
+  let pp_elts = indent => {
+    Format.pp_print_list(
+      ~pp_sep=(fmt, ()) => cut(indent, fmt),
+      (fmt, el) => el(indent, fmt),
     );
+  };
 
   let tag = (~attrs, ~children=[], tag, indent, fmt) =>
     switch (children) {
     | [] => pp_closedtag(encode_unsafe_char, indent, fmt, tag, attrs)
     | _ =>
-      // open_box(indent, fmt);
+      open_box(indent, fmt);
       Format.fprintf(
         fmt,
-        "<%a>%t%a%t</%s>",
+        "<%t%a>%t%a%t%t</%s>",
+        open_box(indent),
         pp_tag_and_attribs(encode_unsafe_char, indent),
         (tag, attrs),
-        // open_box(indent),
         cut(indent),
-        fmt => List.iter(child => child(indent, fmt)),
+        pp_elts(indent),
         children,
-        // close_box(indent),
+        close_box(indent),
         cut(indent),
         tag,
-      )
-    // close_box(indent, fmt);
+      );
+      close_box(indent, fmt);
     };
-
-  let unsafe = (str, _, fmt) => Format.fprintf(fmt, "%s", str);
+  let unsafe = (str, _indent, fmt) => Format.fprintf(fmt, "%s", str);
   let entity = (str, _, fmt) => Format.fprintf(fmt, "&%s;", str);
 
   let string =
@@ -226,13 +270,13 @@ module ReactDomStatic: {
     Format.fprintf(fmt, "%s", encode_unsafe_char(str));
 
   let to_content = (~indent, elements, formatter) => {
-    Format.pp_print_list((fmt, el) => el(indent, fmt), formatter, elements);
+    pp_elts(indent, formatter, elements);
   };
 
-  let render_to_buffer = elements => {
+  let render_to_buffer = (~indent, elements) => {
     let buffer = Buffer.create(1000);
     let formatter = Format.formatter_of_buffer(buffer);
-    Format.pp_print_list((fmt, el) => el(false, fmt), formatter, elements);
+    pp_elts(indent, formatter, elements);
     buffer;
   };
 };

@@ -148,7 +148,6 @@ let page_creator =
       <body class_="odoc"> ...myBody </body>
     </html>,
   ];
-  // Html.html(head, Html.body(body));
 };
 
 let make =

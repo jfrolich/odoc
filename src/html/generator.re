@@ -119,7 +119,7 @@ module rec InlineElement: {
          | (Source(c), resolve) =>
            let container = element =>
              <InlineElement ?resolve emph_level content=element />;
-           <SourceElement source=c container />;
+           <SourceElement source=c container classes={t.attr} />;
 
          | (Raw_markup(r), _) => <RawMarkup t=r />
          }
@@ -133,14 +133,14 @@ and SourceElement: {
     (
       ~container: container,
       ~source: list(Source.token),
-      ~class_: list(string)=?,
+      ~classes: list(string)=?,
       ~children: list(element)=?,
       unit
     ) =>
     list(element);
 } = {
   type container = Inline.t => list(element);
-  let createElement = (~container, ~source, ~class_=[], ~children as _=?, ()) => {
+  let createElement = (~container, ~source, ~classes=[], ~children as _=?, ()) => {
     let rec token = (x: Source.token) =>
       switch (x) {
       | Elt(i) => container(i)
@@ -158,7 +158,7 @@ and SourceElement: {
     and tokens = tokens => tokens |> List.map(token) |> List.concat;
     switch (tokens(source)) {
     | [] => []
-    | tokens => [<code class_=?{classNames(class_)}> ...tokens </code>]
+    | tokens => [<code class_=?{classNames(classes)}> ...tokens </code>]
     };
   };
 }
@@ -232,16 +232,14 @@ let rec block = (~resolve, l: Block.t): list(element) => {
            </ol>,
          ]
 
-       | List(Unordered, l) => [
-           <ul class_=?{classNames(t.attr)}>
-             ...{
-                  [
-                    string(""),
-                    ...l |> List.map(x => <li> ...{block(~resolve, x)} </li>),
-                  ]
-                }
-           </ul>,
-         ]
+       | List(Unordered, l) =>
+         let children =
+           l |> List.map(x => <li> ...{block(~resolve, x)} </li>);
+         switch (children) {
+         //  | [] => [<ul class_=?{classNames(t.attr)}> {string("")} </ul>]
+         | [] => []
+         | children => [<ul class_=?{classNames(t.attr)}> ...children </ul>]
+         };
        | Description(l) =>
          let item = (i: Description.one) => {
            let term = <InlineElement resolve content={i.Description.key} />;
@@ -250,7 +248,11 @@ let rec block = (~resolve, l: Block.t): list(element) => {
              ...{term @ [string(" "), ...def]}
            </li>;
          };
-         [<ul class_=?{classNames(t.attr)}> ...{List.map(item, l)} </ul>];
+         [
+           <ul class_=?{classNames(t.attr)}>
+             ...{[string(""), ...List.map(item, l)]}
+           </ul>,
+         ];
        | Raw_markup(r) => <RawMarkup t=r />
        | Verbatim(s) => [
            <pre class_=?{classNames(t.attr)}> {string(s)} </pre>,
@@ -284,9 +286,7 @@ module SpecDocDiv = {
 module Details = {
   let createElement =
       (~children: list(element), ~summary as summary_, ~open_, ()) => {
-    <details open_>
-      ...{[<span class_="def"> ...summary_ </span>, ...children]}
-    </details>;
+    <details open_> ...{summary_ @ children} </details>;
   };
 };
 
@@ -417,13 +417,12 @@ and items = (~resolve, l): list(element) => {
       ] =>
       let doc = <SpecDocDiv resolve docs=doc />;
       let included_html = items(content);
-      // let docs = block(~resolve, doc);
       let anchor_link =
         switch (anchor) {
         | Some(anchor) => [<AnchorLink id={anchor.anchor} />]
         | None => []
         };
-      let classes = spec_class(attr) @ ["anchor"];
+      let classes = spec_class(attr);
 
       let summary_ =
         <SourceElement
@@ -477,11 +476,17 @@ and items = (~resolve, l): list(element) => {
 
       [
         <div class_="odoc-spec">
-          <div
-            class_=?{classNames(classes)}
-            class2=?{Option.map(_ => "anchored", id)}>
-            ...{content @ doc}
-          </div>
+          ...{
+               [
+                 <div
+                   ?id
+                   class_=?{classNames(classes)}
+                   class2=?{Option.map(_ => "anchored", id)}>
+                   ...content
+                 </div>,
+                 ...doc,
+               ]
+             }
         </div>,
       ]
       |> ([@tailcall] continue_with)(rest);
