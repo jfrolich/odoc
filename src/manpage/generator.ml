@@ -218,7 +218,7 @@ end
 
 open Roff
 
-let style (style : style) content =
+let style (style : Style.t) content =
   match style with
   | `Bold -> font "B" content
   | `Italic -> font "I" content

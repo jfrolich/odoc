@@ -202,11 +202,11 @@ and SourceElement: {
 }
 and StyledElement: {
   let createElement:
-    (~style: style, ~emph_level: int, ~children: list(element), unit) =>
+    (~style: Style.t, ~emph_level: int, ~children: list(element), unit) =>
     list(element);
 } = {
   let createElement = (~style, ~emph_level, ~children, ()) => {
-    switch ((style: style)) {
+    switch ((style: Style.t)) {
     | `Emphasis =>
       <>
         <em class_=?{classNames(emph_level mod 2 == 0 ? [] : ["odd"])}>

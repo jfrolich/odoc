@@ -71,12 +71,12 @@ end
 let ( >>= ) x f = match x with Ok x -> f x | Error _ as e -> e
 
 module Path = struct
-  open Types.UrlType
+  open Types.UrlType.Path
 
   type source =
     [ Identifier.Page.t | Identifier.Signature.t | Identifier.ClassSignature.t ]
 
-  type t = Types.UrlType.path
+  type t = Types.UrlType.Path.t
 
   let last t = t.name
 
@@ -136,18 +136,18 @@ module Path = struct
 end
 
 module Anchor = struct
-  open Types.UrlType
-
   type t = Types.UrlType.t
 
-  let anchorify_path { parent; name; kind } =
+  let anchorify_path : Path.t -> t =
+   fun { parent; name; kind } ->
     match parent with
     | None -> assert false (* We got a root, should never happen *)
     | Some page ->
         let anchor = Printf.sprintf "%s-%s" kind name in
         { page; anchor; kind }
 
-  let add_suffix ~kind { page; anchor; _ } suffix =
+  let add_suffix : kind:string -> t -> string -> t =
+   fun ~kind ({ page; anchor; _ } : t) suffix ->
     { page; anchor = anchor ^ "." ^ suffix; kind }
 
   let rec from_identifier : Identifier.t -> (t, Error.t) result =
@@ -240,8 +240,8 @@ module Anchor = struct
         let anchor = LabelName.to_string anchor' in
         from_identifier (parent :> Identifier.t) >>= function
         | { page; anchor = _; kind } ->
-            (* Really ad-hoc and shitty, but it works. *)
-            if kind = "page" then Ok { page; anchor; kind }
+            if (* Really ad-hoc and shitty, but it works. *)
+               kind = "page" then Ok { Types.UrlType.page; anchor; kind }
             else Ok { page; anchor; kind = "" })
 
   (* | _ ->

@@ -1,5 +1,5 @@
 {
-  "checksum": "500be8be7d3b8cc40fb2820bb6283418",
+  "checksum": "1a0908ade6f11049054cd334e79e091c",
   "root": "odoc@link-dev:./package.json",
   "node": {
     "odoc@link-dev:./package.json": {
@@ -13,7 +13,8 @@
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.9.1000@d41d8cd9", "@opam/tyxml@opam:4.3.0@c1da25f1",
+        "ocaml@4.9.1000@d41d8cd9", "@opam/yojson@opam:1.7.0@7056d985",
+        "@opam/tyxml@opam:4.3.0@c1da25f1",
         "@opam/sexplib0@opam:v0.14.0@ddeb6438",
         "@opam/result@opam:1.5@6b753c82",
         "@opam/ocamlfind-secondary@opam:1.8.1@1afa38b2",

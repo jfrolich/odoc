@@ -14,7 +14,7 @@ module Error : sig
 end
 
 module Path : sig
-  type t = Types.UrlType.path
+  type t = Types.UrlType.Path.t
 
   type source =
     [ Identifier.Page.t | Identifier.Signature.t | Identifier.ClassSignature.t ]

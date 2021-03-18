@@ -45,7 +45,8 @@
     "@opam/tyxml": "4.3.0",
     "@opam/ocamlfind-secondary": "1.8.1",
     "ocaml": "~4.2.0",
-    "@esy-ocaml/reason": "3.7.0"
+    "@esy-ocaml/reason": "3.7.0",
+    "@opam/yojson": "1.7.0"
   },
   "devDependencies": {
     "@opam/ocamlformat": "0.17.0",
