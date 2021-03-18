@@ -71,10 +71,12 @@ end
 let ( >>= ) x f = match x with Ok x -> f x | Error _ as e -> e
 
 module Path = struct
+  open Types.UrlType
+
   type source =
     [ Identifier.Page.t | Identifier.Signature.t | Identifier.ClassSignature.t ]
 
-  type t = { kind : string; parent : t option; name : string }
+  type t = Types.UrlType.path
 
   let last t = t.name
 
@@ -134,9 +136,11 @@ module Path = struct
 end
 
 module Anchor = struct
-  type t = { page : Path.t; anchor : string; kind : string }
+  open Types.UrlType
 
-  let anchorify_path { Path.parent; name; kind } =
+  type t = Types.UrlType.t
+
+  let anchorify_path { parent; name; kind } =
     match parent with
     | None -> assert false (* We got a root, should never happen *)
     | Some page ->
@@ -268,9 +272,9 @@ end
 
 type t = Anchor.t
 
-let from_path page = { Anchor.page; anchor = ""; kind = page.kind }
+let from_path page = { Types.UrlType.page; anchor = ""; kind = page.kind }
 
-let page x = x.Anchor.page
+let page x = x.Types.UrlType.page
 
 let from_identifier ~stop_before = function
   | #Path.source as p when not stop_before ->

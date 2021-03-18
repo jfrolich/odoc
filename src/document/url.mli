@@ -14,7 +14,7 @@ module Error : sig
 end
 
 module Path : sig
-  type t = { kind : string; parent : t option; name : string }
+  type t = Types.UrlType.path
 
   type source =
     [ Identifier.Page.t | Identifier.Signature.t | Identifier.ClassSignature.t ]
@@ -25,14 +25,7 @@ module Path : sig
 end
 
 module Anchor : sig
-  type t = {
-    page : Path.t;
-    anchor : string;
-        (** Anchor in {!field-page} where the element is attached *)
-    kind : string;
-        (** What kind of element the path points to.
-        e.g. "module", "module-type", "exception", ... *)
-  }
+  type t = Types.UrlType.t
 
   val from_identifier : Identifier.t -> (t, Error.t) result
 

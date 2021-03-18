@@ -36,7 +36,7 @@ let format_title kind name =
   | `Class -> prefix "Class"
   | `Page -> mk [ inline @@ Text name ]
 
-let make_name_from_path { Url.Path.name; parent; _ } =
+let make_name_from_path ({ name; parent; _ } : Url.Path.t) =
   match parent with
   | None -> name
   | Some p -> Printf.sprintf "%s.%s" p.name name

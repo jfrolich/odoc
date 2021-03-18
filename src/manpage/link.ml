@@ -1,7 +1,7 @@
 open Odoc_document
 
 let to_list url =
-  let rec loop acc { Url.Path.parent; name; kind } =
+  let rec loop acc ({ parent; name; kind } : Url.Path.t) =
     match parent with
     | None -> (kind, name) :: acc
     | Some p -> loop ((kind, name) :: acc) p
@@ -18,7 +18,7 @@ let segment_to_string (kind, name) =
   else Printf.sprintf "%s-%s" kind name
 
 let as_filename (url : Url.Path.t) =
-  let rec get_components { Url.Path.parent; name; kind } =
+  let rec get_components ({ parent; name; kind } : Url.Path.t) =
     match parent with
     | None -> (name, [])
     | Some p ->

@@ -399,7 +399,7 @@ let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
           <tr>
             ...{[<td class_=?{classNames(attrs)}> ...content </td>, ...doc]}
           </tr>
-        | Some({Odoc_document.Url.Anchor.anchor, _}) =>
+        | Some({anchor, _}) =>
           <tr id=anchor class_="anchored">
             ...{
                  [
@@ -499,14 +499,12 @@ and items = (~resolve, l): list(element) => {
       let anchor_link =
         switch (anchor) {
         | None => []
-        | Some({Odoc_document.Url.Anchor.anchor, _}) => [
-            <AnchorLink id=anchor classes=[] />,
-          ]
+        | Some({anchor, _}) => [<AnchorLink id=anchor classes=[] />]
         };
       let id =
         switch (anchor) {
         | None => None
-        | Some({Odoc_document.Url.Anchor.anchor, _}) => Some(anchor)
+        | Some({anchor, _}) => Some(anchor)
         };
       let content = anchor_link @ documentedSrc(~resolve, content);
       let doc = <SpecDocDiv resolve docs=doc />;

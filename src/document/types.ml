@@ -5,8 +5,22 @@ module rec Class : sig
 end =
   Class
 
+and UrlType : sig
+  type path = { kind : string; parent : path option; name : string }
+
+  type t = {
+    page : path;
+    anchor : string;
+        (** Anchor in {!field-page} where the element is attached *)
+    kind : string;
+        (** What kind of element the path points to.
+        e.g. "module", "module-type", "exception", ... *)
+  }
+end =
+  UrlType
+
 and InternalLink : sig
-  type resolved = Url.t * Inline.t
+  type resolved = UrlType.t * Inline.t
 
   type unresolved = Inline.t
 
@@ -15,9 +29,7 @@ end =
   InternalLink
 
 and Raw_markup : sig
-  type target = Odoc_model.Comment.raw_markup_target
-
-  and t = target * string
+  type t = string * string
 end =
   Raw_markup
 
@@ -84,7 +96,7 @@ end =
 and DocumentedSrc : sig
   type 'a documented = {
     attrs : Class.t;
-    anchor : Url.Anchor.t option;
+    anchor : UrlType.t option;
     code : 'a;
     doc : Block.t;
     markers : string * string;
@@ -106,7 +118,7 @@ and Alternative : sig
     status : [ `Inline | `Open | `Closed | `Default ];
     summary : Source.t;
     expansion : DocumentedSrc.t;
-    url : Url.Path.t;
+    url : UrlType.path;
   }
 
   type t = Expansion of expansion
@@ -130,7 +142,7 @@ end =
 and Item : sig
   type 'a item = {
     attr : Class.t;
-    anchor : Url.Anchor.t option;
+    anchor : UrlType.t option;
     content : 'a;
     doc : Block.t;
   }
@@ -152,7 +164,7 @@ and Page : sig
     title : string;
     header : Item.t list;
     items : Item.t list;
-    url : Url.Path.t;
+    url : UrlType.path;
   }
 end =
   Page

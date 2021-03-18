@@ -3,7 +3,7 @@ module Url = Odoc_document.Url
 (* Translation from Url.Path *)
 module Path = struct
   let to_list url =
-    let rec loop acc { Url.Path.parent; name; kind } =
+    let rec loop acc ({ parent; name; kind } : Url.Path.t) =
       match parent with
       | None -> (kind, name) :: acc
       | Some p -> loop ((kind, name) :: acc) p
@@ -17,10 +17,10 @@ module Path = struct
     | "module" | "container-page" -> name
     | _ -> Printf.sprintf "%s-%s" kind name
 
-  let is_leaf_page url =
+  let is_leaf_page (url : Url.Path.t) =
     url.Url.Path.kind = "page" || url.Url.Path.kind = "file"
 
-  let rec get_dir { Url.Path.parent; name; kind } =
+  let rec get_dir ({ parent; name; kind } : Url.Path.t) =
     let ppath = match parent with Some p -> get_dir p | None -> [] in
     match kind with
     | "page" | "file" -> ppath
@@ -50,7 +50,7 @@ let rec drop_shared_prefix l1 l2 =
   | _, _ -> (l1, l2)
 
 let href ~resolve t =
-  let { Url.Anchor.page; anchor; _ } = t in
+  let ({ page; anchor; _ } : Url.t) = t in
 
   let target_loc = Path.for_linking page in
 
