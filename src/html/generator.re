@@ -73,19 +73,19 @@ module rec InlineElement: {
          | (Entity(s), _) =>
            let inner = entity(s);
            if (t.attr == []) {
-             [inner];
+             <> inner </>;
            } else {
-             [<span class_=?{classNames(t.attr)}> inner </span>];
+             <> <span class_=?{classNames(t.attr)}> inner </span> </>;
            };
          | (Text(""), _) => []
          | (Text(s), _) =>
            let inner = string(s);
            if (t.attr == []) {
-             [inner];
+             <> inner </>;
            } else {
-             [<span class_=?{classNames(t.attr)}> inner </span>];
+             <> <span class_=?{classNames(t.attr)}> inner </span> </>;
            };
-         | (Linebreak, _) => [<br />]
+         | (Linebreak, _) => <> <br /> </>
          | (Styled(style, c), resolve) =>
            <StyledElement style emph_level>
              ...<InlineElement
@@ -99,11 +99,12 @@ module rec InlineElement: {
                   ?resolve
                 />
            </StyledElement>
-         | (Link(href, c), resolve) => [
+         | (Link(href, c), resolve) =>
+           <>
              <a href class_=?{classNames(t.attr)}>
                ...<InlineElement emph_level content=c ?resolve />
-             </a>,
-           ]
+             </a>
+           </>
          | (InternalLink(Resolved((_, _))), None) =>
            <InlineElement emph_level content />
          | (InternalLink(Resolved((uri, content))), Some(resolve)) => [
@@ -128,19 +129,54 @@ module rec InlineElement: {
                ...<InlineElement emph_level content resolve />
              </a>,
            ]
-         | (InternalLink(Unresolved(content)), resolve) => [
+         | (InternalLink(Unresolved(content)), resolve) =>
+           <>
              <span class_=?{classNames(["xref-unresolved", ...t.attr])}>
                ...<InlineElement emph_level ?resolve content />
-             </span>,
-           ]
+             </span>
+           </>
          | (Source(c), resolve) =>
-           let container = element =>
-             <InlineElement ?resolve emph_level content=element />;
-           <SourceElement source=c container classes={t.attr} />;
+           <SourceElement
+             source=c
+             container={element =>
+               <InlineElement ?resolve emph_level content=element />
+             }
+             classes={t.attr}
+           />
 
          | (Raw_markup(r), _) => <RawMarkup t=r />
          }
        })
+    |> List.concat;
+  };
+}
+and SourceTokens: {
+  let createElement:
+    (
+      ~container: Inline.t => list(element),
+      ~tokens: list(Source.token),
+      ~children: list(element)=?,
+      unit
+    ) =>
+    list(element);
+} = {
+  let createElement = (~container, ~tokens, ~children as _=?, ()) => {
+    tokens
+    |> List.map((x: Source.token) =>
+         switch (x) {
+         | Elt(i) => container(i)
+         | Tag(None, l) =>
+           switch (<SourceTokens container tokens=l />) {
+           | [] => []
+           | tokens => [<span> ...tokens </span>]
+           }
+         | Tag(Some(s), l) => [
+             <span class_=?{classNames([s])}>
+               ...<SourceTokens container tokens=l />
+             </span>,
+           ]
+         }
+       )
     |> List.concat;
   };
 }
@@ -158,28 +194,12 @@ and SourceElement: {
 } = {
   type container = Inline.t => list(element);
   let createElement = (~container, ~source, ~classes=[], ~children as _=?, ()) => {
-    let rec token = (x: Source.token) =>
-      switch (x) {
-      | Elt(i) => container(i)
-      | Tag(None, l) =>
-        let content = tokens(l);
-        if (content == []) {
-          [];
-        } else {
-          [<span> ...{tokens(l)} </span>];
-        };
-      | Tag(Some(s), l) => [
-          <span class_=?{classNames([s])}> ...{tokens(l)} </span>,
-        ]
-      }
-    and tokens = tokens => tokens |> List.map(token) |> List.concat;
-    switch (tokens(source)) {
+    switch (<SourceTokens tokens=source container />) {
     | [] => []
     | tokens => [<code class_=?{classNames(classes)}> ...tokens </code>]
     };
   };
 }
-
 and StyledElement: {
   let createElement:
     (~style: style, ~emph_level: int, ~children: list(element), unit) =>
@@ -187,16 +207,16 @@ and StyledElement: {
 } = {
   let createElement = (~style, ~emph_level, ~children, ()) => {
     switch ((style: style)) {
-    | `Emphasis => [
+    | `Emphasis =>
+      <>
         <em class_=?{classNames(emph_level mod 2 == 0 ? [] : ["odd"])}>
           ...children
-        </em>,
-      ]
-    | `Bold => [<b> ...children </b>]
-
-    | `Italic => [<i> ...children </i>]
-    | `Superscript => [<sup> ...children </sup>]
-    | `Subscript => [<sub> ...children </sub>]
+        </em>
+      </>
+    | `Bold => <> <b> ...children </b> </>
+    | `Italic => <> <i> ...children </i> </>
+    | `Superscript => <> <sup> ...children </sup> </>
+    | `Subscript => <> <sub> ...children </sub> </>
     };
   };
 };
@@ -422,7 +442,7 @@ and items = (~resolve, l): list(element) => {
       content |> ([@tailcal] continue_with)(rest);
     | [Heading(h), ...rest] =>
       [<Heading resolve label={h.label} level={h.level} title={h.title} />]
-      |> ([@tailcal] continue_with)(rest)
+      |> ([@tailcall] continue_with)(rest)
     | [
         Include({
           attr,
@@ -595,7 +615,8 @@ module Page = {
 let render = (~theme_uri=?, ~indent, page) =>
   Page.page(~theme_uri?, indent, page);
 
-let doc = (~xref_base_uri, b) => {
+let doc = (~xref_base_uri, blocks) => {
   let resolve = Link.Base(xref_base_uri);
-  block(~resolve, b);
+  let elements = block(~resolve, blocks);
+  (~indent) => React.ReactDomStatic.to_content(~indent, elements);
 };

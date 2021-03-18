@@ -3,4 +3,3 @@ module Tree = Tree
 
 module Generator = Generator
 module Link = Link
-module React = React
