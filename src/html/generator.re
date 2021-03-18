@@ -327,7 +327,7 @@ module Details = {
   };
 };
 
-let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
+let rec _documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
   open DocumentedSrc;
   let take_code = l =>
     Doctree.Take.until(
@@ -362,7 +362,7 @@ let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
       let (code, _, rest) = take_code(t);
       let container = element => <InlineElement resolve content=element />;
       <SourceElement container source=code /> @ to_html(rest);
-    | [Subpage(subp), ..._] => subpage(~resolve, subp)
+    | [Subpage(subp), ..._] => _subpage(~resolve, subp)
     | [Documented(_) | Nested(_), ..._] =>
       let (l, _, rest) = take_descr(t);
       let one = ({attrs, anchor, code, doc, markers}) => {
@@ -418,9 +418,9 @@ let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
 
   to_html(t);
 }
-and subpage = (~resolve, subp: Subpage.t): list(element) =>
-  items(~resolve, subp.content.items)
-and items = (~resolve, l): list(element) => {
+and _subpage = (~resolve, subp: Subpage.t): list(element) =>
+  _items(~resolve, subp.content.items)
+and _items = (~resolve, l): list(element) => {
   let rec walk_items = (acc, t: list(Item.t)): list(element) => {
     let continue_with = (rest, elts) =>
       ([@tailcall] walk_items)(List.rev_append(elts, acc), rest);
@@ -506,7 +506,7 @@ and items = (~resolve, l): list(element) => {
         | None => None
         | Some({anchor, _}) => Some(anchor)
         };
-      let content = anchor_link @ documentedSrc(~resolve, content);
+      let content = anchor_link @ _documentedSrc(~resolve, content);
       let doc = <SpecDocDiv resolve docs=doc />;
 
       [
@@ -565,12 +565,12 @@ module Toc = {
     | `Default => false
     | `Inline => true;
 
-  let from_items = (~resolve, ~path, i) =>
+  let _from_items = (~resolve, ~path, i) =>
     render_toc(~resolve) @@ Toc.compute(path, ~on_sub, i);
 };
 
 module Page = {
-  let on_sub =
+  let _on_sub =
     fun
     | `Page(_) => None
     | `Include(x) =>
@@ -587,34 +587,45 @@ module Page = {
   and subpages = (~theme_uri=?, indent, i) =>
     Utils.list_concat_map(~f=include_(~theme_uri?, indent)) @@
     Doctree.Subpages.compute(i)
-  and page = (~theme_uri=?, indent, {Page.title, header, items: i, url} as p) => {
-    let resolve = Link.Current(url);
-    let i = Doctree.Shift.compute(~on_sub, i);
-    let toc = Toc.from_items(~resolve, ~path=url, i);
-    let subpages = subpages(~theme_uri?, indent, p);
-    let header = items(~resolve, header);
-    let content = items(~resolve, i);
-    let page =
-      Tree.make(
-        ~theme_uri?,
-        ~indent,
-        ~header,
-        ~toc,
-        ~url,
-        title,
-        content,
-        subpages,
+  and page = (~theme_uri=?, indent, p) => {
+    // let resolve = Link.Current(url);
+    // let i = Doctree.Shift.compute(~on_sub, i);
+    // let toc = Toc.from_items(~resolve, ~path=url, i);
+    // let subpages = subpages(~theme_uri?, indent, p);
+    // let header = items(~resolve, header);
+    // let content = items(~resolve, i);
+    // Tree.make(
+    //   ~theme_uri?,
+    //   ~indent,
+    //   ~header,
+    //   ~toc,
+    //   ~url,
+    //   title,
+    //   content,
+    //   subpages,
+    // );
+    let filename = Link.Path.as_filename(p.url);
+    let content = formatter =>
+      Yojson.Basic.pretty_print(
+        formatter,
+        Odoc_document.Types.Page.serialize(p),
       );
-
-    page;
+    let children = subpages(~theme_uri?, indent, p);
+    {Odoc_document.Renderer.filename, content, children};
   };
 };
 
 let render = (~theme_uri=?, ~indent, page) =>
   Page.page(~theme_uri?, indent, page);
 
-let doc = (~xref_base_uri, blocks) => {
-  let resolve = Link.Base(xref_base_uri);
-  let elements = block(~resolve, blocks);
-  (~indent) => React.ReactDomStatic.to_content(~indent, elements);
-};
+// let doc = (~xref_base_uri, blocks) => {
+//   let resolve = Link.Base(xref_base_uri);
+//   let elements = block(~resolve, blocks);
+//   (~indent) => React.ReactDomStatic.to_content(~indent, elements);
+// };
+
+let doc = (~xref_base_uri as _, blocks, ~indent as _, formatter) =>
+  Yojson.Basic.pretty_print(
+    formatter,
+    Odoc_document.Types.Block.serialize(blocks),
+  );
