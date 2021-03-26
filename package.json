@@ -30,29 +30,29 @@
   },
   "dependencies": {
     "@opam/alcotest": "1.2.2",
-    "@opam/astring": "0.8.3",
+    "@opam/astring": "0.8.5",
     "@opam/bisect_ppx": "2.6.0",
     "@opam/cmdliner": "1.0.4",
     "@opam/cppo": "1.6.5",
-    "@opam/dune": "2.7.1",
-    "@opam/fpath": "0.7.2",
+    "@opam/dune": "2.8.4",
+    "@opam/fpath": "0.7.3",
     "@opam/lambdasoup": "0.7.1",
     "@opam/markup": "~1.0.0",
     "@opam/mdx": "1.8.1",
-    "@opam/ocamlfind": "1.8.1",
+    "@opam/ocamlfind": "1.9.1",
     "@opam/result": "1.5",
     "@opam/sexplib0": "*",
+    "@opam/bos": "*",
     "@opam/tyxml": "4.3.0",
-    "@opam/ocamlfind-secondary": "1.8.1",
     "ocaml": "~4.2.0",
-    "@esy-ocaml/reason": "3.7.0",
+    "@opam/reason": "3.7.0",
     "@opam/yojson": "1.7.0"
   },
   "devDependencies": {
     "@opam/ocamlformat": "0.17.0",
-    "@opam/merlin": "^3.0.3",
-    "ocaml": "~4.9.0",
-    "@opam/ocaml-lsp-server": "*"
+    "@opam/merlin": "4.1-412",
+    "ocaml": "~4.12.0",
+    "@opam/ocaml-lsp-server": "ocaml/ocaml-lsp:ocaml-lsp-server.opam"
   },
   "license": "ISC",
   "private": false
