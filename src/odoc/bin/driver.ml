@@ -26,9 +26,10 @@ hard-code the output path to be html.
 In all of these we'll ignore stderr.
 
 *)
-let odoc = Cmd.v "../src/odoc/bin/main.exe"
+let odoc = Cmd.v "../../_esy/default/store/i/odoc-57278b99/bin/odoc"
 
 let compile file ?parent children =
+  print_endline ("Compiling " ^ Fpath.to_string file);
   let output_file =
     let ext = Fpath.get_ext file in
     let basename = Fpath.basename (Fpath.rem_ext file) in
@@ -45,22 +46,35 @@ let compile file ?parent children =
          children
   in
   let cmd = match parent with Some p -> cmd % "--parent" % p | None -> cmd in
-  OS.Cmd.(run_out ~err:err_null cmd |> to_lines) |> Result.get_ok
+  let result = OS.Cmd.(run_out ~err:err_null cmd |> to_lines) in
+  match result with
+  | Ok _ -> print_endline ("Successfully compiled " ^ Fpath.to_string file)
+  | Error error -> (
+      match error with
+      | `Msg message ->
+          print_endline message;
+          print_endline ("Error compiling " ^ Fpath.to_string file))
 
 let link file =
   let open Cmd in
   let cmd = odoc % "link" % p file % "-I" % "." in
-  OS.Cmd.(run_out ~err:err_null cmd |> to_lines) |> Result.get_ok
+  match OS.Cmd.(run_out ~err:err_null cmd |> to_lines) with
+  | Ok result -> result
+  | Error _ -> failwith "Error in link"
 
 let html_generate file =
   let open Cmd in
   let cmd = odoc % "html-generate" % p file % "-o" % "html" in
-  OS.Cmd.(run_out cmd ~err:err_null |> to_lines) |> Result.get_ok
+  match OS.Cmd.(run_out cmd ~err:err_null |> to_lines) with
+  | Ok result -> result
+  | Error _ -> failwith "Error in html_generate"
 
 let support_files () =
   let open Cmd in
   let cmd = odoc % "support-files" % "-o" % "html" in
-  OS.Cmd.(run_out cmd |> to_lines) |> Result.get_ok
+  match OS.Cmd.(run_out cmd |> to_lines) with
+  | Ok result -> result
+  | Error _ -> failwith "Error in support_files"
 
 (*
 
@@ -73,8 +87,9 @@ the hierarchy declared above.
 
 *)
 
-let dep_libraries =
-  [ "cmdliner"; "stdlib"; "astring"; "fpath"; "result"; "yojson"; "tyxml" ]
+(* let dep_libraries =
+  [ "cmdliner"; "stdlib"; "astring"; "fpath"; "result"; "yojson"; "tyxml" ] *)
+let dep_libraries = []
 
 let odoc_libraries =
   [
@@ -93,9 +108,10 @@ let odoc_libraries =
     "odoc_compat";
   ]
 
-let all_libraries = dep_libraries @ odoc_libraries
+(* let all_libraries = dep_libraries @ odoc_libraries *)
+let all_libraries = [ "odoc_html" ]
 
-let extra_docs = [ "interface"; "driver" ]
+let extra_docs = [ "interface" ]
 
 let parents =
   let add_parent p l = List.map (fun lib -> (lib, p)) l in
@@ -116,18 +132,15 @@ let lib_path lib =
   OS.Cmd.(run_out cmd |> to_lines >>|= List.hd)
 
 let lib_paths =
-  Stdlib.List.fold_right
-    (fun lib acc ->
-      acc >>= fun acc ->
-      lib_path lib >>|= fun l -> (lib, l) :: acc)
-    dep_libraries (Ok [])
-  |> Result.get_ok
-
-let revolt () = print_endline "Revolt!"
-
-let revolt_t = Term.(const revolt $ const ())
-
-let () = Term.exit @@ Term.eval (revolt_t, Term.info "revolt")
+  match
+    Stdlib.List.fold_right
+      (fun lib acc ->
+        acc >>= fun acc ->
+        lib_path lib >>|= fun l -> (lib, l) :: acc)
+      dep_libraries (Ok [])
+  with
+  | Ok result -> result
+  | Error _ -> failwith "Error in lib_paths"
 
 (*
 
@@ -159,7 +172,10 @@ function to find the best file to use given this basename.
 
 let best_file base =
   List.map (fun ext -> Fpath.add_ext ext base) [ "cmti"; "cmt"; "cmi" ]
-  |> Stdlib.List.find (fun f -> Bos.OS.File.exists f |> Result.get_ok)
+  |> Stdlib.List.find (fun f ->
+         match Bos.OS.File.exists f with
+         | Ok result -> result
+         | Error _ -> failwith "Error in best_file")
 
 (*
 
@@ -201,7 +217,10 @@ library.
 
 *)
 
-let odoc_all_unit_paths = find_units ".." |> Result.get_ok
+let odoc_all_unit_paths =
+  match find_units ".." with
+  | Ok result -> result
+  | Error _ -> failwith "Error in odoc_all_unit_paths"
 
 let odoc_units =
   List.map
@@ -219,7 +238,9 @@ let lib_units =
     (fun (lib, p) ->
       Fpath.Set.fold
         (fun p acc -> ("deps", lib, p) :: acc)
-        (find_units p |> Result.get_ok)
+        (match find_units p with
+        | Ok result -> result
+        | Error _ -> failwith "Error in lib_units")
         [])
     lib_paths
 
@@ -235,12 +256,15 @@ files.
 *)
 
 let compile_mlds () =
+  print_endline "Compiling mlds";
   let mkpage x = "page-" ^ x in
   let mkmod x = "module-" ^ x in
   let mkmld x = Fpath.(add_ext "mld" (v x)) in
   let _ =
     compile (mkmld "odoc")
-      ("page-deps" :: List.map mkpage (odoc_libraries @ extra_docs));
+      ("page-deps" :: List.map mkpage (odoc_libraries @ extra_docs))
+  in
+  let _ =
     compile (mkmld "deps") ~parent:"odoc" (List.map mkpage dep_libraries)
   in
   let extra_odocs =
@@ -281,29 +305,35 @@ The result of this function is a list of the resulting odoc files.
 *)
 
 let compile_all () =
+  print_endline "Compile all...";
   let mld_odocs = compile_mlds () in
   let rec rec_compile lib file =
     let output = Fpath.(base (set_ext "odoc" file)) in
-    if OS.File.exists output |> Result.get_ok then []
-    else
-      let deps = compile_deps file |> Result.get_ok in
-      let files =
-        Stdlib.List.fold_left
-          (fun acc (dep_name, digest) ->
-            match
-              List.find_opt
-                (fun (_, _, f) ->
-                  Fpath.basename f |> String.capitalize_ascii = dep_name)
-                all_units
-            with
-            | None -> acc
-            | Some (_, lib, dep_path) ->
-                let file = best_file dep_path in
-                rec_compile lib file @ acc)
-          [] deps.deps
-      in
-      ignore (compile file ~parent:lib []);
-      output :: files
+    match OS.File.exists output with
+    | Ok true | Error _ -> []
+    | Ok false ->
+        let deps =
+          match compile_deps file with
+          | Ok result -> result
+          | Error _ -> failwith "Error in compile_deps invocation"
+        in
+        let files =
+          Stdlib.List.fold_left
+            (fun acc (dep_name, digest) ->
+              match
+                List.find_opt
+                  (fun (_, _, f) ->
+                    Fpath.basename f |> String.capitalize_ascii = dep_name)
+                  all_units
+              with
+              | None -> acc
+              | Some (_, lib, dep_path) ->
+                  let file = best_file dep_path in
+                  rec_compile lib file @ acc)
+            [] deps.deps
+        in
+        ignore (compile file ~parent:lib []);
+        output :: files
   in
   Stdlib.List.fold_left
     (fun acc (parent, lib, dep) -> acc @ rec_compile lib (best_file dep))
@@ -349,3 +379,9 @@ let compiled = compile_all ()
 let linked = link_all compiled
 
 let _ = generate_all linked
+
+let revolt () = print_endline "Revolt!"
+
+let revolt_t = Term.(const revolt $ const ())
+
+let () = Term.exit @@ Term.eval (revolt_t, Term.info "revolt")
