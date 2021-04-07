@@ -26,7 +26,8 @@ hard-code the output path to be html.
 In all of these we'll ignore stderr.
 
 *)
-let odoc = Cmd.v "../../_esy/default/store/i/odoc-57278b99/bin/odoc"
+(* let odoc = Cmd.v "../../_esy/default/store/i/odoc-57278b99/bin/odoc" *)
+let odoc = Cmd.v "odoc"
 
 let compile file ?parent children =
   print_endline ("Compiling " ^ Fpath.to_string file);
@@ -87,9 +88,8 @@ the hierarchy declared above.
 
 *)
 
-(* let dep_libraries =
-  [ "cmdliner"; "stdlib"; "astring"; "fpath"; "result"; "yojson"; "tyxml" ] *)
-let dep_libraries = []
+let dep_libraries =
+  [ "cmdliner"; "stdlib"; "astring"; "fpath"; "result"; "yojson"; "tyxml" ]
 
 let odoc_libraries =
   [
@@ -108,35 +108,31 @@ let odoc_libraries =
     "odoc_compat";
   ]
 
-(* let all_libraries = dep_libraries @ odoc_libraries *)
-let all_libraries = [ "odoc_html" ]
+let all_libraries = dep_libraries @ odoc_libraries
 
-let extra_docs = [ "interface" ]
+let extra_docs = [ "interface"; "driver" ]
 
 let parents =
   let add_parent p l = List.map (fun lib -> (lib, p)) l in
   add_parent "deps" dep_libraries @ add_parent "odoc" odoc_libraries
 
 (*
-
 Odoc operates on the compiler outputs. We need to find them for both the files
 compiled by dune within this project and those in libraries we compile against.
 The following uses ocamlfind to locate the library paths we're looking in for
 our dependencies:
-
 *)
 let ocamlfind = Cmd.v "ocamlfind"
 
 let lib_path lib =
   let cmd = Cmd.(ocamlfind % "query" % lib) in
-  OS.Cmd.(run_out cmd |> to_lines >>|= List.hd)
+  OS.Cmd.(run_out cmd |> to_lines |> Result.map List.hd)
 
 let lib_paths =
   match
     Stdlib.List.fold_right
       (fun lib acc ->
-        acc >>= fun acc ->
-        lib_path lib >>|= fun l -> (lib, l) :: acc)
+        acc >>= fun acc -> lib_path lib |> Result.map (fun l -> (lib, l) :: acc))
       dep_libraries (Ok [])
   with
   | Ok result -> result
@@ -153,15 +149,15 @@ without its extension.
 *)
 
 let find_units p =
-  OS.Dir.fold_contents ~dotfiles:true
+  Bos.OS.Dir.fold_contents ~dotfiles:true
     (fun p acc ->
       if List.exists (fun ext -> Fpath.has_ext ext p) [ "cmt"; "cmti"; "cmi" ]
       then p :: acc
       else acc)
     [] (Fpath.v p)
-  >>|= fun paths ->
-  let l = List.map Fpath.rem_ext paths in
-  Stdlib.List.fold_right Fpath.Set.add l Fpath.Set.empty
+  |> Result.map (fun paths ->
+         let l = List.map Fpath.rem_ext paths in
+         Stdlib.List.fold_right Fpath.Set.add l Fpath.Set.empty)
 
 (*
 
@@ -196,18 +192,24 @@ odoc compile-deps on the file to find out which other compilation units it
 depends upon, with the following function:
 
 *)
+let result_flatMap a b = Option.bind b a
 
 type compile_deps = { digest : Digest.t; deps : (string * Digest.t) list }
 
 let compile_deps f =
   let cmd = Cmd.(odoc % "compile-deps" % Fpath.to_string f) in
-  OS.Cmd.(run_out cmd |> to_lines)
-  >>|= Stdlib.List.filter_map (Astring.String.cut ~sep:" ")
-  >>= fun l ->
-  let basename = Fpath.(basename (f |> rem_ext)) |> String.capitalize_ascii in
-  match List.partition (fun (n, _) -> basename = n) l with
-  | [ (_, digest) ], deps -> Ok { digest; deps }
-  | _ -> Error (`Msg "odd")
+  print_endline (Cmd.to_string cmd);
+
+  Result.bind
+    (OS.Cmd.(run_out cmd |> to_lines)
+    |> Result.map (Stdlib.List.filter_map (Astring.String.cut ~sep:" ")))
+    (fun l ->
+      let basename =
+        Fpath.(basename (f |> rem_ext)) |> String.capitalize_ascii
+      in
+      match List.partition (fun (n, _) -> basename = n) l with
+      | [ (_, digest) ], deps -> Ok { digest; deps }
+      | _ -> Error (`Msg "odd"))
 
 (*
 
@@ -247,12 +249,10 @@ let lib_units =
 let all_units = odoc_units @ lib_units |> List.flatten
 
 (*
-
 Let's compile all of the parent mld files. We do this in order such that the
 parents are compiled before the children, so we start with odoc.mld, then
 deps.mld, and so on. The result of this file is a list of the resulting odoc
 files.
-
 *)
 
 let compile_mlds () =
