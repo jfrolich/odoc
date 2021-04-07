@@ -409,8 +409,8 @@ module Odoc_html = Make_renderer (struct
           List.fold_left
             ~f:(fun acc seg ->
               Some
-                Odoc_document.Url.Path.
-                  { kind = "container-page"; parent = acc; name = seg })
+                ({ kind = "container-page"; parent = acc; name = seg }
+                  : Odoc_document.Url.Path.t))
             l ~init:None
         in
         `Ok

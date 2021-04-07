@@ -23,7 +23,7 @@ type uri =
   | /** The type for absolute and relative URIs. The relative URIs are resolved
  using the HTML output directory as a target. */
     Relative(
-      string,
+      option(Odoc_document.Url.Path.t),
     );
 
 /** {1 Page creator} */;
@@ -35,6 +35,7 @@ type uri =
 let make:
   (
     ~theme_uri: uri=?,
+    ~support_uri: uri=?,
     ~indent: bool,
     ~url: Url.Path.t,
     ~header: list(React.StaticReact.element),

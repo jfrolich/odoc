@@ -18,10 +18,18 @@ open React.StaticReact;
 
 type uri =
   | Absolute(string)
-  | Relative(string);
+  | Relative(option(Odoc_document.Url.Path.t));
 
 let page_creator =
-    (~theme_uri=Relative("./"), ~url, name, header, toc, content) => {
+    (
+      ~theme_uri=Relative(None),
+      ~support_uri=Relative(None),
+      ~url,
+      name,
+      header,
+      toc,
+      content,
+    ) => {
   let is_leaf_page = Link.Path.is_leaf_page(url);
   let path = Link.Path.for_printing(url);
   let rec add_dotdot = (~n, acc) =>
@@ -31,40 +39,28 @@ let page_creator =
       add_dotdot(~n=n - 1, "../" ++ acc);
     };
 
-  let resolve_relative_uri = uri => {
-    /* Remove the first "dot segment". */
-    let uri =
-      if (String.length(uri) >= 2 && String.sub(uri, 0, 2) == "./") {
-        String.sub(uri, 2, String.length(uri) - 2);
-      } else {
-        uri;
-      };
-
-    /* How deep is this page? */
-    let n =
-      List.length(path)
-      - (
-        /* This is just horrible. */
-        if (is_leaf_page) {1} else {0}
-      );
-
-    add_dotdot(uri, ~n);
-  };
-
   let head_element: element = {
     let title_string =
       Printf.sprintf("%s (%s)", name, String.concat(".", path));
 
-    let theme_uri =
-      switch (theme_uri) {
-      | Absolute(uri) => uri
-      | Relative(uri) => resolve_relative_uri(uri)
+    let file_uri = (base, file) =>
+      switch (base) {
+      | Absolute(uri) => uri ++ "/" ++ file
+      | Relative(uri) =>
+        let page: Odoc_document.Url.Path.t = {
+          kind: "file",
+          parent: uri,
+          name: file,
+        };
+
+        Link.href(
+          ~resolve=Current(url),
+          Odoc_document.Url.Anchor.{page, anchor: "", kind: "file"},
+        );
       };
 
-    let support_files_uri = resolve_relative_uri("./");
-
-    let odoc_css_uri = theme_uri ++ "odoc.css";
-    let highlight_js_uri = support_files_uri ++ "highlight.pack.js";
+    let odoc_css_uri = file_uri(theme_uri, "odoc.css");
+    let highlight_js_uri = file_uri(support_uri, "highlight.pack.js");
 
     <head>
       <title> {string(title_string)} </title>
@@ -151,9 +147,28 @@ let page_creator =
 };
 
 let make =
-    (~theme_uri=?, ~indent, ~url, ~header, ~toc, title, content, children) => {
+    (
+      ~theme_uri=?,
+      ~support_uri=?,
+      ~indent,
+      ~url,
+      ~header,
+      ~toc,
+      title,
+      content,
+      children,
+    ) => {
   let filename = Link.Path.as_filename(url);
-  let html = page_creator(~theme_uri?, ~url, title, header, toc, content);
+  let html =
+    page_creator(
+      ~theme_uri?,
+      ~support_uri?,
+      ~url,
+      title,
+      header,
+      toc,
+      content,
+    );
 
   let content = React.ReactDomStatic.to_content(~indent, html);
   {Odoc_document.Renderer.filename, content, children};

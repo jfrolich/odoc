@@ -587,7 +587,13 @@ module Page = {
   and subpages = (~theme_uri=?, indent, i) =>
     Utils.list_concat_map(~f=include_(~theme_uri?, indent)) @@
     Doctree.Subpages.compute(i)
-  and page = (~theme_uri=?, indent, {Page.title, header, items: i, url} as p) => {
+  and page =
+      (
+        ~theme_uri=?,
+        ~support_uri=?,
+        indent,
+        {Page.title, header, items: i, url} as p,
+      ) => {
     let resolve = Link.Current(url);
     let i = Doctree.Shift.compute(~on_sub, i);
     let toc = Toc.from_items(~resolve, ~path=url, i);
@@ -597,6 +603,7 @@ module Page = {
     let page =
       Tree.make(
         ~theme_uri?,
+        ~support_uri?,
         ~indent,
         ~header,
         ~toc,
@@ -610,8 +617,8 @@ module Page = {
   };
 };
 
-let render = (~theme_uri=?, ~indent, page) =>
-  Page.page(~theme_uri?, indent, page);
+let render = (~theme_uri=?, ~support_uri=?, ~indent, page) =>
+  Page.page(~theme_uri?, ~support_uri?, indent, page);
 
 let doc = (~xref_base_uri, blocks) => {
   let resolve = Link.Base(xref_base_uri);
