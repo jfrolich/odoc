@@ -1,12 +1,8 @@
-open Cmdliner
-open Bos
+let ( let* ) t f = Result.bind t f
 
-let ( >>= ) = Result.bind
-
-let ( >>|= ) m f = m >>= fun x -> Ok (f x)
+let ( let+ ) t f = Result.map f t
 
 (*
-
 In this section odoc is used to generate the documentation of odoc and some of
 its dependent packages. We can make a few simplifying assumptions here:
 
@@ -27,7 +23,9 @@ In all of these we'll ignore stderr.
 
 *)
 (* let odoc = Cmd.v "../../_esy/default/store/i/odoc-57278b99/bin/odoc" *)
-let odoc = Cmd.v "odoc"
+let odoc = Bos.Cmd.v "odoc"
+
+let ( % ) = Bos.Cmd.( % )
 
 let compile file ?parent children =
   print_endline ("Compiling " ^ Fpath.to_string file);
@@ -36,18 +34,15 @@ let compile file ?parent children =
     let basename = Fpath.basename (Fpath.rem_ext file) in
     match ext with
     | ".mld" -> "page-" ^ basename ^ ".odoc"
-    | ".cmt" | ".cmti" | ".cmi" -> basename ^ ".odoc"
+    | ".cmt" | ".cmti" | ".ci" -> basename ^ ".odoc"
     | _ -> failwith ("bad extension: " ^ ext)
   in
-  let open Cmd in
   let cmd =
     odoc % "compile" % Fpath.to_string file % "-I" % "." % "-o" % output_file
-    |> Stdlib.List.fold_right
-         (fun child cmd -> cmd % "--child" % child)
-         children
+    |> List.fold_right (fun child cmd -> cmd % "--child" % child) children
   in
   let cmd = match parent with Some p -> cmd % "--parent" % p | None -> cmd in
-  let result = OS.Cmd.(run_out ~err:err_null cmd |> to_lines) in
+  let result = Bos.OS.Cmd.(run_out ~err:err_null cmd |> to_lines) in
   match result with
   | Ok _ -> print_endline ("Successfully compiled " ^ Fpath.to_string file)
   | Error error -> (
@@ -57,23 +52,20 @@ let compile file ?parent children =
           print_endline ("Error compiling " ^ Fpath.to_string file))
 
 let link file =
-  let open Cmd in
-  let cmd = odoc % "link" % p file % "-I" % "." in
-  match OS.Cmd.(run_out ~err:err_null cmd |> to_lines) with
+  let cmd = odoc % "link" % Bos.Cmd.p file % "-I" % "." in
+  match Bos.OS.Cmd.(run_out ~err:err_null cmd |> to_lines) with
   | Ok result -> result
   | Error _ -> failwith "Error in link"
 
 let html_generate file =
-  let open Cmd in
-  let cmd = odoc % "html-generate" % p file % "-o" % "html" in
-  match OS.Cmd.(run_out cmd ~err:err_null |> to_lines) with
+  let cmd = odoc % "html-generate" % Bos.Cmd.p file % "-o" % "html" in
+  match Bos.OS.Cmd.(run_out cmd ~err:err_null |> to_lines) with
   | Ok result -> result
   | Error _ -> failwith "Error in html_generate"
 
 let support_files () =
-  let open Cmd in
   let cmd = odoc % "support-files" % "-o" % "html" in
-  match OS.Cmd.(run_out cmd |> to_lines) with
+  match Bos.OS.Cmd.(run_out cmd |> to_lines) with
   | Ok result -> result
   | Error _ -> failwith "Error in support_files"
 
@@ -122,42 +114,43 @@ compiled by dune within this project and those in libraries we compile against.
 The following uses ocamlfind to locate the library paths we're looking in for
 our dependencies:
 *)
-let ocamlfind = Cmd.v "ocamlfind"
+let ocamlfind = Bos.Cmd.v "ocamlfind"
 
 let lib_path lib =
-  let cmd = Cmd.(ocamlfind % "query" % lib) in
-  OS.Cmd.(run_out cmd |> to_lines |> Result.map List.hd)
+  let cmd = Bos.Cmd.(ocamlfind % "query" % lib) in
+  Bos.OS.Cmd.(run_out cmd |> to_lines |> Result.map List.hd)
 
 let lib_paths =
   match
-    Stdlib.List.fold_right
+    List.fold_right
       (fun lib acc ->
-        acc >>= fun acc -> lib_path lib |> Result.map (fun l -> (lib, l) :: acc))
+        let* acc = acc in
+        let+ l = lib_path lib in
+        (lib, l) :: acc)
       dep_libraries (Ok [])
   with
   | Ok result -> result
   | Error _ -> failwith "Error in lib_paths"
 
 (*
-
 We need a function to find odoc inputs given a search path. The files that odoc
 operates on are cmti, cmt or cmi files, in order of preference, and the
 following function finds all files like that given a search path, returning an
 Fpath.Set.t containing Fpath.t values representing the absolute path to the file
 without its extension.
-
 *)
 
 let find_units p =
-  Bos.OS.Dir.fold_contents ~dotfiles:true
-    (fun p acc ->
-      if List.exists (fun ext -> Fpath.has_ext ext p) [ "cmt"; "cmti"; "cmi" ]
-      then p :: acc
-      else acc)
-    [] (Fpath.v p)
-  |> Result.map (fun paths ->
-         let l = List.map Fpath.rem_ext paths in
-         Stdlib.List.fold_right Fpath.Set.add l Fpath.Set.empty)
+  let+ paths =
+    Bos.OS.Dir.fold_contents ~dotfiles:true
+      (fun p acc ->
+        if List.exists (fun ext -> Fpath.has_ext ext p) [ "cmt"; "cmti"; "cmi" ]
+        then p :: acc
+        else acc)
+      [] (Fpath.v p)
+  in
+  let l = List.map Fpath.rem_ext paths in
+  List.fold_right Fpath.Set.add l Fpath.Set.empty
 
 (*
 
@@ -168,7 +161,7 @@ function to find the best file to use given this basename.
 
 let best_file base =
   List.map (fun ext -> Fpath.add_ext ext base) [ "cmti"; "cmt"; "cmi" ]
-  |> Stdlib.List.find (fun f ->
+  |> List.find (fun f ->
          match Bos.OS.File.exists f with
          | Ok result -> result
          | Error _ -> failwith "Error in best_file")
@@ -192,35 +185,27 @@ odoc compile-deps on the file to find out which other compilation units it
 depends upon, with the following function:
 
 *)
-let result_flatMap a b = Option.bind b a
-
 type compile_deps = { digest : Digest.t; deps : (string * Digest.t) list }
 
 let compile_deps f =
-  let cmd = Cmd.(odoc % "compile-deps" % Fpath.to_string f) in
-  print_endline (Cmd.to_string cmd);
+  let cmd = Bos.Cmd.(odoc % "compile-deps" % Fpath.to_string f) in
+  print_endline (Bos.Cmd.to_string cmd);
 
-  Result.bind
-    (OS.Cmd.(run_out cmd |> to_lines)
-    |> Result.map (Stdlib.List.filter_map (Astring.String.cut ~sep:" ")))
-    (fun l ->
-      let basename =
-        Fpath.(basename (f |> rem_ext)) |> String.capitalize_ascii
-      in
-      match List.partition (fun (n, _) -> basename = n) l with
-      | [ (_, digest) ], deps -> Ok { digest; deps }
-      | _ -> Error (`Msg "odd"))
+  let* lines = Bos.OS.Cmd.(run_out cmd |> to_lines) in
+  let l = List.filter_map (Astring.String.cut ~sep:" ") lines in
+  let basename = Fpath.(basename (f |> rem_ext)) |> String.capitalize_ascii in
+  match List.partition (fun (n, _) -> basename = n) l with
+  | [ (_, digest) ], deps -> Ok { digest; deps }
+  | _ -> Error (`Msg "odd")
 
 (*
-
 Let's now put together a list of all possible modules. We'll keep track of which
 library they're in, and whether that library is a part of odoc or a dependency
 library.
-
 *)
 
 let odoc_all_unit_paths =
-  match find_units ".." with
+  match find_units "." with
   | Ok result -> result
   | Error _ -> failwith "Error in odoc_all_unit_paths"
 
@@ -259,7 +244,7 @@ let compile_mlds () =
   print_endline "Compiling mlds";
   let mkpage x = "page-" ^ x in
   let mkmod x = "module-" ^ x in
-  let mkmld x = Fpath.(add_ext "mld" (v x)) in
+  let mkmld x = Fpath.(v "doc" // add_ext "mld" (v x)) in
   let _ =
     compile (mkmld "odoc")
       ("page-deps" :: List.map mkpage (odoc_libraries @ extra_docs))
@@ -309,7 +294,7 @@ let compile_all () =
   let mld_odocs = compile_mlds () in
   let rec rec_compile lib file =
     let output = Fpath.(base (set_ext "odoc" file)) in
-    match OS.File.exists output with
+    match Bos.OS.File.exists output with
     | Ok true | Error _ -> []
     | Ok false ->
         let deps =
@@ -318,7 +303,7 @@ let compile_all () =
           | Error _ -> failwith "Error in compile_deps invocation"
         in
         let files =
-          Stdlib.List.fold_left
+          List.fold_left
             (fun acc (dep_name, digest) ->
               match
                 List.find_opt
@@ -335,7 +320,7 @@ let compile_all () =
         ignore (compile file ~parent:lib []);
         output :: files
   in
-  Stdlib.List.fold_left
+  List.fold_left
     (fun acc (parent, lib, dep) -> acc @ rec_compile lib (best_file dep))
     [] all_units
   (* (List.flatten odoc_deps) *)
@@ -382,6 +367,8 @@ let _ = generate_all linked
 
 let revolt () = print_endline "Revolt!"
 
-let revolt_t = Term.(const revolt $ const ())
+let revolt_t = Cmdliner.Term.(const revolt $ const ())
 
-let () = Term.exit @@ Term.eval (revolt_t, Term.info "revolt")
+let () =
+  Cmdliner.Term.exit
+  @@ Cmdliner.Term.eval (revolt_t, Cmdliner.Term.info "revolt")

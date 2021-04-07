@@ -6,7 +6,7 @@
   (glob_files *.ml*)
   (package odoc))
  (enabled_if
-  (> %{ocaml_version} 4.11))
+  (> %{ocaml_version} 4.13))
  (action
   (progn
    (run ocaml-mdx-test %{x})

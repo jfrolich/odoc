@@ -14,6 +14,4 @@
  (package odoc)
  (modules driver)
  (public_name driver)
- (libraries bos cmdliner odoc_model odoc_odoc)
- (flags
-  (:standard -open StdLabels)))
+ (libraries bos cmdliner odoc_model odoc_odoc))
