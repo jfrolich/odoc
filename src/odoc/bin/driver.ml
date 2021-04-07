@@ -81,7 +81,7 @@ the hierarchy declared above.
 *)
 
 let dep_libraries =
-  [ "cmdliner"; "stdlib"; "astring"; "fpath"; "result"; "yojson"; "tyxml" ]
+  [ "cmdliner"; "astring"; "fpath"; "result"; "yojson"; "tyxml" ]
 
 let odoc_libraries =
   [
@@ -205,7 +205,7 @@ library.
 *)
 
 let odoc_all_unit_paths =
-  match find_units "." with
+  match find_units ".." with
   | Ok result -> result
   | Error _ -> failwith "Error in odoc_all_unit_paths"
 
@@ -244,7 +244,7 @@ let compile_mlds () =
   print_endline "Compiling mlds";
   let mkpage x = "page-" ^ x in
   let mkmod x = "module-" ^ x in
-  let mkmld x = Fpath.(v "doc" // add_ext "mld" (v x)) in
+  let mkmld x = Fpath.(add_ext "mld" (v x)) in
   let _ =
     compile (mkmld "odoc")
       ("page-deps" :: List.map mkpage (odoc_libraries @ extra_docs))
