@@ -18,7 +18,7 @@ module Path = struct
     | _ -> Printf.sprintf "%s-%s" kind name
 
   let is_leaf_page (url : Url.Path.t) =
-    url.Url.Path.kind = "page" || url.Url.Path.kind = "file"
+    url.kind = "page" || url.kind = "file"
 
   let rec get_dir ({ parent; name; kind } : Url.Path.t) =
     let ppath = match parent with Some p -> get_dir p | None -> [] in
