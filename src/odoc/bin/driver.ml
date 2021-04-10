@@ -26,17 +26,39 @@ let odoc = Bos.Cmd.v "odoc"
 
 let ( % ) = Bos.Cmd.( % )
 
+let with_error s = function Ok result -> result | Error _ -> raise s
+
 exception CompileError
 
+exception LinkError
+
+exception HtmlGenerationError
+
+exception JSONGenerationError
+
+exception SupportFilesError
+
+exception LibPathsError
+
+exception BestFileError
+
+exception AllUnitPathsError
+
+exception LibUnitsError
+
+exception CompileDeps
+
+exception BadExtension of string
+
 let compile file ?parent children =
-  print_endline ("Compiling " ^ Fpath.to_string file);
+  (* print_endline ("Compiling " ^ Fpath.to_string file); *)
   let output_file =
     let ext = Fpath.get_ext file in
     let basename = Fpath.basename (Fpath.rem_ext file) in
     match ext with
     | ".mld" -> "page-" ^ basename ^ ".odoc"
     | ".cmt" | ".cmti" | ".cmi" -> basename ^ ".odoc"
-    | _ -> failwith ("bad extension: " ^ ext)
+    | _ -> raise (BadExtension ext)
   in
   let cmd =
     odoc % "compile" % Fpath.to_string file % "-I" % "." % "-o" % output_file
@@ -48,7 +70,7 @@ let compile file ?parent children =
   let result = Bos.OS.Cmd.(run_out ~err:err_null cmd |> to_lines) in
   match result with
   | Ok _ ->
-      print_endline ("Successfully compiled " ^ Fpath.to_string file);
+      (* print_endline ("Successfully compiled " ^ Fpath.to_string file); *)
       output_file
   | Error error ->
       (match error with
@@ -59,21 +81,21 @@ let compile file ?parent children =
 
 let link file =
   let cmd = odoc % "link" % Bos.Cmd.p file % "-I" % "." in
-  match Bos.OS.Cmd.(run_out ~err:err_null cmd |> to_lines) with
-  | Ok result -> result
-  | Error _ -> failwith "Error in link"
+  Bos.OS.Cmd.(run_out ~err:err_null cmd |> to_lines) |> with_error LinkError
 
 let html_generate file =
   let cmd = odoc % "html-generate" % Bos.Cmd.p file % "-o" % "html" in
-  match Bos.OS.Cmd.(run_out cmd ~err:err_null |> to_lines) with
-  | Ok result -> result
-  | Error _ -> failwith "Error in html_generate"
+  Bos.OS.Cmd.(run_out cmd ~err:err_null |> to_lines)
+  |> with_error HtmlGenerationError
+
+let json_generate file =
+  let cmd = odoc % "json-generate" % Bos.Cmd.p file % "-o" % "html" in
+  Bos.OS.Cmd.(run_out cmd ~err:err_null |> to_lines)
+  |> with_error JSONGenerationError
 
 let support_files () =
   let cmd = odoc % "support-files" % "-o" % "html" in
-  match Bos.OS.Cmd.(run_out cmd |> to_lines) with
-  | Ok result -> result
-  | Error _ -> failwith "Error in support_files"
+  Bos.OS.Cmd.(run_out cmd |> to_lines) |> with_error SupportFilesError
 
 (*
 
@@ -106,15 +128,7 @@ let odoc_libraries =
     "odoc_compat";
   ]
 
-let all_libraries = dep_libraries @ odoc_libraries
-
 let extra_docs = [ "interface"; "driver" ]
-
-let parents =
-  let add_parent p l = List.map (fun lib -> (lib, p)) l in
-  add_parent "deps" dep_libraries @ add_parent "odoc" odoc_libraries
-
-let with_error s = function Ok result -> result | Error _ -> failwith s
 
 (*
 Odoc operates on the compiler outputs. We need to find them for both the files
@@ -124,18 +138,20 @@ our dependencies:
 *)
 let ocamlfind = Bos.Cmd.v "ocamlfind"
 
-let lib_path lib =
+(* resolving the path for a library *)
+let resolve_lib_path lib =
   let cmd = Bos.Cmd.(ocamlfind % "query" % lib) in
   Bos.OS.Cmd.(run_out cmd |> to_lines |> Result.map List.hd)
 
-let lib_paths =
+(** constructing (library_name, library_path) tuples *)
+let resolve_lib_paths library_names =
   List.fold_left
     (fun acc lib ->
       let* acc = acc in
-      let+ l = lib_path lib in
+      let+ l = resolve_lib_path lib in
       (lib, l) :: acc)
-    (Ok []) dep_libraries
-  |> with_error "Error in lib_paths"
+    (Ok []) library_names
+  |> with_error LibPathsError
 
 (*
 We need a function to find odoc inputs given a search path. The files that odoc
@@ -162,10 +178,9 @@ Since the units returned by this function have their extension stripped, we need
 function to find the best file to use given this basename.
 *)
 
-let best_file base =
+let find_best_file base =
   List.map (fun ext -> Fpath.add_ext ext base) [ "cmti"; "cmt"; "cmi" ]
-  |> List.find (fun f ->
-         Bos.OS.File.exists f |> with_error "Error in best_file")
+  |> List.find (fun f -> Bos.OS.File.exists f |> with_error BestFileError)
 
 (*
 Many of the units will be 'hidden' \-- that is, their name will be mangled by
@@ -187,7 +202,6 @@ type compile_deps = { digest : Digest.t; deps : (string * Digest.t) list }
 
 let compile_deps f =
   let cmd = Bos.Cmd.(odoc % "compile-deps" % Fpath.to_string f) in
-  print_endline (Bos.Cmd.to_string cmd);
 
   let* lines = Bos.OS.Cmd.(run_out cmd |> to_lines) in
   let l = List.filter_map (Astring.String.cut ~sep:" ") lines in
@@ -202,8 +216,13 @@ library they're in, and whether that library is a part of odoc or a dependency
 library.
 *)
 
-let odoc_all_unit_paths =
-  find_units ".." |> with_error "Error in odoc_all_unit_paths"
+type path = Fpath.t
+
+type unit = Local of path | Dependency of string * path
+
+let units : (string, unit) Hashtbl.t = Hashtbl.create 10000
+
+let odoc_all_unit_paths = find_units ".." |> with_error AllUnitPathsError
 
 let odoc_units =
   List.map
@@ -215,17 +234,26 @@ let odoc_units =
           else acc)
         odoc_all_unit_paths [])
     odoc_libraries
+  |> List.flatten
+
+let _ = print_endline "UNITS"
+
+let _ =
+  List.iter
+    (fun (_, _, path) -> print_endline (Fpath.to_string path))
+    odoc_units
 
 let lib_units =
   List.map
     (fun (lib, p) ->
       Fpath.Set.fold
-        (fun p acc -> ("deps", lib, p) :: acc)
-        (find_units p |> with_error "Error in lib_units")
+        (fun p acc -> ("deps", p) :: acc)
+        (find_units p |> with_error LibUnitsError)
         [])
-    lib_paths
+    (resolve_lib_paths dep_libraries)
+  |> List.flatten
 
-let all_units = odoc_units @ lib_units |> List.flatten
+let odoc_units = odoc_units
 
 (*
 Let's compile all of the parent mld files. We do this in order such that the
@@ -240,37 +268,37 @@ let mkmod x = "module-" ^ x
 
 let mkmld x = Fpath.(add_ext "mld" (v x))
 
-let root_compile children = compile (mkmld "odoc") (List.map mkpage children)
-
-let deps_compile children =
-  compile (mkmld "deps") ~parent:"odoc" (List.map mkpage children)
-
-let independent_docs_compile docs =
-  List.map (fun p -> compile (mkmld p) ~parent:"odoc" []) docs
-
 let compile_mlds () =
   print_endline "Compiling mlds";
-  let root = root_compile ("deps" :: odoc_libraries @ extra_docs) in
-  let deps = deps_compile dep_libraries in
-  let extra_odocs = independent_docs_compile extra_docs in
+  let root_children = List.map mkpage ("deps" :: odoc_libraries @ extra_docs) in
+  let root = compile (mkmld "odoc") root_children in
+
+  (* let deps_children = List.map mkpage dep_libraries in *)
+  let deps_children =
+    List.map (fun (lib, child) -> Fpath.basename child |> mkmod) lib_units
+  in
+  let deps = compile (mkmld "deps") ~parent:"odoc" deps_children in
+
+  let extra_odocs =
+    List.map (fun p -> compile (mkmld p) ~parent:"odoc" []) extra_docs
+  in
+
   let odocs =
     List.map
       (fun library ->
-        let parent = List.assoc library parents in
         let children =
           List.filter_map
             (fun (parent, lib, child) ->
               if lib = library then Some (Fpath.basename child |> mkmod)
               else None)
-            all_units
+            odoc_units
         in
-        compile (mkmld library) ~parent children)
-      all_libraries
+        compile (mkmld library) ~parent:"odoc" children)
+      odoc_libraries
   in
   List.map Fpath.v (root :: deps :: odocs @ extra_odocs)
 
 (*
-
 Now we get to the compilation phase. For each unit, we query its dependencies,
 then recursively call to compile these dependencies. Once this is done we
 compile the unit itself. If the unit has already been compiled we don't do
@@ -279,34 +307,37 @@ build system should do to ensure that the module being compiled is the correct
 one. Again we benefit here from the fact that we're creating the docs for one
 leaf package, and that there must be no module name clashes in its dependencies.
 The result of this function is a list of the resulting odoc files.
-
 *)
+
+let all_units = (odoc_units |> List.map (fun (_, m, f) -> (m, f))) @ lib_units
+
+module StringSet = Set.Make (String)
+
+let already_compiled = Hashtbl.create 10000
 
 let compile_all () =
   print_endline "Compile all...";
   let mld_odocs = compile_mlds () in
   let rec rec_compile lib file =
     let output = Fpath.(base (set_ext "odoc" file)) in
-    match Bos.OS.File.exists output with
-    | Ok true | Error _ -> []
-    | Ok false ->
-        let deps =
-          match compile_deps file with
-          | Ok result -> result
-          | Error _ -> failwith "Error in compile_deps invocation"
-        in
+    (* we need to do this to avoid circular dependencies *)
+    match Hashtbl.find_opt already_compiled (Fpath.to_string output) with
+    | Some true -> []
+    | Some false | None ->
+        Hashtbl.add already_compiled (Fpath.to_string output) true;
+        let deps = compile_deps file |> with_error CompileDeps in
         let files =
           List.fold_left
             (fun acc (dep_name, digest) ->
               match
                 List.find_opt
-                  (fun (_, _, f) ->
+                  (fun (_, f) ->
                     Fpath.basename f |> String.capitalize_ascii = dep_name)
                   all_units
               with
               | None -> acc
-              | Some (_, lib, dep_path) ->
-                  let file = best_file dep_path in
+              | Some (lib, dep_path) ->
+                  let file = find_best_file dep_path in
                   rec_compile lib file @ acc)
             [] deps.deps
         in
@@ -314,17 +345,14 @@ let compile_all () =
         output :: files
   in
   List.fold_left
-    (fun acc (parent, lib, dep) -> acc @ rec_compile lib (best_file dep))
+    (fun acc (lib, dep) -> acc @ rec_compile lib (find_best_file dep))
     [] all_units
-  (* (List.flatten odoc_deps) *)
   @ mld_odocs
 
 (*
-
 Linking is now straightforward. We only need to link non-hidden odoc files, as
 any hidden are almost certainly aliased inside the non-hidden ones \(a result
 of namespacing usually, and these aliases will be expanded.
-
 *)
 
 let link_all odoc_files =
@@ -343,13 +371,16 @@ files
 *)
 
 let generate_all odocl_files =
-  List.iter (fun f -> ignore (html_generate f)) odocl_files;
+  List.iter
+    (fun f ->
+      let _ = html_generate f in
+      let _ = json_generate f in
+      ())
+    odocl_files;
   support_files ()
 
 (*
-
 The following code actually executes all of the above, and we're done!
-
 *)
 
 let compiled = compile_all ()

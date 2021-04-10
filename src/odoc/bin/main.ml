@@ -367,6 +367,70 @@ end = struct
   let targets = Targets.(cmd, info)
 end
 
+module Odoc_json = Make_renderer (struct
+  type args = Odoc_json.Json_renderer.args
+
+  let renderer = Odoc_json.Json_renderer.renderer
+
+  let semantic_uris =
+    let doc = "Generate pretty (semantic) links" in
+    Arg.(value & flag (info ~doc [ "semantic-uris"; "pretty-uris" ]))
+
+  let closed_details =
+    let doc =
+      "If this flag is passed <details> tags (used for includes) will be \
+       closed by default."
+    in
+    Arg.(value & flag (info ~doc [ "closed-details" ]))
+
+  let indent =
+    let doc = "Format the output JSON files with indentation" in
+    Arg.(value & flag (info ~doc [ "indent" ]))
+
+  (* Very basic validation and normalization for URI paths. *)
+  let convert_uri : Odoc_html.Tree.uri Arg.converter =
+    let parser str =
+      if String.length str = 0 then `Error "invalid URI"
+      else
+        (* The URI is absolute if it starts with a scheme or with '/'. *)
+        let is_absolute =
+          List.exists [ "http"; "https"; "file"; "data"; "ftp" ]
+            ~f:(fun scheme ->
+              Astring.String.is_prefix ~affix:(scheme ^ ":") str)
+          || str.[0] = '/'
+        in
+        let last_char = str.[String.length str - 1] in
+        let str =
+          if last_char <> '/' then str
+          else String.sub str ~pos:0 ~len:(String.length str - 1)
+        in
+        let conv_rel rel =
+          let l = Astring.String.cuts ~sep:"/" rel in
+          List.fold_left
+            ~f:(fun acc seg ->
+              Some
+                ({ kind = "container-page"; parent = acc; name = seg }
+                  : Odoc_document.Url.Path.t))
+            l ~init:None
+        in
+        `Ok
+          Odoc_html.Tree.(
+            if is_absolute then Absolute str else Relative (conv_rel str))
+    in
+    let printer ppf = function
+      | Odoc_html.Tree.Absolute uri -> Format.pp_print_string ppf uri
+      | Odoc_html.Tree.Relative _uri -> Format.pp_print_string ppf ""
+    in
+    (parser, printer)
+
+  let extra_args =
+    let f semantic_uris closed_details indent =
+      { Odoc_json.Json_renderer.semantic_uris; closed_details; indent }
+    in
+
+    Term.(const f $ semantic_uris $ closed_details $ indent)
+end)
+
 module Odoc_html = Make_renderer (struct
   type args = Html_page.args
 
@@ -652,6 +716,9 @@ let () =
       Odoc_html.process;
       Odoc_html.targets;
       Odoc_html.generate;
+      Odoc_json.process;
+      Odoc_json.targets;
+      Odoc_json.generate;
       Odoc_manpage.process;
       Odoc_manpage.targets;
       Odoc_manpage.generate;
