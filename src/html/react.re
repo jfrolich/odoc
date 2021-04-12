@@ -33,7 +33,7 @@ module ReactDomStatic: {
   type el = (bool, Format.formatter) => unit;
   type t =
     | El(el)
-    | El_list(t);
+    | El_list(list(t));
 
   type sep =
     | Space
@@ -271,7 +271,7 @@ module ReactDomStatic: {
             (tag, attrs),
             cut(indent),
             pp_elts(indent),
-            flatten(children),
+            flatten_elements(El_list(children)),
             close_box(indent),
             cut(indent),
             tag,
