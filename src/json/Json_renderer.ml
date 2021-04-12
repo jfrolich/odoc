@@ -20,7 +20,9 @@ module Page = struct
     @@ Doctree.Subpages.compute i
 
   and page ?theme_uri ?support_uri indent p =
-    let filename = Odoc_html.Link.Path.as_filename p.Page.url in
+    let filename =
+      Fpath.set_ext "json" (Odoc_html.Link.Path.as_filename p.Page.url)
+    in
     let content formatter =
       Yojson.Basic.pretty_print formatter (Types.Page.serialize p)
     in
