@@ -54,6 +54,79 @@ module RawMarkup = {
   };
 };
 
+module rec SourceTokens: {
+  let createElement:
+    (
+      ~container: Inline.t => list(element),
+      ~tokens: list(Source.token),
+      ~children: list(element)=?,
+      unit
+    ) =>
+    list(element);
+} = {
+  let createElement = (~container, ~tokens, ~children as _=?, ()) => {
+    tokens
+    |> List.map((x: Source.token) =>
+         switch (x) {
+         | Elt(i) => container(i)
+         | Tag(None, l) =>
+           switch (<SourceTokens container tokens=l />) {
+           | [] => []
+           | tokens => [<span> ...tokens </span>]
+           }
+         | Tag(Some(s), l) => [
+             <span class_=?{classNames([s])}>
+               ...<SourceTokens container tokens=l />
+             </span>,
+           ]
+         }
+       )
+    |> List.concat;
+  };
+};
+
+module StyledElement: {
+  let createElement:
+    (~style: Style.t, ~emph_level: int, ~children: list(element), unit) =>
+    list(element);
+} = {
+  let createElement = (~style, ~emph_level, ~children, ()) => {
+    switch ((style: Style.t)) {
+    | `Emphasis =>
+      <>
+        <em class_=?{classNames(emph_level mod 2 == 0 ? [] : ["odd"])}>
+          ...children
+        </em>
+      </>
+    | `Bold => <> <b> ...children </b> </>
+    | `Italic => <> <i> ...children </i> </>
+    | `Superscript => <> <sup> ...children </sup> </>
+    | `Subscript => <> <sub> ...children </sub> </>
+    };
+  };
+};
+
+module SourceElement: {
+  type container = Inline.t => list(element);
+  let createElement:
+    (
+      ~container: container,
+      ~source: list(Source.token),
+      ~classes: list(string)=?,
+      ~children: list(element)=?,
+      unit
+    ) =>
+    list(element);
+} = {
+  type container = Inline.t => list(element);
+  let createElement = (~container, ~source, ~classes=[], ~children as _=?, ()) => {
+    switch (<SourceTokens tokens=source container />) {
+    | [] => []
+    | tokens => [<code class_=?{classNames(classes)}> ...tokens </code>]
+    };
+  };
+};
+
 module rec InlineElement: {
   let createElement:
     (
@@ -148,76 +221,6 @@ module rec InlineElement: {
          }
        })
     |> List.concat;
-  };
-}
-and SourceTokens: {
-  let createElement:
-    (
-      ~container: Inline.t => list(element),
-      ~tokens: list(Source.token),
-      ~children: list(element)=?,
-      unit
-    ) =>
-    list(element);
-} = {
-  let createElement = (~container, ~tokens, ~children as _=?, ()) => {
-    tokens
-    |> List.map((x: Source.token) =>
-         switch (x) {
-         | Elt(i) => container(i)
-         | Tag(None, l) =>
-           switch (<SourceTokens container tokens=l />) {
-           | [] => []
-           | tokens => [<span> ...tokens </span>]
-           }
-         | Tag(Some(s), l) => [
-             <span class_=?{classNames([s])}>
-               ...<SourceTokens container tokens=l />
-             </span>,
-           ]
-         }
-       )
-    |> List.concat;
-  };
-}
-and SourceElement: {
-  type container = Inline.t => list(element);
-  let createElement:
-    (
-      ~container: container,
-      ~source: list(Source.token),
-      ~classes: list(string)=?,
-      ~children: list(element)=?,
-      unit
-    ) =>
-    list(element);
-} = {
-  type container = Inline.t => list(element);
-  let createElement = (~container, ~source, ~classes=[], ~children as _=?, ()) => {
-    switch (<SourceTokens tokens=source container />) {
-    | [] => []
-    | tokens => [<code class_=?{classNames(classes)}> ...tokens </code>]
-    };
-  };
-}
-and StyledElement: {
-  let createElement:
-    (~style: Style.t, ~emph_level: int, ~children: list(element), unit) =>
-    list(element);
-} = {
-  let createElement = (~style, ~emph_level, ~children, ()) => {
-    switch ((style: Style.t)) {
-    | `Emphasis =>
-      <>
-        <em class_=?{classNames(emph_level mod 2 == 0 ? [] : ["odd"])}>
-          ...children
-        </em>
-      </>
-    | `Bold => <> <b> ...children </b> </>
-    | `Italic => <> <i> ...children </i> </>
-    | `Superscript => <> <sup> ...children </sup> </>
-    | `Subscript => <> <sub> ...children </sub> </>
-    };
   };
 };
 
