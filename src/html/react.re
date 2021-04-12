@@ -30,7 +30,11 @@ module ReactDomStatic: {
   // the source of this was originally copy-pasted from
   // https://github.com/ocsigen/tyxml/blob/lib/xml_print.ml
 
-  type t = (bool, Format.formatter) => unit;
+  type el = (bool, Format.formatter) => unit;
+  type t =
+    | El(el)
+    | El_list(t);
+
   type sep =
     | Space
     | Comma;
@@ -236,47 +240,63 @@ module ReactDomStatic: {
       (fmt, el) => el(indent, fmt),
     );
   };
-
-  let tag = (~attrs, ~children=[], tag, indent, fmt) =>
-    switch (children) {
-    | [] => pp_closedtag(encode_unsafe_char, indent, fmt, tag, attrs)
-    | _ =>
-      open_box(indent, fmt);
-      Format.fprintf(
-        fmt,
-        "<%t%a>%t%a%t%t</%s>",
-        open_box(indent),
-        pp_tag_and_attribs(encode_unsafe_char, indent),
-        (tag, attrs),
-        cut(indent),
-        pp_elts(indent),
-        children,
-        close_box(indent),
-        cut(indent),
-        tag,
-      );
-      close_box(indent, fmt);
+  let flatten_elements: t => list(el) =
+    t => {
+      let rec internal = (cont: list(t), acc, t) =>
+        switch (t) {
+        | El(el) => internal(cont, [el, ...acc], El_list([]))
+        | El_list([]) =>
+          switch (cont) {
+          | [] => acc
+          | [hd, ...tl] => internal(tl, acc, hd)
+          }
+        | El_list([El(el), ...r]) =>
+          internal(cont, [el, ...acc], El_list(r))
+        | El_list([l, ...r]) => internal([El_list(r), ...cont], acc, l)
+        };
+      internal([], [], t) |> List.rev;
     };
-  let unsafe = (str, _indent, fmt) => Format.fprintf(fmt, "%s", str);
-  let entity = (str, _, fmt) => Format.fprintf(fmt, "&%s;", str);
+  let tag = (~attrs, ~children=[], tag) =>
+    El(
+      (indent, fmt) => {
+        switch (children) {
+        | [] => pp_closedtag(encode_unsafe_char, indent, fmt, tag, attrs)
+        | children =>
+          open_box(indent, fmt);
+          Format.fprintf(
+            fmt,
+            "<%t%a>%t%a%t%t</%s>",
+            open_box(indent),
+            pp_tag_and_attribs(encode_unsafe_char, indent),
+            (tag, attrs),
+            cut(indent),
+            pp_elts(indent),
+            flatten(children),
+            close_box(indent),
+            cut(indent),
+            tag,
+          );
+          close_box(indent, fmt);
+        }
+      },
+    );
+  let unsafe = str => El((_indent, fmt) => Format.fprintf(fmt, "%s", str));
+  let entity = str => El((_, fmt) => Format.fprintf(fmt, "&%s;", str));
 
-  let string =
-      (
-        str,
-        // it's a leave node... don't need to capture this
-        _,
-        fmt,
-      ) =>
-    Format.fprintf(fmt, "%s", encode_unsafe_char(str));
+  let string = str =>
+    El(
+      // it's a leave node... don't need to capture this
+      (_, fmt) => Format.fprintf(fmt, "%s", encode_unsafe_char(str)),
+    );
 
-  let to_content = (~indent, elements, formatter) => {
-    pp_elts(indent, formatter, elements);
+  let to_content = (~indent, elements: list(t), formatter) => {
+    pp_elts(indent, formatter, flatten_elements(El_list(elements)));
   };
 
-  let render_to_buffer = (~indent, elements) => {
+  let render_to_buffer = (~indent, elements: list(t)) => {
     let buffer = Buffer.create(1000);
     let formatter = Format.formatter_of_buffer(buffer);
-    pp_elts(indent, formatter, elements);
+    pp_elts(indent, formatter, flatten_elements(El_list(elements)));
     buffer;
   };
 };
