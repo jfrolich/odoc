@@ -24,17 +24,19 @@ module type REACT_RENDERER = {
 };
 
 module type REACT_ELEMENTS = {
+  // this type needs to be replaced
+  type element;
   type unsafe_html = {__html: string};
   let div:
     (
       ~id: string=?,
       ~class_: string=?,
       ~class2: string=?,
-      ~children: list(React.element)=?,
+      ~children: list(element)=?,
       ~dangerouslySetInnerHTML: unsafe_html=?,
       unit
     ) =>
-    React.element;
+    element;
 };
 
 module ReactDomStatic: {
