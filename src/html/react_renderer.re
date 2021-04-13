@@ -1,5 +1,5 @@
 module type REACT_RENDERER = {
-  type t;
+  type element;
   type sep =
     | Space
     | Comma;
@@ -13,27 +13,28 @@ module type REACT_RENDERER = {
   let tag:
     (
       ~attrs: list(option((string, attrib_value))),
-      ~children: list(t)=?,
+      ~children: list(element)=?,
       string
     ) =>
-    t;
-  let string: string => t;
-  let entity: string => t;
-  let unsafe: string => t;
+    element;
+  let string: string => element;
+  let entity: string => element;
+  let unsafe: string => element;
+  let list: list(element) => element;
 };
 
 module ReactDomStatic: {
   include REACT_RENDERER;
-  let to_content: (~indent: bool, list(t), Format.formatter) => unit;
-  let render_to_buffer: (~indent: bool, list(t)) => Buffer.t;
+  let to_content: (~indent: bool, list(element), Format.formatter) => unit;
+  let render_to_buffer: (~indent: bool, list(element)) => Buffer.t;
 } = {
   // the source of this was originally copy-pasted from
   // https://github.com/ocsigen/tyxml/blob/lib/xml_print.ml
 
-  type el = (bool, Format.formatter) => unit;
-  type t =
-    | El(el)
-    | El_list(list(t));
+  type node = (bool, Format.formatter) => unit;
+  type element =
+    | El(node)
+    | El_list(list(element));
 
   type sep =
     | Space
@@ -240,22 +241,20 @@ module ReactDomStatic: {
       (fmt, el) => el(indent, fmt),
     );
   };
-  let flatten_elements: t => list(el) =
-    t => {
-      let rec internal = (cont: list(t), acc, t) =>
-        switch (t) {
-        | El(el) => internal(cont, [el, ...acc], El_list([]))
-        | El_list([]) =>
-          switch (cont) {
-          | [] => acc
-          | [hd, ...tl] => internal(tl, acc, hd)
-          }
-        | El_list([El(el), ...r]) =>
-          internal(cont, [el, ...acc], El_list(r))
-        | El_list([l, ...r]) => internal([El_list(r), ...cont], acc, l)
-        };
-      internal([], [], t) |> List.rev;
-    };
+  let flatten_elements = t => {
+    let rec internal = (cont: list(element), acc, t) =>
+      switch (t) {
+      | El(el) => internal(cont, [el, ...acc], El_list([]))
+      | El_list([]) =>
+        switch (cont) {
+        | [] => acc
+        | [hd, ...tl] => internal(tl, acc, hd)
+        }
+      | El_list([El(el), ...r]) => internal(cont, [el, ...acc], El_list(r))
+      | El_list([l, ...r]) => internal([El_list(r), ...cont], acc, l)
+      };
+    internal([], [], t) |> List.rev;
+  };
   let tag = (~attrs, ~children=[], tag) =>
     El(
       (indent, fmt) => {
@@ -289,23 +288,23 @@ module ReactDomStatic: {
       (_, fmt) => Format.fprintf(fmt, "%s", encode_unsafe_char(str)),
     );
 
-  let to_content = (~indent, elements: list(t), formatter) => {
+  let to_content = (~indent, elements, formatter) => {
     pp_elts(indent, formatter, flatten_elements(El_list(elements)));
   };
 
-  let render_to_buffer = (~indent, elements: list(t)) => {
+  let render_to_buffer = (~indent, elements) => {
     let buffer = Buffer.create(1000);
     let formatter = Format.formatter_of_buffer(buffer);
     pp_elts(indent, formatter, flatten_elements(El_list(elements)));
     buffer;
   };
+
+  let list = elem_list => El_list(elem_list);
 };
 
 module Make = (Renderer: REACT_RENDERER) => {
-  type element = Renderer.t;
+  module React = Renderer;
   type unsafe_html = {__html: string};
-  let entity = Renderer.entity;
-  let string = Renderer.string;
   let str_attr = (name, attr) =>
     attr |> Option.map(attr => (name, Renderer.AStr(attr)));
   let div =

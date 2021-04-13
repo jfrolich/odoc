@@ -14,7 +14,7 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-open React.StaticReact;
+open React_renderer.StaticReact;
 
 type uri =
   | Absolute(string)
@@ -26,7 +26,7 @@ let page_creator =
       ~support_uri=Relative(None),
       ~url,
       name,
-      header,
+      passedHeader: list(React.element),
       toc,
       content,
     ) => {
@@ -39,7 +39,7 @@ let page_creator =
       add_dotdot(~n=n - 1, "../" ++ acc);
     };
 
-  let head_element: element = {
+  let head_element: React.element = {
     let title_string =
       Printf.sprintf("%s (%s)", name, String.concat(".", path));
 
@@ -63,12 +63,12 @@ let page_creator =
     let highlight_js_uri = file_uri(support_uri, "highlight.pack.js");
 
     <head>
-      <title> {string(title_string)} </title>
+      <title> {React.string(title_string)} </title>
       <link rel="stylesheet" href=odoc_css_uri />
       <meta charset="utf-8" />
       <meta name="generator" content="odoc %%VERSION%%" />
       <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-      <script src=highlight_js_uri> {string("")} </script>
+      <script src=highlight_js_uri> {React.string("")} </script>
       <script
         dangerouslySetInnerHTML={__html: "hljs.initHighlightingOnLoad();"}
       />
@@ -92,7 +92,7 @@ let page_creator =
     let has_parent = List.length(path) > 1;
     if (has_parent) {
       let l =
-        [<a href=up_href> {string("Up")} </a>, string(" – ")]
+        [<a href=up_href> {React.string("Up")} </a>, React.string(" – ")]
         /* Create breadcrumbs */
         @ {
           let breadcrumb_spec =
@@ -113,12 +113,17 @@ let page_creator =
           |> List.mapi(breadcrumb_spec)
           |> List.rev
           |> Utils.list_concat_map(
-               ~sep=?Some([string(" "), entity("#x00BB"), string(" ")]),
+               ~sep=?
+                 Some([
+                   React.string(" "),
+                   React.entity("#x00BB"),
+                   React.string(" "),
+                 ]),
                ~f=((n, addr, lbl)) =>
                if (n > 0) {
-                 [[<a href=addr> {string(lbl)} </a>]];
+                 [[<a href=addr> {React.string(lbl)} </a>]];
                } else {
-                 [[string(lbl)]];
+                 [[React.string(lbl)]];
                }
              )
           |> List.flatten;
@@ -130,14 +135,14 @@ let page_creator =
     };
   };
 
-  let myHeader = React.StaticReact.header;
   let myBody =
     breadcrumbs
-    @ [<myHeader class_="odoc-preamble"> ...header </myHeader>]
+    @ [<header class_="odoc-preamble"> ...passedHeader </header>]
     @ toc
-    // @ [Html.div(~a=[Html.a_class(["content"])], content)];
-    @ [<div class_="odoc-content"> ...{[string(""), ...content]} </div>];
-  React.ReactDomStatic.[
+    @ [
+      <div class_="odoc-content"> ...{[React.string(""), ...content]} </div>,
+    ];
+  React_renderer.ReactDomStatic.[
     unsafe("<!DOCTYPE html>"),
     <html xmlns="http://www.w3.org/1999/xhtml">
       head_element
@@ -170,7 +175,7 @@ let make =
       content,
     );
 
-  let content = React.ReactDomStatic.to_content(~indent, html);
+  let content = React_renderer.ReactDomStatic.to_content(~indent, html);
   {Odoc_document.Renderer.filename, content, children};
 };
 

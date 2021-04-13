@@ -15,9 +15,8 @@
  */
 
 open Odoc_document.Types;
-
 module Doctree = Odoc_document.Doctree;
-open React.StaticReact;
+open React_renderer.StaticReact;
 
 let rec classNames = (~classStr: option(string)=?, classes: list(string)) => {
   switch (classStr, classes) {
@@ -32,7 +31,7 @@ let rec classNames = (~classStr: option(string)=?, classes: list(string)) => {
 module AnchorLink = {
   let createElement = (~id, ~classes=[], ~children as _, ()) => {
     <a href={"#" ++ id} class_=?{classNames(["anchor", ...classes])}>
-      {string("")}
+      {React.string("")}
     </a>;
   };
 };
@@ -46,7 +45,7 @@ module RawMarkup = {
               In theory, we should try to parse the HTML with lambdasoup and rebuild
               the HTML tree from there.
            */
-        React.ReactDomStatic.unsafe(content),
+        React.unsafe(content),
         // <div dangerouslySetInnerHTML={__html: content} />,
       ]
     | _ => [] /* Original comment: this is wrong */
@@ -57,12 +56,12 @@ module RawMarkup = {
 module rec SourceTokens: {
   let createElement:
     (
-      ~container: Inline.t => list(element),
+      ~container: Inline.t => list(React.element),
       ~tokens: list(Source.token),
-      ~children: list(element)=?,
+      ~children: list(React.element)=?,
       unit
     ) =>
-    list(element);
+    list(React.element);
 } = {
   let createElement = (~container, ~tokens, ~children as _=?, ()) => {
     tokens
@@ -87,8 +86,13 @@ module rec SourceTokens: {
 
 module StyledElement: {
   let createElement:
-    (~style: Style.t, ~emph_level: int, ~children: list(element), unit) =>
-    list(element);
+    (
+      ~style: Style.t,
+      ~emph_level: int,
+      ~children: list(React.element),
+      unit
+    ) =>
+    list(React.element);
 } = {
   let createElement = (~style, ~emph_level, ~children, ()) => {
     switch ((style: Style.t)) {
@@ -107,18 +111,18 @@ module StyledElement: {
 };
 
 module SourceElement: {
-  type container = Inline.t => list(element);
+  type container = Inline.t => list(React.element);
   let createElement:
     (
       ~container: container,
       ~source: list(Source.token),
       ~classes: list(string)=?,
-      ~children: list(element)=?,
+      ~children: list(React.element)=?,
       unit
     ) =>
-    list(element);
+    list(React.element);
 } = {
-  type container = Inline.t => list(element);
+  type container = Inline.t => list(React.element);
   let createElement = (~container, ~source, ~classes=[], ~children as _=?, ()) => {
     switch (<SourceTokens tokens=source container />) {
     | [] => []
@@ -133,10 +137,10 @@ module rec InlineElement: {
       ~emph_level: int=?,
       ~resolve: Link.resolve=?,
       ~content: Inline.t,
-      ~children: list(element)=?,
+      ~children: list(React.element)=?,
       unit
     ) =>
-    list(element);
+    list(React.element);
 } = {
   let createElement =
       (~emph_level=0, ~resolve=?, ~content, ~children as _=?, ()) => {
@@ -144,7 +148,7 @@ module rec InlineElement: {
     |> List.map((t: Inline.one) => {
          switch (t.desc, resolve) {
          | (Entity(s), _) =>
-           let inner = entity(s);
+           let inner = React.entity(s);
            if (t.attr == []) {
              <> inner </>;
            } else {
@@ -152,7 +156,7 @@ module rec InlineElement: {
            };
          | (Text(""), _) => []
          | (Text(s), _) =>
-           let inner = string(s);
+           let inner = React.string(s);
            if (t.attr == []) {
              <> inner </>;
            } else {
@@ -231,7 +235,7 @@ module Heading = {
     let content =
       switch (id) {
       | Some(id) => [
-          <a href={"#" ++ id} class_="anchor"> {string("")} </a>,
+          <a href={"#" ++ id} class_="anchor"> {React.string("")} </a>,
           ...<InlineElement resolve content=title />,
         ]
       | None => <InlineElement resolve content=title />
@@ -247,7 +251,7 @@ module Heading = {
   };
 };
 
-let rec block = (~resolve, l: Block.t): list(element) => {
+let rec block = (~resolve, l: Block.t): list(React.element) => {
   l
   |> List.map((t: Block.one) => {
        switch (t.desc) {
@@ -285,17 +289,17 @@ let rec block = (~resolve, l: Block.t): list(element) => {
            let term = <InlineElement resolve content={i.Description.key} />;
            let def = block(~resolve, i.Description.definition);
            <li class_=?{classNames(i.Description.attr)}>
-             ...{term @ [string(" "), ...def]}
+             ...{term @ [React.string(" "), ...def]}
            </li>;
          };
          [
            <ul class_=?{classNames(t.attr)}>
-             ...{[string(""), ...List.map(item, l)]}
+             ...{[React.string(""), ...List.map(item, l)]}
            </ul>,
          ];
        | Raw_markup(r) => <RawMarkup t=r />
        | Verbatim(s) => [
-           <pre class_=?{classNames(t.attr)}> {string(s)} </pre>,
+           <pre class_=?{classNames(t.attr)}> {React.string(s)} </pre>,
          ]
        | Source(c) =>
          let container = element => <InlineElement resolve content=element />;
@@ -325,12 +329,12 @@ module SpecDocDiv = {
 
 module Details = {
   let createElement =
-      (~children: list(element), ~summary as summary_, ~open_, ()) => {
-    <details open_> ...{summary_ @ children} </details>;
+      (~children: list(React.element), ~summary as summary_, ~open_, ()) => {
+    <details open_> {React.list(summary_ @ children)} </details>;
   };
 };
 
-let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
+let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(React.element) => {
   open DocumentedSrc;
   let take_code = l =>
     Doctree.Take.until(
@@ -358,7 +362,7 @@ let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
         | _ => Stop_and_keep,
     );
 
-  let rec to_html = (t): list(element) =>
+  let rec to_html = (t): list(React.element) =>
     switch (t) {
     | [] => []
     | [Code(_) | Alternative(_), ..._] =>
@@ -384,12 +388,14 @@ let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
               <td class_="def-doc">
                 ...{
                      [
-                       <span class_="comment-delim"> {string(opening)} </span>,
+                       <span class_="comment-delim">
+                         {React.string(opening)}
+                       </span>,
                        ...block(~resolve, doc),
                      ]
                      @ [
                        <span class_="comment-delim">
-                         {string(closing)}
+                         {React.string(closing)}
                        </span>,
                      ]
                    }
@@ -421,10 +427,10 @@ let rec documentedSrc = (~resolve, t: DocumentedSrc.t): list(element) => {
 
   to_html(t);
 }
-and subpage = (~resolve, subp: Subpage.t): list(element) =>
+and subpage = (~resolve, subp: Subpage.t): list(React.element) =>
   items(~resolve, subp.content.items)
-and items = (~resolve, l): list(element) => {
-  let rec walk_items = (acc, t: list(Item.t)): list(element) => {
+and items = (~resolve, l): list(React.element) => {
+  let rec walk_items = (acc, t: list(Item.t)): list(React.element) => {
     let continue_with = (rest, elts) =>
       ([@tailcall] walk_items)(List.rev_append(elts, acc), rest);
 
@@ -626,5 +632,5 @@ let render = (~theme_uri=?, ~support_uri=?, ~indent, page) =>
 let doc = (~xref_base_uri, blocks) => {
   let resolve = Link.Base(xref_base_uri);
   let elements = block(~resolve, blocks);
-  (~indent) => React.ReactDomStatic.to_content(~indent, elements);
+  (~indent) => React_renderer.ReactDomStatic.to_content(~indent, elements);
 };

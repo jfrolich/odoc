@@ -15,6 +15,7 @@
  */
 
 open Odoc_document;
+open React_renderer.StaticReact;
 
 /** Supported languages for printing code parts. */;
 
@@ -38,10 +39,10 @@ let make:
     ~support_uri: uri=?,
     ~indent: bool,
     ~url: Url.Path.t,
-    ~header: list(React.StaticReact.element),
-    ~toc: list(React.StaticReact.element),
+    ~header: list(React.element),
+    ~toc: list(React.element),
     string,
-    list(React.StaticReact.element),
+    list(React.element),
     list(Renderer.page)
   ) =>
   Renderer.page;
