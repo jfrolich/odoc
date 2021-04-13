@@ -23,6 +23,20 @@ module type REACT_RENDERER = {
   let list: list(element) => element;
 };
 
+module type REACT_ELEMENTS = {
+  type unsafe_html = {__html: string};
+  let div:
+    (
+      ~id: string=?,
+      ~class_: string=?,
+      ~class2: string=?,
+      ~children: list(React.element)=?,
+      ~dangerouslySetInnerHTML: unsafe_html=?,
+      unit
+    ) =>
+    React.element;
+};
+
 module ReactDomStatic: {
   include REACT_RENDERER;
   let to_content: (~indent: bool, list(element), Format.formatter) => unit;
