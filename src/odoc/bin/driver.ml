@@ -21,10 +21,33 @@ hard-code the output path to be html.
 
 In all of these we'll ignore stderr.
 *)
-(* let odoc = Cmd.v "../../_esy/default/store/i/odoc-57278b99/bin/odoc" *)
-let odoc = Bos.Cmd.v "odoc"
+let _ = print_endline "Building docs..."
 
-let ( % ) = Bos.Cmd.( % )
+(*
+   this is the configuration, needs to be picked up from the working directory
+   in a JSON file
+
+   documel.json
+*)
+let dep_libraries =
+  [ "cmdliner"; "astring"; "fpath"; "result"; "yojson"; "tyxml" (* "stdlib" *) ]
+
+let odoc_libraries =
+  [
+    "odoc_xref_test";
+    "print";
+    "odoc_xref2";
+    "odoc_parser";
+    "odoc_odoc";
+    "odoc_model_desc";
+    "odoc_model";
+    "odoc_manpage";
+    "odoc_loader";
+    "odoc_latex";
+    "odoc_html";
+    "odoc_document";
+    "odoc_compat";
+  ]
 
 let with_error s = function Ok result -> result | Error _ -> raise s
 
@@ -49,6 +72,12 @@ exception LibUnitsError
 exception CompileDeps
 
 exception BadExtension of string
+
+let odoc = Bos.Cmd.v "odoc"
+
+let ( % ) = Bos.Cmd.( % )
+
+let extra_docs = [ "interface"; "driver" ]
 
 let compile file ?parent children =
   (* print_endline ("Compiling " ^ Fpath.to_string file); *)
@@ -98,37 +127,13 @@ let support_files () =
   Bos.OS.Cmd.(run_out cmd |> to_lines) |> with_error SupportFilesError
 
 (*
-
 We'll now make some library lists. We have not only external dependency
 libraries, but Odoc itself is separated into libraries too. These two sets of
 libraries will be documented in different sections, so we'll keep them in
 separate lists, together with a We start by declaring a few lists representing
 these sections as well as a list mapping the section to its parent matching to
 the hierarchy declared above.
-
 *)
-
-let dep_libraries =
-  [ "cmdliner"; "astring"; "fpath"; "result"; "yojson"; "tyxml"; "stdlib" ]
-
-let odoc_libraries =
-  [
-    "odoc_xref_test";
-    "print";
-    "odoc_xref2";
-    "odoc_parser";
-    "odoc_odoc";
-    "odoc_model_desc";
-    "odoc_model";
-    "odoc_manpage";
-    "odoc_loader";
-    "odoc_latex";
-    "odoc_html";
-    "odoc_document";
-    "odoc_compat";
-  ]
-
-let extra_docs = [ "interface"; "driver" ]
 
 (*
 Odoc operates on the compiler outputs. We need to find them for both the files
@@ -136,6 +141,7 @@ compiled by dune within this project and those in libraries we compile against.
 The following uses ocamlfind to locate the library paths we're looking in for
 our dependencies:
 *)
+
 let ocamlfind = Bos.Cmd.v "ocamlfind"
 
 (* resolving the path for a library *)
@@ -218,11 +224,13 @@ library.
 
 type path = Fpath.t
 
-type unit = Local of path | Dependency of string * path
-
 let units : (string, unit) Hashtbl.t = Hashtbl.create 10000
 
 let odoc_all_unit_paths = find_units ".." |> with_error AllUnitPathsError
+
+type unit =
+  | Unit_local of string * Fpath.t
+  | Unit_namespace of string * Fpath.t
 
 let odoc_units =
   List.map
@@ -230,30 +238,26 @@ let odoc_units =
       Fpath.Set.fold
         (fun p acc ->
           if Astring.String.is_infix ~affix:lib (Fpath.to_string p) then
-            ("odoc", lib, p) :: acc
+            (lib, p) :: acc
           else acc)
         odoc_all_unit_paths [])
     odoc_libraries
   |> List.flatten
 
-let _ = print_endline "UNITS"
-
-let _ =
+(* let _ =
   List.iter
-    (fun (_, _, path) -> print_endline (Fpath.to_string path))
-    odoc_units
+    (fun (_, path) -> print_endline (Fpath.to_string path))
+    odoc_units *)
 
 let lib_units =
   List.map
     (fun (lib, p) ->
       Fpath.Set.fold
-        (fun p acc -> ("deps", p) :: acc)
+        (fun p acc -> p :: acc)
         (find_units p |> with_error LibUnitsError)
         [])
     (resolve_lib_paths dep_libraries)
   |> List.flatten
-
-let odoc_units = odoc_units
 
 (*
 Let's compile all of the parent mld files. We do this in order such that the
@@ -273,9 +277,8 @@ let compile_mlds () =
   let root_children = List.map mkpage ("deps" :: odoc_libraries @ extra_docs) in
   let root = compile (mkmld "odoc") root_children in
 
-  (* let deps_children = List.map mkpage dep_libraries in *)
   let deps_children =
-    List.map (fun (lib, child) -> Fpath.basename child |> mkmod) lib_units
+    List.map (fun child -> Fpath.basename child |> mkmod) lib_units
   in
   let deps = compile (mkmld "deps") ~parent:"odoc" deps_children in
 
@@ -288,7 +291,7 @@ let compile_mlds () =
       (fun library ->
         let children =
           List.filter_map
-            (fun (parent, lib, child) ->
+            (fun (lib, child) ->
               if lib = library then Some (Fpath.basename child |> mkmod)
               else None)
             odoc_units
@@ -309,7 +312,9 @@ leaf package, and that there must be no module name clashes in its dependencies.
 The result of this function is a list of the resulting odoc files.
 *)
 
-let all_units = (odoc_units |> List.map (fun (_, m, f) -> (m, f))) @ lib_units
+let all_units =
+  (odoc_units |> List.map (fun (dep, f) -> Unit_local (dep, f)))
+  @ (lib_units |> List.map (fun m -> Unit_namespace ("deps", m)))
 
 module StringSet = Set.Make (String)
 
@@ -331,12 +336,20 @@ let compile_all () =
             (fun acc (dep_name, digest) ->
               match
                 List.find_opt
-                  (fun (_, f) ->
-                    Fpath.basename f |> String.capitalize_ascii = dep_name)
+                  (* (fun (_, f) ->
+                     Fpath.basename f |> String.capitalize_ascii = dep_name) *)
+                    (function
+                    | Unit_local (lib, f) ->
+                        Fpath.basename f |> String.capitalize_ascii = dep_name
+                    | Unit_namespace (namespace, f) ->
+                        Fpath.basename f |> String.capitalize_ascii = dep_name)
                   all_units
               with
               | None -> acc
-              | Some (lib, dep_path) ->
+              | Some (Unit_local (lib, dep_path)) ->
+                  let file = find_best_file dep_path in
+                  rec_compile lib file @ acc
+              | Some (Unit_namespace (lib, dep_path)) ->
                   let file = find_best_file dep_path in
                   rec_compile lib file @ acc)
             [] deps.deps
@@ -345,7 +358,12 @@ let compile_all () =
         output :: files
   in
   List.fold_left
-    (fun acc (lib, dep) -> acc @ rec_compile lib (find_best_file dep))
+    (fun acc u ->
+      acc
+      @
+      match u with
+      | Unit_local (lib, dep) | Unit_namespace (lib, dep) ->
+          rec_compile lib (find_best_file dep))
     [] all_units
   @ mld_odocs
 
