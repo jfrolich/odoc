@@ -49,6 +49,8 @@ let odoc_libraries =
     "odoc_compat";
   ]
 
+let root_page = "odoc"
+
 let with_error s = function Ok result -> result | Error _ -> raise s
 
 exception CompileError
@@ -79,13 +81,17 @@ let ( % ) = Bos.Cmd.( % )
 
 let extra_docs = [ "interface"; "driver" ]
 
+let mkpage x = "page-" ^ x
+
+let mkmod x = "module-" ^ x
+
 let compile file ?parent children =
   (* print_endline ("Compiling " ^ Fpath.to_string file); *)
   let output_file =
     let ext = Fpath.get_ext file in
     let basename = Fpath.basename (Fpath.rem_ext file) in
     match ext with
-    | ".mld" -> "page-" ^ basename ^ ".odoc"
+    | ".mld" -> mkpage basename ^ ".odoc"
     | ".cmt" | ".cmti" | ".cmi" -> basename ^ ".odoc"
     | _ -> raise (BadExtension ext)
   in
@@ -207,6 +213,7 @@ depends upon, with the following function:
 type compile_deps = { digest : Digest.t; deps : (string * Digest.t) list }
 
 let compile_deps f =
+  (* print_endline ("DEPS of " ^ Fpath.to_string f); *)
   let cmd = Bos.Cmd.(odoc % "compile-deps" % Fpath.to_string f) in
 
   let* lines = Bos.OS.Cmd.(run_out cmd |> to_lines) in
@@ -224,41 +231,44 @@ library.
 
 type path = Fpath.t
 
+let odoc_all_unit_paths =
+  find_units "../_build/" |> with_error AllUnitPathsError
+
+type unit = Unit_local of Fpath.t | Unit_namespace of string * Fpath.t
+
 let units : (string, unit) Hashtbl.t = Hashtbl.create 10000
 
-let odoc_all_unit_paths = find_units ".." |> with_error AllUnitPathsError
-
-type unit =
-  | Unit_local of string * Fpath.t
-  | Unit_namespace of string * Fpath.t
-
-let odoc_units =
-  List.map
-    (fun lib ->
-      Fpath.Set.fold
-        (fun p acc ->
-          if Astring.String.is_infix ~affix:lib (Fpath.to_string p) then
-            (lib, p) :: acc
-          else acc)
-        odoc_all_unit_paths [])
-    odoc_libraries
-  |> List.flatten
+let _ =
+  Fpath.Set.iter
+    (fun p ->
+      if not (is_hidden p) then
+        Hashtbl.add units
+          (Fpath.basename p |> String.capitalize_ascii)
+          (Unit_local p))
+    odoc_all_unit_paths
 
 (* let _ =
+  List.iter (fun (_, path) -> print_endline (Fpath.to_string path)) odoc_units *)
+
+let _ =
   List.iter
-    (fun (_, path) -> print_endline (Fpath.to_string path))
-    odoc_units *)
-
-let lib_units =
-  List.map
     (fun (lib, p) ->
-      Fpath.Set.fold
-        (fun p acc -> p :: acc)
-        (find_units p |> with_error LibUnitsError)
-        [])
+      Fpath.Set.iter
+        (fun p ->
+          if not (is_hidden p) then
+            Hashtbl.add units
+              (Fpath.basename p |> String.capitalize_ascii)
+              (Unit_namespace ("deps", p)))
+        (find_units p |> with_error LibUnitsError))
     (resolve_lib_paths dep_libraries)
-  |> List.flatten
 
+let _ =
+  Seq.iter
+    (fun u ->
+      print_endline
+        (match u with
+        | Unit_local f | Unit_namespace (_, f) -> Fpath.to_string f))
+    (Hashtbl.to_seq_values units)
 (*
 Let's compile all of the parent mld files. We do this in order such that the
 parents are compiled before the children, so we start with odoc.mld, then
@@ -266,40 +276,38 @@ deps.mld, and so on. The result of this file is a list of the resulting odoc
 files.
 *)
 
-let mkpage x = "page-" ^ x
-
-let mkmod x = "module-" ^ x
-
 let mkmld x = Fpath.(add_ext "mld" (v x))
 
 let compile_mlds () =
-  print_endline "Compiling mlds";
-  let root_children = List.map mkpage ("deps" :: odoc_libraries @ extra_docs) in
-  let root = compile (mkmld "odoc") root_children in
+  (* print_endline "Compiling mlds"; *)
+  let root_children =
+    List.map (fun x -> mkpage x) ("deps" :: extra_docs)
+    @ (units |> Hashtbl.to_seq_values
+      |> Seq.filter_map (function
+           | Unit_local p -> Some p
+           | Unit_namespace _ -> None)
+      |> Seq.map (fun child -> Fpath.basename child)
+      |> List.of_seq)
+  in
+  List.iter print_endline root_children;
+  let root = compile (mkmld ("" ^ root_page)) root_children in
 
   let deps_children =
-    List.map (fun child -> Fpath.basename child |> mkmod) lib_units
+    units |> Hashtbl.to_seq_values
+    |> Seq.filter_map (function
+         | Unit_local _ -> None
+         | Unit_namespace (_, f) -> Some f)
+    |> Seq.map (fun child -> Fpath.basename child |> mkmod)
+    |> List.of_seq
   in
-  let deps = compile (mkmld "deps") ~parent:"odoc" deps_children in
+  let deps = compile (mkmld ("" ^ "deps")) ~parent:root_page deps_children in
 
   let extra_odocs =
-    List.map (fun p -> compile (mkmld p) ~parent:"odoc" []) extra_docs
+    List.map (fun p -> compile (mkmld ("" ^ p)) ~parent:root_page []) extra_docs
   in
 
-  let odocs =
-    List.map
-      (fun library ->
-        let children =
-          List.filter_map
-            (fun (lib, child) ->
-              if lib = library then Some (Fpath.basename child |> mkmod)
-              else None)
-            odoc_units
-        in
-        compile (mkmld library) ~parent:"odoc" children)
-      odoc_libraries
-  in
-  List.map Fpath.v (root :: deps :: odocs @ extra_odocs)
+  (* print_endline "Done with MLDs"; *)
+  List.map Fpath.v (root :: deps :: extra_odocs)
 
 (*
 Now we get to the compilation phase. For each unit, we query its dependencies,
@@ -312,16 +320,12 @@ leaf package, and that there must be no module name clashes in its dependencies.
 The result of this function is a list of the resulting odoc files.
 *)
 
-let all_units =
-  (odoc_units |> List.map (fun (dep, f) -> Unit_local (dep, f)))
-  @ (lib_units |> List.map (fun m -> Unit_namespace ("deps", m)))
-
 module StringSet = Set.Make (String)
 
 let already_compiled = Hashtbl.create 10000
 
 let compile_all () =
-  print_endline "Compile all...";
+  (* print_endline "Compile all..."; *)
   let mld_odocs = compile_mlds () in
   let rec rec_compile lib file =
     let output = Fpath.(base (set_ext "odoc" file)) in
@@ -334,21 +338,11 @@ let compile_all () =
         let files =
           List.fold_left
             (fun acc (dep_name, digest) ->
-              match
-                List.find_opt
-                  (* (fun (_, f) ->
-                     Fpath.basename f |> String.capitalize_ascii = dep_name) *)
-                    (function
-                    | Unit_local (lib, f) ->
-                        Fpath.basename f |> String.capitalize_ascii = dep_name
-                    | Unit_namespace (namespace, f) ->
-                        Fpath.basename f |> String.capitalize_ascii = dep_name)
-                  all_units
-              with
+              match Hashtbl.find_opt units dep_name with
               | None -> acc
-              | Some (Unit_local (lib, dep_path)) ->
+              | Some (Unit_local dep_path) ->
                   let file = find_best_file dep_path in
-                  rec_compile lib file @ acc
+                  rec_compile root_page file @ acc
               | Some (Unit_namespace (lib, dep_path)) ->
                   let file = find_best_file dep_path in
                   rec_compile lib file @ acc)
@@ -362,9 +356,10 @@ let compile_all () =
       acc
       @
       match u with
-      | Unit_local (lib, dep) | Unit_namespace (lib, dep) ->
-          rec_compile lib (find_best_file dep))
-    [] all_units
+      | Unit_local dep -> rec_compile "odoc" (find_best_file dep)
+      | Unit_namespace (lib, dep) -> rec_compile lib (find_best_file dep))
+    []
+    (units |> Hashtbl.to_seq_values |> List.of_seq)
   @ mld_odocs
 
 (*

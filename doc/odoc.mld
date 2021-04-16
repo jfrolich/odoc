@@ -7,7 +7,7 @@
 It's built from the ground up to be build-tool friendly, and it focuses on
 parallelism and caching. Instead of source code, it works with {i compilation
 units}; that is, it works on compiler outputs and turns them into compiled
-documentation, which then becomes gorgeous HTML. There are 
+documentation, which then becomes gorgeous HTML. There are
 {{!page-interface}strong guarantees} about compatibility so you can be
 assured your documentation will work long into the future!
 
@@ -70,7 +70,7 @@ Odoc is not intended to be invoked by users directly. Please use `odig` or `dune
 {1 Contributing to Odoc}
 
 We'd love your help! We have a {{!page-contributing}contributors guide} with some useful
-pointers to help you get familiar with odoc's codebase. 
+pointers to help you get familiar with odoc's codebase.
 
 {1 API reference}
 
@@ -84,8 +84,8 @@ pointers to help you get familiar with odoc's codebase.
 This library contains the internal representation of OCaml interfaces used
 by odoc.
 
-- {!childpage-odoc_model} : Model types
-- {!childpage-odoc_model_desc} : Json renderers of model types
+- {!Odoc_model} : Model types
+- {!Odoc_model_desc} : Json renderers of model types
 
 {2 Resolution and expansion}
 
