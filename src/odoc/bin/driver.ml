@@ -21,7 +21,6 @@ type config = {
   (* the dependencies that documl needs to generate docs for *)
   dep_libraries : string list;
   root_page : string;
-  doc_root : string;
 }
 
 let with_error s = function Ok result -> result | Error _ -> raise s
@@ -60,7 +59,7 @@ let mkpage x = "page-" ^ x
 
 let mkmod x = "module-" ^ x
 
-let compile file ?parent children =
+let compile file ?parent ~env ~directories children =
   (* print_endline ("Compiling " ^ Fpath.to_string file); *)
   let output_file =
     let ext = Fpath.get_ext file in
@@ -70,9 +69,7 @@ let compile file ?parent children =
     | ".cmt" | ".cmti" | ".cmi" -> basename ^ ".odoc"
     | _ -> raise (BadExtension ext)
   in
-  let directories = [ "." |> Fs.Directory.of_string ] in
   let _ = Fs.Directory.mkdir_p (Fs.File.dirname file) in
-  let env = Env.create ~important_digests:true ~directories ~open_modules:[] in
   let result =
     Compile.compile ~env ~directories
       ~parent_cli_spec:
@@ -103,18 +100,14 @@ let compile file ?parent children =
           print_endline ("Error compiling " ^ Fpath.to_string file));
       raise CompileError
 
-let link file =
-  let directories = [ "." |> Fs.Directory.of_string ] in
-  let env = Env.create ~important_digests:true ~directories ~open_modules:[] in
+let link ~env file =
   Odoc_link.from_odoc ~env ~warn_error:false file
     Fs.File.(set_ext ".odocl" file)
   |> with_error LinkError
 (* let cmd = odoc % "link" % Bos.Cmd.p file % "-I" % "." in
    Bos.OS.Cmd.(run_out ~err:err_null cmd |> to_lines) |> with_error LinkError *)
 
-let html_generate file =
-  let directories = [ "." |> Fs.Directory.of_string ] in
-  let env = Env.create ~important_digests:false ~directories ~open_modules:[] in
+let html_generate ~env file =
   Rendering.render_odoc ~env ~renderer:Html_page.renderer ~warn_error:false
     ~syntax:Odoc_document.Renderer.Reason
     ~output:(Fs.Directory.of_string "html")
@@ -131,7 +124,7 @@ let html_generate file =
    Bos.OS.Cmd.(run_out cmd ~err:err_null |> to_lines)
    |> with_error HtmlGenerationError *)
 
-let json_generate file =
+let json_generate ~env file =
   (* let cmd = odoc % "json-generate" % Bos.Cmd.p file % "-o" % "html" in
      Bos.OS.Cmd.(run_out cmd ~err:err_null |> to_lines)
      |> with_error JSONGenerationError *)
@@ -148,22 +141,6 @@ let support_files () =
   Support_files.write ~without_theme:false (Fs.Directory.of_string "html")
 (* let cmd = odoc % "support-files" % "-o" % "html" in
    Bos.OS.Cmd.(run_out cmd |> to_lines) |> with_error SupportFilesError *)
-
-(*
-We'll now make some library lists. We have not only external dependency
-libraries, but Odoc itself is separated into libraries too. These two sets of
-libraries will be documented in different sections, so we'll keep them in
-separate lists, together with a We start by declaring a few lists representing
-these sections as well as a list mapping the section to its parent matching to
-the hierarchy declared above.
-*)
-
-(*
-Odoc operates on the compiler outputs. We need to find them for both the files
-compiled by dune within this project and those in libraries we compile against.
-The following uses ocamlfind to locate the library paths we're looking in for
-our dependencies:
-*)
 
 (* resolving the path for a library *)
 let resolve_lib_path lib =
@@ -219,12 +196,6 @@ for that condition:
 
 let is_hidden path = Astring.String.is_infix ~affix:"__" (Fpath.to_string path)
 
-(*
-To build the documentation, we start with these files. We'll call
-odoc compile-deps on the file to find out which other compilation units it
-depends upon, with the following function:
-*)
-
 type compile_deps = { digest : Digest.t; deps : (string * Digest.t) list }
 
 let compile_deps f =
@@ -237,12 +208,6 @@ let compile_deps f =
   match List.partition (fun (n, _) -> basename = n) l with
   | [ (_, digest) ], deps -> Ok { digest; deps }
   | _ -> Error (`Msg "odd")
-
-(*
-Let's now put together a list of all possible modules. We'll keep track of which
-library they're in, and whether that library is a part of odoc or a dependency
-library.
-*)
 
 type path = Fpath.t
 
@@ -290,7 +255,7 @@ files.
 *)
 
 (* this compiles the mld and markdown files *)
-let compile_docs ~config ~units =
+let compile_docs ~config ~units ~env ~directories =
   let mkmld x = Fpath.(add_ext "mld" (v x)) in
   (* print_endline "Compiling mlds"; *)
   let root_children =
@@ -303,7 +268,9 @@ let compile_docs ~config ~units =
       |> List.of_seq)
   in
   List.iter print_endline root_children;
-  let root = compile (mkmld ("doc/" ^ config.root_page)) root_children in
+  let root =
+    compile ~env ~directories (mkmld ("doc/" ^ config.root_page)) root_children
+  in
 
   let deps_children =
     units |> Hashtbl.to_seq_values
@@ -314,24 +281,29 @@ let compile_docs ~config ~units =
     |> List.of_seq
   in
   let deps =
-    compile (mkmld ("doc/" ^ "deps")) ~parent:config.root_page deps_children
+    compile ~env ~directories
+      (mkmld ("doc/" ^ "deps"))
+      ~parent:config.root_page deps_children
   in
 
   let extra_odocs =
     List.map
-      (fun p -> compile (mkmld ("doc/" ^ p)) ~parent:config.root_page [])
+      (fun p ->
+        compile ~env ~directories
+          (mkmld ("doc/" ^ p))
+          ~parent:config.root_page [])
       extra_docs
   in
 
   (* print_endline "Done with MLDs"; *)
   List.map Fpath.v (root :: deps :: extra_odocs)
 
-let compile_all ~config =
+let compile_all ~config ~env ~directories =
   let units : (string, unit) Hashtbl.t = Hashtbl.create 10000 in
   let already_compiled = Hashtbl.create 10000 in
   let _ = add_local_units ~config units in
   (* print_endline "Compile all..."; *)
-  let mld_odocs = compile_docs ~config ~units in
+  let mld_odocs = compile_docs ~env ~directories ~config ~units in
   let rec rec_compile lib file =
     let output = Fpath.(base (set_ext "odoc" file)) in
     (* we need to do this to avoid circular dependencies *)
@@ -353,7 +325,7 @@ let compile_all ~config =
                   rec_compile lib file @ acc)
             [] deps.deps
         in
-        ignore (compile file ~parent:lib []);
+        ignore (compile ~env ~directories file ~parent:lib []);
         output :: files
   in
   List.fold_left
@@ -367,19 +339,19 @@ let compile_all ~config =
     (units |> Hashtbl.to_seq_values |> List.of_seq)
   @ mld_odocs
 
-let link_all odoc_files =
+let link_all ~env odoc_files =
   let not_hidden f = not (is_hidden f) in
   List.map
     (fun odoc_file ->
-      ignore (link odoc_file);
+      ignore (link ~env odoc_file);
       Fpath.set_ext "odocl" odoc_file)
     (List.filter not_hidden odoc_files)
 
-let generate_all odocl_files =
+let generate_all ~env odocl_files =
   List.iter
     (fun f ->
-      let _ = html_generate f in
-      let _ = json_generate f in
+      let _ = html_generate ~env f in
+      let _ = json_generate ~env f in
       ())
     odocl_files;
   support_files ()
@@ -393,7 +365,6 @@ let generate_all odocl_files =
 let default_config =
   {
     unit_root = "_build/";
-    doc_root = "doc/";
     root_page = "odoc";
     dep_libraries =
       [
@@ -406,11 +377,16 @@ let default_config =
       ];
   }
 
-let compiled = compile_all ~config:default_config
+(* this should be unit_root, but we need to localize the docs first instead of hardcoding the location *)
+let directories = [ "." |> Fs.Directory.of_string ]
 
-let linked = link_all compiled
+let env = Env.create ~important_digests:false ~directories ~open_modules:[]
 
-let _ = generate_all linked
+let compiled = compile_all ~env ~directories ~config:default_config
+
+let linked = link_all ~env compiled
+
+let _ = generate_all ~env linked
 
 let revolt () = print_endline "Revolt!"
 
