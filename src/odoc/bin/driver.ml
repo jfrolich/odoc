@@ -2,8 +2,8 @@
   TODO:
     - [ ] store last modified date of unit, and compare to odoc file to see if we need to recompile
     - [ ] generate odoc and odocl alongside the cmt/cmti files
-    - [ ] don't shell out to the executables, but call directly
-    - [ ] Remove dependency of Bos
+    - [x] don't shell out to the executables, but call directly
+    - [x] Remove dependency of Bos
 
 
 *)
@@ -47,11 +47,13 @@ exception CompileDeps
 
 exception BadExtension of string
 
+exception GetDepsError
+
 open Odoc_odoc
 
-let odoc = Bos.Cmd.v "odoc"
+type path = Fpath.t
 
-let ( % ) = Bos.Cmd.( % )
+type unit = Unit_local of Fpath.t | Unit_namespace of string * Fpath.t
 
 let extra_docs = [ "interface"; "driver" ]
 
@@ -70,7 +72,7 @@ let compile file ?parent ~env ~directories children =
     | _ -> raise (BadExtension ext)
   in
   let _ = Fs.Directory.mkdir_p (Fs.File.dirname file) in
-  let result =
+  match
     Compile.compile ~env ~directories
       ~parent_cli_spec:
         (match parent with
@@ -79,17 +81,7 @@ let compile file ?parent ~env ~directories children =
       ~hidden:false ~children
       ~output:(output_file |> Fs.File.of_string)
       ~warn_error:false file
-  in
-  (* This is the code to shell out to the cmdline *)
-  (* let cmd =
-       odoc % "compile" % Fpath.to_string file % "-I" % "." % "-o" % output_file
-     in
-     let cmd =
-       List.fold_left (fun cmd child -> cmd % "--child" % child) cmd children
-     in
-     let cmd = match parent with Some p -> cmd % "--parent" % p | None -> cmd in
-     let result = Bos.OS.Cmd.(run_out ~err:err_null cmd |> to_lines) in *)
-  match result with
+  with
   | Ok _ ->
       (* print_endline ("Successfully compiled " ^ Fpath.to_string file); *)
       output_file
@@ -104,8 +96,6 @@ let link ~env file =
   Odoc_link.from_odoc ~env ~warn_error:false file
     Fs.File.(set_ext ".odocl" file)
   |> with_error LinkError
-(* let cmd = odoc % "link" % Bos.Cmd.p file % "-I" % "." in
-   Bos.OS.Cmd.(run_out ~err:err_null cmd |> to_lines) |> with_error LinkError *)
 
 let html_generate ~env file =
   Rendering.render_odoc ~env ~renderer:Html_page.renderer ~warn_error:false
@@ -120,14 +110,8 @@ let html_generate ~env file =
     }
     file
   |> with_error HtmlGenerationError
-(* let cmd = odoc % "html-generate" % Bos.Cmd.p file % "-o" % "html" in
-   Bos.OS.Cmd.(run_out cmd ~err:err_null |> to_lines)
-   |> with_error HtmlGenerationError *)
 
 let json_generate ~env file =
-  (* let cmd = odoc % "json-generate" % Bos.Cmd.p file % "-o" % "html" in
-     Bos.OS.Cmd.(run_out cmd ~err:err_null |> to_lines)
-     |> with_error JSONGenerationError *)
   let directories = [ "." |> Fs.Directory.of_string ] in
   let env = Env.create ~important_digests:false ~directories ~open_modules:[] in
   Rendering.render_odoc ~env ~renderer:Odoc_json.Json_renderer.renderer
@@ -139,23 +123,19 @@ let json_generate ~env file =
 
 let support_files () =
   Support_files.write ~without_theme:false (Fs.Directory.of_string "html")
-(* let cmd = odoc % "support-files" % "-o" % "html" in
-   Bos.OS.Cmd.(run_out cmd |> to_lines) |> with_error SupportFilesError *)
 
-(* resolving the path for a library *)
 let resolve_lib_path lib =
-  let cmd = Bos.Cmd.v "ocamlfind" % "query" % lib in
-  Bos.OS.Cmd.run_out cmd |> Bos.OS.Cmd.to_lines |> Result.map List.hd
+  let ic = Unix.open_process_in ("ocamlfind query " ^ lib) in
+  try input_line ic with End_of_file -> raise GetDepsError
 
 (** constructing (library_name, library_path) tuples *)
 let resolve_lib_paths library_names =
   List.fold_left
     (fun acc lib ->
-      let* acc = acc in
-      let+ l = resolve_lib_path lib in
+      let acc = acc in
+      let l = resolve_lib_path lib in
       (lib, l) :: acc)
-    (Ok []) library_names
-  |> with_error LibPathsError
+    [] library_names
 
 (*
 We need a function to find odoc inputs given a search path. The files that odoc
@@ -164,18 +144,43 @@ following function finds all files like that given a search path, returning an
 Fpath.Set.t containing Fpath.t values representing the absolute path to the file
 without its extension.
 *)
-
-let find_units p =
-  let+ paths =
-    Bos.OS.Dir.fold_contents ~dotfiles:true
-      (fun p acc ->
-        if List.exists (fun ext -> Fpath.has_ext ext p) [ "cmt"; "cmti"; "cmi" ]
-        then p :: acc
-        else acc)
-      [] (Fpath.v p)
+let traverse_files dir =
+  let rec loop result = function
+    | f :: fs when Sys.is_directory (Fpath.to_string f) ->
+        print_endline ("A: " ^ (f |> Fpath.to_string));
+        Sys.readdir (Fpath.to_string f)
+        |> Array.to_list
+        |> List.map (Fpath.add_seg f)
+        |> List.append fs |> loop result
+    | f :: fs
+      when List.exists (fun ext -> Fpath.has_ext ext f) [ "cmt"; "cmti"; "cmi" ]
+      ->
+        print_endline ("B: " ^ (f |> Fpath.to_string));
+        loop (f :: result) fs
+    | f :: fs ->
+        print_endline ("C: " ^ (f |> Fpath.to_string));
+        loop result fs
+    | [] ->
+        print_endline "NOTHING: ";
+        result
   in
-  let l = List.map Fpath.rem_ext paths in
-  List.fold_left (fun acc path -> Fpath.Set.add path acc) Fpath.Set.empty l
+  print_endline ("DIR: " ^ (dir |> Fpath.to_string));
+  loop [] [ dir ]
+
+(* let rec traverse_files path =
+  let files = Sys.readdir (path) in
+  let files = Array.to_list files in
+  List.fold_left (fun acc file -> if Sys.is_directory file then (List.append traverse_files file) else file :: files) *)
+
+let add_units units ~path ~namespace =
+  traverse_files (Fpath.v path)
+  |> List.iter (fun path ->
+         let path = Fpath.rem_ext path in
+         Hashtbl.add units
+           (Fpath.basename path |> String.capitalize_ascii)
+           (match namespace with
+           | Some namespace -> Unit_namespace (namespace, path)
+           | None -> Unit_local path))
 
 (*
 Since the units returned by this function have their extension stripped, we need
@@ -184,7 +189,7 @@ function to find the best file to use given this basename.
 
 let find_best_file base =
   List.map (fun ext -> Fpath.add_ext ext base) [ "cmti"; "cmt"; "cmi" ]
-  |> List.find (fun f -> Bos.OS.File.exists f |> with_error BestFileError)
+  |> List.find (fun f -> Sys.file_exists (Fpath.to_string f))
 
 (*
 Many of the units will be 'hidden' \-- that is, their name will be mangled by
@@ -199,53 +204,32 @@ let is_hidden path = Astring.String.is_infix ~affix:"__" (Fpath.to_string path)
 type compile_deps = { digest : Digest.t; deps : (string * Digest.t) list }
 
 let compile_deps f =
-  (* print_endline ("DEPS of " ^ Fpath.to_string f); *)
-  let cmd = odoc % "compile-deps" % Fpath.to_string f in
-
-  let* lines = Bos.OS.Cmd.run_out cmd |> Bos.OS.Cmd.to_lines in
-  let l = List.filter_map (Astring.String.cut ~sep:" ") lines in
+  let l =
+    Depends.for_compile_step f
+    |> List.map (fun t ->
+           (Depends.Compile.name t, Digest.to_hex @@ Depends.Compile.digest t))
+  in
   let basename = Fpath.(basename (f |> rem_ext)) |> String.capitalize_ascii in
   match List.partition (fun (n, _) -> basename = n) l with
   | [ (_, digest) ], deps -> Ok { digest; deps }
   | _ -> Error (`Msg "odd")
 
-type path = Fpath.t
-
-type unit = Unit_local of Fpath.t | Unit_namespace of string * Fpath.t
-
 let add_local_units ~config units =
-  let odoc_all_unit_paths =
-    find_units config.unit_root |> with_error AllUnitPathsError
-  in
-  let _ =
-    Fpath.Set.iter
-      (fun p ->
-        Hashtbl.add units
-          (Fpath.basename p |> String.capitalize_ascii)
-          (Unit_local p))
-      odoc_all_unit_paths
-  in
+  add_units units ~path:config.unit_root ~namespace:None
 
-  (* let _ =
-     List.iter (fun (_, path) -> print_endline (Fpath.to_string path)) odoc_units *)
-  let _ =
-    List.iter
-      (fun (lib, p) ->
-        Fpath.Set.iter
-          (fun p ->
-            Hashtbl.add units
-              (Fpath.basename p |> String.capitalize_ascii)
-              (Unit_namespace ("deps", p)))
-          (find_units p |> with_error LibUnitsError))
-      (resolve_lib_paths config.dep_libraries)
-  in
+(* let _ =
+   List.iter (fun (_, path) -> print_endline (Fpath.to_string path)) odoc_units *)
 
-  Seq.iter
-    (fun u ->
-      print_endline
-        (match u with
-        | Unit_local f | Unit_namespace (_, f) -> Fpath.to_string f))
-    (Hashtbl.to_seq_values units)
+let add_dep_units ~config units =
+  List.iter
+    (fun (_, path) -> add_units units ~path ~namespace:(Some "deps"))
+    (resolve_lib_paths config.dep_libraries)
+
+(* Seq.iter (fun u ->
+     print_endline
+       (match u with
+       | Unit_local f | Unit_namespace (_, f) -> Fpath.to_string f))
+   (Hashtbl.to_seq_values units) *)
 
 (*
 Let's compile all of the parent mld files. We do this in order such that the
@@ -302,6 +286,7 @@ let compile_all ~config ~env ~directories =
   let units : (string, unit) Hashtbl.t = Hashtbl.create 10000 in
   let already_compiled = Hashtbl.create 10000 in
   let _ = add_local_units ~config units in
+  let _ = add_dep_units ~config units in
   (* print_endline "Compile all..."; *)
   let mld_odocs = compile_docs ~env ~directories ~config ~units in
   let rec rec_compile lib file =
