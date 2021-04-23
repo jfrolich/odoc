@@ -71,7 +71,7 @@ let compile file ?parent ~env ~directories children =
     | ".cmt" | ".cmti" | ".cmi" -> basename ^ ".odoc"
     | _ -> raise (BadExtension ext)
   in
-  let _ = Fs.Directory.mkdir_p (Fs.File.dirname file) in
+  Fs.Directory.mkdir_p (Fs.File.dirname file);
   match
     Compile.compile ~env ~directories
       ~parent_cli_spec:
@@ -124,12 +124,12 @@ let json_generate ~env file =
 let support_files () =
   Support_files.write ~without_theme:false (Fs.Directory.of_string "html")
 
-let resolve_lib_path lib =
-  let ic = Unix.open_process_in ("ocamlfind query " ^ lib) in
-  try input_line ic with End_of_file -> raise GetDepsError
-
 (** constructing (library_name, library_path) tuples *)
 let resolve_lib_paths library_names =
+  let resolve_lib_path lib =
+    let ic = Unix.open_process_in ("ocamlfind query " ^ lib) in
+    try input_line ic with End_of_file -> raise GetDepsError
+  in
   List.fold_left
     (fun acc lib ->
       let acc = acc in
@@ -147,7 +147,6 @@ without its extension.
 let traverse_files dir =
   let rec loop result = function
     | f :: fs when Sys.is_directory (Fpath.to_string f) ->
-        print_endline ("A: " ^ (f |> Fpath.to_string));
         Sys.readdir (Fpath.to_string f)
         |> Array.to_list
         |> List.map (Fpath.add_seg f)
@@ -155,16 +154,10 @@ let traverse_files dir =
     | f :: fs
       when List.exists (fun ext -> Fpath.has_ext ext f) [ "cmt"; "cmti"; "cmi" ]
       ->
-        print_endline ("B: " ^ (f |> Fpath.to_string));
         loop (f :: result) fs
-    | f :: fs ->
-        print_endline ("C: " ^ (f |> Fpath.to_string));
-        loop result fs
-    | [] ->
-        print_endline "NOTHING: ";
-        result
+    | f :: fs -> loop result fs
+    | [] -> result
   in
-  print_endline ("DIR: " ^ (dir |> Fpath.to_string));
   loop [] [ dir ]
 
 (* let rec traverse_files path =
@@ -172,24 +165,48 @@ let traverse_files dir =
   let files = Array.to_list files in
   List.fold_left (fun acc file -> if Sys.is_directory file then (List.append traverse_files file) else file :: files) *)
 
+let module_name_from_path path = Fpath.basename path |> String.capitalize_ascii
+
+type unit_type = Cmti | Cmt | Cmi
+
+exception Invalid_unit_extension of string
+
+let extension_to_unit_type = function
+  | ".cmti" -> Cmti
+  | ".cmt" -> Cmt
+  | ".cmi" -> Cmi
+  | ext -> raise (Invalid_unit_extension ext)
+
 let add_units units ~path ~namespace =
   traverse_files (Fpath.v path)
   |> List.iter (fun path ->
-         let path = Fpath.rem_ext path in
-         Hashtbl.add units
-           (Fpath.basename path |> String.capitalize_ascii)
-           (match namespace with
-           | Some namespace -> Unit_namespace (namespace, path)
-           | None -> Unit_local path))
+         let module_name = module_name_from_path path in
+         match
+           ( Hashtbl.find_opt units module_name
+             |> Option.map (function
+                  | Unit_namespace (_, path) ->
+                      path |> Fpath.get_ext |> extension_to_unit_type
+                  | Unit_local path ->
+                      path |> Fpath.get_ext |> extension_to_unit_type),
+             path |> Fpath.get_ext |> extension_to_unit_type )
+         with
+         | Some Cmi, Cmt | Some Cmi, Cmti | Some Cmt, Cmti | None, _ ->
+             Hashtbl.add units module_name
+               (match namespace with
+               | Some namespace -> Unit_namespace (namespace, path)
+               | None -> Unit_local path)
+         | Some Cmti, Cmt
+         | Some Cmti, Cmi
+         | Some Cmt, Cmi
+         | Some Cmti, Cmti
+         | Some Cmi, Cmi
+         | Some Cmt, Cmt ->
+             ())
 
 (*
 Since the units returned by this function have their extension stripped, we need
 function to find the best file to use given this basename.
 *)
-
-let find_best_file base =
-  List.map (fun ext -> Fpath.add_ext ext base) [ "cmti"; "cmt"; "cmi" ]
-  |> List.find (fun f -> Sys.file_exists (Fpath.to_string f))
 
 (*
 Many of the units will be 'hidden' \-- that is, their name will be mangled by
@@ -246,9 +263,9 @@ let compile_docs ~config ~units ~env ~directories =
     List.map (fun x -> mkpage x) ("deps" :: extra_docs)
     @ (units |> Hashtbl.to_seq_values
       |> Seq.filter_map (function
-           | Unit_local p -> Some p
+           | Unit_local f -> Some f
            | Unit_namespace _ -> None)
-      |> Seq.map (fun child -> Fpath.basename child)
+      |> Seq.map (fun child -> child |> Fpath.rem_ext |> Fpath.basename)
       |> List.of_seq)
   in
   List.iter print_endline root_children;
@@ -261,7 +278,7 @@ let compile_docs ~config ~units ~env ~directories =
     |> Seq.filter_map (function
          | Unit_local _ -> None
          | Unit_namespace (_, f) -> Some f)
-    |> Seq.map (fun child -> Fpath.basename child |> mkmod)
+    |> Seq.map (fun child -> child |> Fpath.rem_ext |> Fpath.basename |> mkmod)
     |> List.of_seq
   in
   let deps =
@@ -290,24 +307,21 @@ let compile_all ~config ~env ~directories =
   (* print_endline "Compile all..."; *)
   let mld_odocs = compile_docs ~env ~directories ~config ~units in
   let rec rec_compile lib file =
-    let output = Fpath.(base (set_ext "odoc" file)) in
+    let output = file |> Fpath.set_ext "odoc" |> Fpath.base in
     (* we need to do this to avoid circular dependencies *)
-    match Hashtbl.find_opt already_compiled (Fpath.to_string output) with
+    match Hashtbl.find_opt already_compiled output with
     | Some true -> []
     | Some false | None ->
-        Hashtbl.add already_compiled (Fpath.to_string output) true;
+        Hashtbl.add already_compiled output true;
         let deps = compile_deps file |> with_error CompileDeps in
         let files =
           List.fold_left
             (fun acc (dep_name, digest) ->
               match Hashtbl.find_opt units dep_name with
               | None -> acc
-              | Some (Unit_local dep_path) ->
-                  let file = find_best_file dep_path in
+              | Some (Unit_local file) ->
                   rec_compile config.root_page file @ acc
-              | Some (Unit_namespace (lib, dep_path)) ->
-                  let file = find_best_file dep_path in
-                  rec_compile lib file @ acc)
+              | Some (Unit_namespace (lib, file)) -> rec_compile lib file @ acc)
             [] deps.deps
         in
         ignore (compile ~env ~directories file ~parent:lib []);
@@ -318,8 +332,8 @@ let compile_all ~config ~env ~directories =
       acc
       @
       match u with
-      | Unit_local dep -> rec_compile "odoc" (find_best_file dep)
-      | Unit_namespace (lib, dep) -> rec_compile lib (find_best_file dep))
+      | Unit_local file -> rec_compile "odoc" file
+      | Unit_namespace (lib, file) -> rec_compile lib file)
     []
     (units |> Hashtbl.to_seq_values |> List.of_seq)
   @ mld_odocs
