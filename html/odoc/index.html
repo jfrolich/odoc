@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head><title>odoc (odoc)</title><link rel="stylesheet" href="../odoc.css"/>
+  <meta charset="utf-8"/><meta name="generator" content="odoc %%VERSION%%"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script src="../highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body class="odoc">
+  <header class="odoc-preamble">
+   <h1 id="odoc"><a href="#odoc" class="anchor"></a>odoc</h1>
+  </header>
+  <nav class="odoc-toc">
+   <ul><li><a href="#overview">What is <code>odoc</code>?</a></li>
+    <li><a href="#getting-started">Getting Started with <code>odoc</code></a>
+     <ul><li><a href="#usage-ocaml">...using OCaml</a></li></ul>
+    </li><li><a href="#using-odoc">Using Odoc</a></li>
+    <li><a href="#contributing-to-odoc">Contributing to Odoc</a></li>
+    <li><a href="#api-reference">API reference</a>
+     <ul><li><a href="#parsing-and-loading">Parsing and loading</a></li>
+      <li><a href="#model">Model</a></li>
+      <li><a href="#resolution-and-expansion">Resolution and expansion</a>
+      </li>
+      <li>
+       <a href="#intermediate-representation-and-renderers">Intermediate 
+        representation and renderers
+       </a>
+      </li><li><a href="#cli-and-driver">CLI and driver</a></li>
+      <li>
+       <a href="#test-and-internal-libraries">Test and internal libraries</a>
+      </li>
+     </ul>
+    </li><li><a href="#dependency-libraries">Dependency libraries</a></li>
+   </ul>
+  </nav>
+  <div class="odoc-content">
+   <h2 id="overview"><a href="#overview" class="anchor"></a>What is 
+    <code>odoc</code>?
+   </h2><p><code>odoc</code> is not your ordinary documentation tool.</p>
+   <p>It's built from the ground up to be build-tool friendly, and it focuses
+     on parallelism and caching. Instead of source code, it works with 
+    <i>compilation units</i>; that is, it works on compiler outputs and turns
+     them into compiled documentation, which then becomes gorgeous HTML. 
+    There are 
+    <a href="interface.html" id="odoc.interface">strong guarantees</a> about 
+    compatibility so you can be assured your documentation will work long 
+    into the future!
+   </p>
+   <p>Compiled documentation appears in the form of <code>.odoc</code> files,
+     which consist of an intermediary representation that is currrently 
+    internal and subject to change.
+   </p>
+   <p>A regular <code>odoc</code> execution transforms <code>.cmt</code>, 
+    <code>.cmti</code>, and <code>.mld</code> files into <code>.odoc</code> 
+    files, and then turns those into <code>.html</code> files. Roughly like 
+    this:
+   </p>
+   <pre>cmti_and_mld_files |&gt; compile_to_odoc |&gt; compile_to_html</pre>
+   <p>This means that an <code>intro.mld</code> file will be compiled to 
+    <code>page-intro.odoc</code> which in turn will become 
+    <code>intro.html</code>.
+   </p>
+   <p>Similarly, a <code>Game.cmti</code> will be compiled to 
+    <code>Game.odoc</code> which in turn will become 
+    <code>Game/index.html</code>.
+   </p>
+   <h2 id="getting-started"><a href="#getting-started" class="anchor"></a>
+    Getting Started with <code>odoc</code>
+   </h2>
+   <p>You can install <code>odoc</code> today through <code>opam</code>:</p>
+   <pre>opam install odoc</pre>
+   <h3 id="usage-ocaml"><a href="#usage-ocaml" class="anchor"></a>...using 
+    OCaml
+   </h3>
+   <p>If you want to use odoc on the packages you have installed in your opam
+     switch type:
+   </p><pre>opam install ocaml-manual odig
+odig doc</pre>
+   <p>When you are developing the easiest way to use odoc right now is by 
+    having Dune drive it. This command should work in most Dune projects out 
+    of the box:
+   </p><pre>dune build @doc</pre>
+   <p>The generated docs can be found at 
+    <code>./_build/default/_doc/_html/index.html</code>.
+   </p>
+   <p>Whilst odoc can be run manually, it's a tough job to get right as there
+     tricky details about ordering and dependencies. For the details, there 
+    is a <a href="driver.html" id="odoc.driver">reference driver page</a> - a
+     'live' page that is used to build these documents - which may be 
+    consulted if necessary.
+   </p>
+   <p>odoc's main advantage over ocamldoc is an accurate cross-referencer, 
+    which handles the complexity of the OCaml module system. odoc also offers
+     a good opportunity to improve HTML output compared to ocamldoc, but this
+     is very much a work in progress :)
+   </p>
+   <h2 id="using-odoc"><a href="#using-odoc" class="anchor"></a>Using Odoc
+   </h2>
+   <p>Odoc is not intended to be invoked by users directly. Please use `odig`
+     or `dune`.
+   </p>
+   <h2 id="contributing-to-odoc">
+    <a href="#contributing-to-odoc" class="anchor"></a>Contributing to Odoc
+   </h2>
+   <p>We'd love your help! We have a 
+    <span class="xref-unresolved">contributors guide</span> with some useful 
+    pointers to help you get familiar with odoc's codebase.
+   </p>
+   <h2 id="api-reference"><a href="#api-reference" class="anchor"></a>API 
+    reference
+   </h2>
+   <h3 id="parsing-and-loading">
+    <a href="#parsing-and-loading" class="anchor"></a>Parsing and loading
+   </h3>
+   <ul>
+    <li><code>odoc_parser</code>: The parser will soon be removed from odoc 
+     to be distributed separately
+    </li>
+    <li><code>odoc_loader</code>: The loaders are responsible for converting 
+     from the OCaml typedtree representations to the internal Model 
+     representation.
+    </li>
+   </ul><h3 id="model"><a href="#model" class="anchor"></a>Model</h3>
+   <p>This library contains the internal representation of OCaml interfaces 
+    used by odoc.
+   </p>
+   <ul>
+    <li>
+     <a href="Odoc_model/index.html" id="odoc.Odoc_model">
+      <code>Odoc_model</code>
+     </a> : Model types
+    </li>
+    <li>
+     <a href="Odoc_model_desc/index.html" id="odoc.Odoc_model_desc">
+      <code>Odoc_model_desc</code>
+     </a> : Json renderers of model types
+    </li>
+   </ul>
+   <h3 id="resolution-and-expansion">
+    <a href="#resolution-and-expansion" class="anchor"></a>Resolution and 
+    expansion
+   </h3>
+   <p>Resolution of Paths, Fragments and References, and expansion of Modules
+     and Module Types are handled by the xref2 library.
+   </p><ul><li><code>odoc_xref2</code></li></ul>
+   <h3 id="intermediate-representation-and-renderers">
+    <a href="#intermediate-representation-and-renderers" class="anchor"></a>
+    Intermediate representation and renderers
+   </h3>
+   <p>The generic documentation intermediate format is defined in the 
+    document library:
+   </p><ul><li><code>odoc_document</code></li></ul>
+   <p>The three current renderers are implemented within the following 
+    libraries
+   </p>
+   <ul><li><code>odoc_html</code></li><li><code>odoc_latex</code></li>
+    <li><code>odoc_manpage</code></li>
+   </ul>
+   <h3 id="cli-and-driver"><a href="#cli-and-driver" class="anchor"></a>CLI 
+    and driver
+   </h3>
+   <p>The CLI for odoc and various helper functions for driving the process 
+    are contained in the odoc_odoc library.
+   </p><ul><li><code>odoc_odoc</code></li></ul>
+   <h3 id="test-and-internal-libraries">
+    <a href="#test-and-internal-libraries" class="anchor"></a>Test and 
+    internal libraries
+   </h3><p><code>odoc_xref_test</code> <code>print</code></p>
+   <h2 id="dependency-libraries">
+    <a href="#dependency-libraries" class="anchor"></a>Dependency libraries
+   </h2>
+   <p>The following libraries are dependencies of odoc, and the documentation
+     for relevant parts of the libraries are here for reference.
+   </p>
+   <p><a href="deps/index.html" id="odoc.deps">Dependency libraries</a></p>
+  </div>
+ </body>
+</html>

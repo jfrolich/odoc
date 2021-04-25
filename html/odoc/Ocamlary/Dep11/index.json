@@ -1,0 +1,1089 @@
+{
+  "title": "Dep11",
+  "header": [
+    {
+      "type": "Heading",
+      "value": {
+        "label": null,
+        "level": 0,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Module " } },
+          {
+            "attr": [],
+            "desc": {
+              "type": "Source",
+              "value": [
+                {
+                  "tag": null,
+                  "source": [
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "Ocamlary.Dep11" }
+                      }
+                    ]
+                  ]
+                },
+                [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "items": [
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "module-type" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "Ocamlary"
+            },
+            "name": "Dep11"
+          },
+          "anchor": "module-type-S",
+          "kind": "module-type"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "module" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "type" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "InternalLink",
+                        "value": {
+                          "url": {
+                            "page": {
+                              "kind": "module-type",
+                              "parent": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "container-page",
+                                    "parent": null,
+                                    "name": "odoc"
+                                  },
+                                  "name": "Ocamlary"
+                                },
+                                "name": "Dep11"
+                              },
+                              "name": "S"
+                            },
+                            "anchor": "",
+                            "kind": "module-type"
+                          },
+                          "inline": [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "S" }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Alternative",
+            "value": {
+              "type": "Expansion",
+              "status": "Default",
+              "summary": [
+                {
+                  "tag": null,
+                  "source": [
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " = " }
+                      }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "{" }
+                      }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " ... " }
+                      }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "}" }
+                      }
+                    ]
+                  ]
+                },
+                [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+              ],
+              "expansion": [
+                {
+                  "type": "Code",
+                  "value": [
+                    {
+                      "tag": null,
+                      "source": [
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " = " }
+                          }
+                        ],
+                        {
+                          "tag": "keyword",
+                          "source": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "" }
+                              }
+                            ],
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "sig" }
+                              }
+                            ]
+                          ]
+                        },
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ]
+                      ]
+                    },
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ]
+                  ]
+                },
+                {
+                  "type": "Subpage",
+                  "value": {
+                    "status": "Default",
+                    "content": {
+                      "title": "S",
+                      "header": [
+                        {
+                          "type": "Heading",
+                          "value": {
+                            "label": null,
+                            "level": 0,
+                            "title": [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "Module type "
+                                }
+                              },
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Source",
+                                  "value": [
+                                    {
+                                      "tag": null,
+                                      "source": [
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": ""
+                                            }
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": "Dep11.S"
+                                            }
+                                          }
+                                        ]
+                                      ]
+                                    },
+                                    [
+                                      {
+                                        "attr": [],
+                                        "desc": {
+                                          "type": "Text",
+                                          "value": ""
+                                        }
+                                      }
+                                    ]
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "items": [
+                        {
+                          "type": "Declaration",
+                          "value": {
+                            "attr": [ "class" ],
+                            "anchor": {
+                              "page": {
+                                "kind": "module-type",
+                                "parent": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "container-page",
+                                      "parent": null,
+                                      "name": "odoc"
+                                    },
+                                    "name": "Ocamlary"
+                                  },
+                                  "name": "Dep11"
+                                },
+                                "name": "S"
+                              },
+                              "anchor": "class-c",
+                              "kind": "class"
+                            },
+                            "content": [
+                              {
+                                "type": "Code",
+                                "value": [
+                                  {
+                                    "tag": null,
+                                    "source": [
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": "keyword",
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "class"
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  },
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": { "type": "Text", "value": "" }
+                                    }
+                                  ]
+                                ]
+                              },
+                              {
+                                "type": "Code",
+                                "value": [
+                                  {
+                                    "tag": null,
+                                    "source": [
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "InternalLink",
+                                            "value": {
+                                              "url": {
+                                                "page": {
+                                                  "kind": "class",
+                                                  "parent": {
+                                                    "kind": "module-type",
+                                                    "parent": {
+                                                      "kind": "module",
+                                                      "parent": {
+                                                        "kind": "module",
+                                                        "parent": {
+                                                          "kind":
+                                                            "container-page",
+                                                          "parent": null,
+                                                          "name": "odoc"
+                                                        },
+                                                        "name": "Ocamlary"
+                                                      },
+                                                      "name": "Dep11"
+                                                    },
+                                                    "name": "S"
+                                                  },
+                                                  "name": "c"
+                                                },
+                                                "anchor": "",
+                                                "kind": "class"
+                                              },
+                                              "inline": [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "c"
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  },
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": { "type": "Text", "value": "" }
+                                    }
+                                  ]
+                                ]
+                              },
+                              {
+                                "type": "Alternative",
+                                "value": {
+                                  "type": "Expansion",
+                                  "status": "Default",
+                                  "summary": [
+                                    {
+                                      "tag": null,
+                                      "source": [
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": ""
+                                            }
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": ": "
+                                            }
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": "{"
+                                            }
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": " ... "
+                                            }
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": "}"
+                                            }
+                                          }
+                                        ]
+                                      ]
+                                    },
+                                    [
+                                      {
+                                        "attr": [],
+                                        "desc": {
+                                          "type": "Text",
+                                          "value": ""
+                                        }
+                                      }
+                                    ]
+                                  ],
+                                  "expansion": [
+                                    {
+                                      "type": "Code",
+                                      "value": [
+                                        {
+                                          "tag": null,
+                                          "source": [
+                                            [
+                                              {
+                                                "attr": [],
+                                                "desc": {
+                                                  "type": "Text",
+                                                  "value": ""
+                                                }
+                                              }
+                                            ],
+                                            [
+                                              {
+                                                "attr": [],
+                                                "desc": {
+                                                  "type": "Text",
+                                                  "value": ": "
+                                                }
+                                              }
+                                            ],
+                                            {
+                                              "tag": "keyword",
+                                              "source": [
+                                                [
+                                                  {
+                                                    "attr": [],
+                                                    "desc": {
+                                                      "type": "Text",
+                                                      "value": ""
+                                                    }
+                                                  }
+                                                ],
+                                                [
+                                                  {
+                                                    "attr": [],
+                                                    "desc": {
+                                                      "type": "Text",
+                                                      "value": "object"
+                                                    }
+                                                  }
+                                                ]
+                                              ]
+                                            },
+                                            [
+                                              {
+                                                "attr": [],
+                                                "desc": {
+                                                  "type": "Text",
+                                                  "value": ""
+                                                }
+                                              }
+                                            ]
+                                          ]
+                                        },
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": ""
+                                            }
+                                          }
+                                        ]
+                                      ]
+                                    },
+                                    {
+                                      "type": "Subpage",
+                                      "value": {
+                                        "status": "Default",
+                                        "content": {
+                                          "title": "c",
+                                          "header": [
+                                            {
+                                              "type": "Heading",
+                                              "value": {
+                                                "label": null,
+                                                "level": 0,
+                                                "title": [
+                                                  {
+                                                    "attr": [],
+                                                    "desc": {
+                                                      "type": "Text",
+                                                      "value": "Class "
+                                                    }
+                                                  },
+                                                  {
+                                                    "attr": [],
+                                                    "desc": {
+                                                      "type": "Source",
+                                                      "value": [
+                                                        {
+                                                          "tag": null,
+                                                          "source": [
+                                                            [
+                                                              {
+                                                                "attr": [],
+                                                                "desc": {
+                                                                  "type":
+                                                                    "Text",
+                                                                  "value": ""
+                                                                }
+                                                              }
+                                                            ],
+                                                            [
+                                                              {
+                                                                "attr": [],
+                                                                "desc": {
+                                                                  "type":
+                                                                    "Text",
+                                                                  "value":
+                                                                    "S.c"
+                                                                }
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        [
+                                                          {
+                                                            "attr": [],
+                                                            "desc": {
+                                                              "type": "Text",
+                                                              "value": ""
+                                                            }
+                                                          }
+                                                        ]
+                                                      ]
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          ],
+                                          "items": [
+                                            {
+                                              "type": "Declaration",
+                                              "value": {
+                                                "attr": [ "method" ],
+                                                "anchor": {
+                                                  "page": {
+                                                    "kind": "class",
+                                                    "parent": {
+                                                      "kind": "module-type",
+                                                      "parent": {
+                                                        "kind": "module",
+                                                        "parent": {
+                                                          "kind": "module",
+                                                          "parent": {
+                                                            "kind":
+                                                              "container-page",
+                                                            "parent": null,
+                                                            "name": "odoc"
+                                                          },
+                                                          "name": "Ocamlary"
+                                                        },
+                                                        "name": "Dep11"
+                                                      },
+                                                      "name": "S"
+                                                    },
+                                                    "name": "c"
+                                                  },
+                                                  "anchor": "method-m",
+                                                  "kind": "method"
+                                                },
+                                                "content": [
+                                                  {
+                                                    "type": "Code",
+                                                    "value": [
+                                                      {
+                                                        "tag": null,
+                                                        "source": [
+                                                          [
+                                                            {
+                                                              "attr": [],
+                                                              "desc": {
+                                                                "type":
+                                                                  "Text",
+                                                                "value": ""
+                                                              }
+                                                            }
+                                                          ],
+                                                          {
+                                                            "tag": "keyword",
+                                                            "source": [
+                                                              [
+                                                                {
+                                                                  "attr": [],
+                                                                  "desc": {
+                                                                    "type":
+                                                                    "Text",
+                                                                    "value":
+                                                                    ""
+                                                                  }
+                                                                }
+                                                              ],
+                                                              [
+                                                                {
+                                                                  "attr": [],
+                                                                  "desc": {
+                                                                    "type":
+                                                                    "Text",
+                                                                    "value":
+                                                                    "method"
+                                                                  }
+                                                                }
+                                                              ]
+                                                            ]
+                                                          },
+                                                          [
+                                                            {
+                                                              "attr": [],
+                                                              "desc": {
+                                                                "type":
+                                                                  "Text",
+                                                                "value": ""
+                                                              }
+                                                            }
+                                                          ],
+                                                          [
+                                                            {
+                                                              "attr": [],
+                                                              "desc": {
+                                                                "type":
+                                                                  "Text",
+                                                                "value": " "
+                                                              }
+                                                            }
+                                                          ],
+                                                          [
+                                                            {
+                                                              "attr": [],
+                                                              "desc": {
+                                                                "type":
+                                                                  "Text",
+                                                                "value": "m"
+                                                              }
+                                                            }
+                                                          ],
+                                                          [
+                                                            {
+                                                              "attr": [],
+                                                              "desc": {
+                                                                "type":
+                                                                  "Text",
+                                                                "value": ": "
+                                                              }
+                                                            }
+                                                          ],
+                                                          [
+                                                            {
+                                                              "attr": [],
+                                                              "desc": {
+                                                                "type":
+                                                                  "Text",
+                                                                "value":
+                                                                  "int"
+                                                              }
+                                                            }
+                                                          ]
+                                                        ]
+                                                      },
+                                                      [
+                                                        {
+                                                          "attr": [],
+                                                          "desc": {
+                                                            "type": "Text",
+                                                            "value": ""
+                                                          }
+                                                        }
+                                                      ]
+                                                    ]
+                                                  }
+                                                ],
+                                                "doc": []
+                                              }
+                                            }
+                                          ],
+                                          "url": {
+                                            "kind": "class",
+                                            "parent": {
+                                              "kind": "module-type",
+                                              "parent": {
+                                                "kind": "module",
+                                                "parent": {
+                                                  "kind": "module",
+                                                  "parent": {
+                                                    "kind": "container-page",
+                                                    "parent": null,
+                                                    "name": "odoc"
+                                                  },
+                                                  "name": "Ocamlary"
+                                                },
+                                                "name": "Dep11"
+                                              },
+                                              "name": "S"
+                                            },
+                                            "name": "c"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "Code",
+                                      "value": [
+                                        {
+                                          "tag": null,
+                                          "source": [
+                                            [
+                                              {
+                                                "attr": [],
+                                                "desc": {
+                                                  "type": "Text",
+                                                  "value": ""
+                                                }
+                                              }
+                                            ],
+                                            {
+                                              "tag": "keyword",
+                                              "source": [
+                                                [
+                                                  {
+                                                    "attr": [],
+                                                    "desc": {
+                                                      "type": "Text",
+                                                      "value": ""
+                                                    }
+                                                  }
+                                                ],
+                                                [
+                                                  {
+                                                    "attr": [],
+                                                    "desc": {
+                                                      "type": "Text",
+                                                      "value": "end"
+                                                    }
+                                                  }
+                                                ]
+                                              ]
+                                            },
+                                            [
+                                              {
+                                                "attr": [],
+                                                "desc": {
+                                                  "type": "Text",
+                                                  "value": ""
+                                                }
+                                              }
+                                            ]
+                                          ]
+                                        },
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": ""
+                                            }
+                                          }
+                                        ]
+                                      ]
+                                    }
+                                  ],
+                                  "url": {
+                                    "kind": "class",
+                                    "parent": {
+                                      "kind": "module-type",
+                                      "parent": {
+                                        "kind": "module",
+                                        "parent": {
+                                          "kind": "module",
+                                          "parent": {
+                                            "kind": "container-page",
+                                            "parent": null,
+                                            "name": "odoc"
+                                          },
+                                          "name": "Ocamlary"
+                                        },
+                                        "name": "Dep11"
+                                      },
+                                      "name": "S"
+                                    },
+                                    "name": "c"
+                                  }
+                                }
+                              }
+                            ],
+                            "doc": []
+                          }
+                        }
+                      ],
+                      "url": {
+                        "kind": "module-type",
+                        "parent": {
+                          "kind": "module",
+                          "parent": {
+                            "kind": "module",
+                            "parent": {
+                              "kind": "container-page",
+                              "parent": null,
+                              "name": "odoc"
+                            },
+                            "name": "Ocamlary"
+                          },
+                          "name": "Dep11"
+                        },
+                        "name": "S"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "Code",
+                  "value": [
+                    {
+                      "tag": null,
+                      "source": [
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        {
+                          "tag": "keyword",
+                          "source": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "" }
+                              }
+                            ],
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "end" }
+                              }
+                            ]
+                          ]
+                        },
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ]
+                      ]
+                    },
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ]
+                  ]
+                }
+              ],
+              "url": {
+                "kind": "module-type",
+                "parent": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "container-page",
+                      "parent": null,
+                      "name": "odoc"
+                    },
+                    "name": "Ocamlary"
+                  },
+                  "name": "Dep11"
+                },
+                "name": "S"
+              }
+            }
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    }
+  ],
+  "url": {
+    "kind": "module",
+    "parent": {
+      "kind": "module",
+      "parent": { "kind": "container-page", "parent": null, "name": "odoc" },
+      "name": "Ocamlary"
+    },
+    "name": "Dep11"
+  }
+}

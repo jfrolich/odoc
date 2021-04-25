@@ -1,0 +1,778 @@
+{
+  "title": "Yojson_biniou",
+  "header": [
+    {
+      "type": "Heading",
+      "value": {
+        "label": null,
+        "level": 0,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Module " } },
+          {
+            "attr": [],
+            "desc": {
+              "type": "Source",
+              "value": [
+                {
+                  "tag": null,
+                  "source": [
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "Yojson_biniou" }
+                      }
+                    ]
+                  ]
+                },
+                [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "Conversions" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "between" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "JSON" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "biniou" } }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "container-page",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "deps"
+            },
+            "name": "Yojson_biniou"
+          },
+          "anchor": "val-biniou_of_json",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "biniou_of_json" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "url": {
+                                "page": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "container-page",
+                                      "parent": {
+                                        "kind": "container-page",
+                                        "parent": null,
+                                        "name": "odoc"
+                                      },
+                                      "name": "deps"
+                                    },
+                                    "name": "Yojson"
+                                  },
+                                  "name": "Safe"
+                                },
+                                "anchor": "type-t",
+                                "kind": "type"
+                              },
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "Yojson.Safe.t"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "InternalLink",
+                        "value": {
+                          "inline": [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "Bi_io" }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": ".tree" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": [
+          {
+            "attr": [],
+            "desc": {
+              "type": "Paragraph",
+              "value": [
+                {
+                  "attr": [],
+                  "desc": { "type": "Text", "value": "Converts" }
+                },
+                { "attr": [], "desc": { "type": "Text", "value": " " } },
+                { "attr": [], "desc": { "type": "Text", "value": "from" } },
+                { "attr": [], "desc": { "type": "Text", "value": " " } },
+                { "attr": [], "desc": { "type": "Text", "value": "JSON" } },
+                { "attr": [], "desc": { "type": "Text", "value": " " } },
+                { "attr": [], "desc": { "type": "Text", "value": "to" } },
+                { "attr": [], "desc": { "type": "Text", "value": " " } },
+                {
+                  "attr": [],
+                  "desc": { "type": "Text", "value": "biniou." }
+                }
+              ]
+            }
+          },
+          {
+            "attr": [ "at-tags" ],
+            "desc": {
+              "type": "Description",
+              "value": [
+                {
+                  "attr": [ "raises" ],
+                  "key": [
+                    {
+                      "attr": [ "at-tag" ],
+                      "desc": { "type": "Text", "value": "raises" }
+                    },
+                    { "attr": [], "desc": { "type": "Text", "value": " " } },
+                    {
+                      "attr": [ "value" ],
+                      "desc": { "type": "Text", "value": "Failure" }
+                    }
+                  ],
+                  "definition": [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "Paragraph",
+                        "value": [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "if" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "conversion" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "is" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "not" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": {
+                              "type": "Text",
+                              "value": "reversible."
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "container-page",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "deps"
+            },
+            "name": "Yojson_biniou"
+          },
+          "anchor": "val-json_of_biniou",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "json_of_biniou" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "Bi_io"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": ".tree" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "InternalLink",
+                        "value": {
+                          "url": {
+                            "page": {
+                              "kind": "module",
+                              "parent": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "container-page",
+                                  "parent": {
+                                    "kind": "container-page",
+                                    "parent": null,
+                                    "name": "odoc"
+                                  },
+                                  "name": "deps"
+                                },
+                                "name": "Yojson"
+                              },
+                              "name": "Safe"
+                            },
+                            "anchor": "type-t",
+                            "kind": "type"
+                          },
+                          "inline": [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "Text",
+                                "value": "Yojson.Safe.t"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": [
+          {
+            "attr": [],
+            "desc": {
+              "type": "Paragraph",
+              "value": [
+                {
+                  "attr": [],
+                  "desc": { "type": "Text", "value": "Converts" }
+                },
+                { "attr": [], "desc": { "type": "Text", "value": " " } },
+                { "attr": [], "desc": { "type": "Text", "value": "from" } },
+                { "attr": [], "desc": { "type": "Text", "value": " " } },
+                { "attr": [], "desc": { "type": "Text", "value": "biniou" } },
+                { "attr": [], "desc": { "type": "Text", "value": " " } },
+                { "attr": [], "desc": { "type": "Text", "value": "to" } },
+                { "attr": [], "desc": { "type": "Text", "value": " " } },
+                { "attr": [], "desc": { "type": "Text", "value": "JSON." } }
+              ]
+            }
+          },
+          {
+            "attr": [ "at-tags" ],
+            "desc": {
+              "type": "Description",
+              "value": [
+                {
+                  "attr": [ "raises" ],
+                  "key": [
+                    {
+                      "attr": [ "at-tag" ],
+                      "desc": { "type": "Text", "value": "raises" }
+                    },
+                    { "attr": [], "desc": { "type": "Text", "value": " " } },
+                    {
+                      "attr": [ "value" ],
+                      "desc": { "type": "Text", "value": "Failure" }
+                    }
+                  ],
+                  "definition": [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "Paragraph",
+                        "value": [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "if" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "conversion" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "is" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "not" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": {
+                              "type": "Text",
+                              "value": "reversible,"
+                            }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "except" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "for" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "biniou" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "tables" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "which" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "are" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "considered" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "equivalent" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "to" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "arrays" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "of" }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": " " }
+                          },
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "records." }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "url": {
+    "kind": "module",
+    "parent": {
+      "kind": "container-page",
+      "parent": { "kind": "container-page", "parent": null, "name": "odoc" },
+      "name": "deps"
+    },
+    "name": "Yojson_biniou"
+  }
+}

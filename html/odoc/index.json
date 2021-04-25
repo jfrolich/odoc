@@ -1,0 +1,2540 @@
+{
+  "title": "odoc",
+  "header": [
+    {
+      "type": "Heading",
+      "value": {
+        "label": "odoc",
+        "level": 0,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "odoc" } }
+        ]
+      }
+    }
+  ],
+  "items": [
+    {
+      "type": "Heading",
+      "value": {
+        "label": "overview",
+        "level": 1,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "What" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "is" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          {
+            "attr": [],
+            "desc": {
+              "type": "Source",
+              "value": [
+                [
+                  { "attr": [], "desc": { "type": "Text", "value": "odoc" } }
+                ]
+              ]
+            }
+          },
+          { "attr": [], "desc": { "type": "Text", "value": "?" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "odoc" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "not" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "your" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "ordinary" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "documentation" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "tool." } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "It's" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "built" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "from" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "ground" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "up" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "be" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "build-tool" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "friendly," }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "it" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "focuses" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "on" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "parallelism" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "caching." } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Instead" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "source" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "code," } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "it" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "works" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "with" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Styled",
+                  "style": "Italic",
+                  "inline": [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "compilation" }
+                    },
+                    { "attr": [], "desc": { "type": "Text", "value": " " } },
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "units" }
+                    }
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": ";" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "that" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is," } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "it" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "works" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "on" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "compiler" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "outputs" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "turns" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "them" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "into" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "compiled" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "documentation," }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "which" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "then" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "becomes" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "gorgeous" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "HTML." } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "There" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "are" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "InternalLink",
+                  "value": {
+                    "url": {
+                      "page": {
+                        "kind": "page",
+                        "parent": {
+                          "kind": "container-page",
+                          "parent": null,
+                          "name": "odoc"
+                        },
+                        "name": "interface"
+                      },
+                      "anchor": "",
+                      "kind": "page"
+                    },
+                    "inline": [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "strong" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "guarantees" }
+                      }
+                    ]
+                  }
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "about" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "compatibility" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "so" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "you" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "can" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "be" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "assured" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "your" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "documentation" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "will" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "work" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "long" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "into" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "future!" } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "Compiled" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "documentation" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "appears" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "in" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "form" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ".odoc" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "files," } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "which" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "consist" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "an" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "intermediary" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "representation" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "that" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "currrently" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "internal" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "subject" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "change." } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "A" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "regular" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "odoc" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "execution" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "transforms" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ".cmt" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": "," } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ".cmti" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": "," } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ".mld" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "files" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "into" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ".odoc" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "files," } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "then" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "turns" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "those" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "into" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ".html" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "files." } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Roughly" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "like" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "this:" } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Verbatim",
+            "value":
+              "cmti_and_mld_files |> compile_to_odoc |> compile_to_html"
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "This" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "means" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "that" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "an" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "intro.mld" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "file" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "will" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "be" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "compiled" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Text",
+                          "value": "page-intro.odoc"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "which" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "in" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "turn" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "will" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "become" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "intro.html" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": "." } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "Similarly," }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "Game.cmti" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "will" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "be" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "compiled" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "Game.odoc" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "which" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "in" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "turn" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "will" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "become" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Text",
+                          "value": "Game/index.html"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": "." } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "getting-started",
+        "level": 1,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Getting" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "Started" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "with" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          {
+            "attr": [],
+            "desc": {
+              "type": "Source",
+              "value": [
+                [
+                  { "attr": [], "desc": { "type": "Text", "value": "odoc" } }
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "You" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "can" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "install" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "odoc" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "today" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "through" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "opam" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": ":" } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": { "type": "Verbatim", "value": "opam install odoc" }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "usage-ocaml",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "...using" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "OCaml" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "If" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "you" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "want" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "use" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "odoc" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "on" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "packages" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "you" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "have" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "installed" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "in" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "your" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "opam" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "switch" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "type:" } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Verbatim",
+            "value": "opam install ocaml-manual odig\nodig doc"
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "When" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "you" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "are" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "developing" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "easiest" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "way" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "use" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "odoc" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "right" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "now" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "by" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "having" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Dune" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "drive" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "it." } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "This" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "command" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "should" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "work" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "in" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "most" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Dune" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "projects" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "out" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "box:" } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": { "type": "Verbatim", "value": "dune build @doc" }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "The" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "generated" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "docs" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "can" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "be" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "found" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "at" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Text",
+                          "value": "./_build/default/_doc/_html/index.html"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": "." } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "Whilst" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "odoc" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "can" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "be" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "run" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "manually," }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "it's" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "tough" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "job" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "get" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "right" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "as" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "there" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "tricky" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "details" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "about" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "ordering" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "dependencies." }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "For" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "details," } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "there" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "InternalLink",
+                  "value": {
+                    "url": {
+                      "page": {
+                        "kind": "page",
+                        "parent": {
+                          "kind": "container-page",
+                          "parent": null,
+                          "name": "odoc"
+                        },
+                        "name": "driver"
+                      },
+                      "anchor": "",
+                      "kind": "page"
+                    },
+                    "inline": [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "reference" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "driver" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "page" }
+                      }
+                    ]
+                  }
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "-" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "'live'" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "page" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "that" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "used" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "build" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "these" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "documents" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "-" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "which" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "may" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "be" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "consulted" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "if" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "necessary." }
+              }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "odoc's" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "main" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "advantage" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "over" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "ocamldoc" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "an" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "accurate" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "cross-referencer," }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "which" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "handles" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "complexity" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "OCaml" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "module" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "system." } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "odoc" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "also" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "offers" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "good" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "opportunity" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "improve" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "HTML" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "output" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "compared" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "ocamldoc," }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "but" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "this" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "very" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "much" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "work" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "in" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "progress" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": ":)" } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "using-odoc",
+        "level": 1,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Using" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "Odoc" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "Odoc" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "not" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "intended" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "be" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "invoked" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "by" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "users" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "directly." }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Please" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "use" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "`odig`" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "or" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "`dune`." } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "contributing-to-odoc",
+        "level": 1,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Contributing" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "to" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "Odoc" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "We'd" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "love" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "your" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "help!" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "We" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "have" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "InternalLink",
+                  "value": {
+                    "inline": [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "contributors" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "guide" }
+                      }
+                    ]
+                  }
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "with" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "some" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "useful" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "pointers" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "help" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "you" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "get" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "familiar" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "with" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "odoc's" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "codebase." }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "api-reference",
+        "level": 1,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "API" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "reference" } }
+        ]
+      }
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "parsing-and-loading",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Parsing" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "and" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "loading" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "List",
+            "listType": "Unordered",
+            "list": [
+              [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Inline",
+                    "value": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "odoc_parser"
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ":" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "The" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "parser" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "will" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "soon" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "be" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "removed" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "from" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "odoc" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "to" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "be" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "distributed" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "separately" }
+                      }
+                    ]
+                  }
+                }
+              ],
+              [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Inline",
+                    "value": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "odoc_loader"
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ":" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "The" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "loaders" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "are" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "responsible" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "for" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "converting" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "from" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "the" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "OCaml" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "typedtree" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Text",
+                          "value": "representations"
+                        }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "to" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "the" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "internal" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "Model" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Text",
+                          "value": "representation."
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "model",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Model" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "This" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "library" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "contains" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "internal" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "representation" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "OCaml" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "interfaces" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "used" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "by" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "odoc." } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "List",
+            "listType": "Unordered",
+            "list": [
+              [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Inline",
+                    "value": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "InternalLink",
+                          "value": {
+                            "url": {
+                              "page": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "container-page",
+                                  "parent": null,
+                                  "name": "odoc"
+                                },
+                                "name": "Odoc_model"
+                              },
+                              "anchor": "",
+                              "kind": "module"
+                            },
+                            "inline": [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Source",
+                                  "value": [
+                                    [
+                                      {
+                                        "attr": [],
+                                        "desc": {
+                                          "type": "Text",
+                                          "value": "Odoc_model"
+                                        }
+                                      }
+                                    ]
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ":" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "Model" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "types" }
+                      }
+                    ]
+                  }
+                }
+              ],
+              [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Inline",
+                    "value": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "InternalLink",
+                          "value": {
+                            "url": {
+                              "page": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "container-page",
+                                  "parent": null,
+                                  "name": "odoc"
+                                },
+                                "name": "Odoc_model_desc"
+                              },
+                              "anchor": "",
+                              "kind": "module"
+                            },
+                            "inline": [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Source",
+                                  "value": [
+                                    [
+                                      {
+                                        "attr": [],
+                                        "desc": {
+                                          "type": "Text",
+                                          "value": "Odoc_model_desc"
+                                        }
+                                      }
+                                    ]
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ":" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "Json" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "renderers" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "of" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "model" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "types" }
+                      }
+                    ]
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "resolution-and-expansion",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Resolution" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "and" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "expansion" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "Resolution" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Paths," } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "Fragments" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "References," }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "expansion" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Modules" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Module" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Types" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "are" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "handled" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "by" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "xref2" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "library." } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "List",
+            "listType": "Unordered",
+            "list": [
+              [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Inline",
+                    "value": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "odoc_xref2"
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "intermediate-representation-and-renderers",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Intermediate" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          {
+            "attr": [],
+            "desc": { "type": "Text", "value": "representation" }
+          },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "and" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "renderers" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "The" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "generic" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "documentation" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "intermediate" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "format" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "defined" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "in" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "document" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "library:" } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "List",
+            "listType": "Unordered",
+            "list": [
+              [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Inline",
+                    "value": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "odoc_document"
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "The" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "three" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "current" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "renderers" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "are" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "implemented" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "within" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "following" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "libraries" }
+              }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "List",
+            "listType": "Unordered",
+            "list": [
+              [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Inline",
+                    "value": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "odoc_html"
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Inline",
+                    "value": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "odoc_latex"
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Inline",
+                    "value": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "odoc_manpage"
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "cli-and-driver",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "CLI" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "and" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "driver" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "The" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "CLI" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "for" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "odoc" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "various" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "helper" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "functions" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "for" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "driving" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "process" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "are" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "contained" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "in" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "odoc_odoc" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "library." } }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "List",
+            "listType": "Unordered",
+            "list": [
+              [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Inline",
+                    "value": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "odoc_odoc"
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "test-and-internal-libraries",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Test" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "and" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "internal" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "libraries" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "odoc_xref_test" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "print" }
+                      }
+                    ]
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "dependency-libraries",
+        "level": 1,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Dependency" } },
+          { "attr": [], "desc": { "type": "Text", "value": " " } },
+          { "attr": [], "desc": { "type": "Text", "value": "libraries" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "The" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "following" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "libraries" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "are" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "dependencies" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "odoc," } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "and" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "documentation" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "for" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "relevant" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "parts" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "libraries" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "are" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "here" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "for" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "reference." }
+              }
+            ]
+          }
+        },
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": {
+                  "type": "InternalLink",
+                  "value": {
+                    "url": {
+                      "page": {
+                        "kind": "container-page",
+                        "parent": {
+                          "kind": "container-page",
+                          "parent": null,
+                          "name": "odoc"
+                        },
+                        "name": "deps"
+                      },
+                      "anchor": "",
+                      "kind": "container-page"
+                    },
+                    "inline": [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "Dependency" }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " " }
+                      },
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "libraries" }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "url": { "kind": "container-page", "parent": null, "name": "odoc" }
+}

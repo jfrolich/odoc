@@ -1,0 +1,585 @@
+{
+  "title": "deps",
+  "header": [
+    {
+      "type": "Heading",
+      "value": {
+        "label": "deps",
+        "level": 0,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Deps" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "The" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "following" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "libraries" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "are" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "dependencies" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "odoc." } }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "Heading",
+      "value": {
+        "label": "stdlib",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Stdlib" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": {
+                  "type": "Source",
+                  "value": [
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "Stdlib" }
+                      }
+                    ]
+                  ]
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "The" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "standard" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "library" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "OCaml." } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "fpath",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Fpath" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": {
+                  "type": "InternalLink",
+                  "value": {
+                    "url": {
+                      "page": {
+                        "kind": "module",
+                        "parent": {
+                          "kind": "container-page",
+                          "parent": {
+                            "kind": "container-page",
+                            "parent": null,
+                            "name": "odoc"
+                          },
+                          "name": "deps"
+                        },
+                        "name": "Fpath"
+                      },
+                      "anchor": "",
+                      "kind": "module"
+                    },
+                    "inline": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "Fpath" }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "provides" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "library" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "for" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "handling" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "file" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "system" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "paths." } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "cmdliner",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Cmdliner" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": {
+                  "type": "InternalLink",
+                  "value": {
+                    "url": {
+                      "page": {
+                        "kind": "module",
+                        "parent": {
+                          "kind": "container-page",
+                          "parent": {
+                            "kind": "container-page",
+                            "parent": null,
+                            "name": "odoc"
+                          },
+                          "name": "deps"
+                        },
+                        "name": "Cmdliner"
+                      },
+                      "anchor": "",
+                      "kind": "module"
+                    },
+                    "inline": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "Cmdliner"
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "provides" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "library" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "for" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "handling" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "command-line" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "arguments." }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "astring",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Astring" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": {
+                  "type": "InternalLink",
+                  "value": {
+                    "url": {
+                      "page": {
+                        "kind": "module",
+                        "parent": {
+                          "kind": "container-page",
+                          "parent": {
+                            "kind": "container-page",
+                            "parent": null,
+                            "name": "odoc"
+                          },
+                          "name": "deps"
+                        },
+                        "name": "Astring"
+                      },
+                      "anchor": "",
+                      "kind": "module"
+                    },
+                    "inline": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "Astring"
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "provides" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "replacement" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "for" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "standard" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "OCaml" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "String" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "module." } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "result",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Result" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": {
+                  "type": "InternalLink",
+                  "value": {
+                    "url": {
+                      "page": {
+                        "kind": "module",
+                        "parent": {
+                          "kind": "container-page",
+                          "parent": {
+                            "kind": "container-page",
+                            "parent": null,
+                            "name": "odoc"
+                          },
+                          "name": "deps"
+                        },
+                        "name": "Result"
+                      },
+                      "anchor": "",
+                      "kind": "module"
+                    },
+                    "inline": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "Result" }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Result" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Monad" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "module." } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "yojson",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Yojson" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": {
+                  "type": "InternalLink",
+                  "value": {
+                    "url": {
+                      "page": {
+                        "kind": "module",
+                        "parent": {
+                          "kind": "container-page",
+                          "parent": {
+                            "kind": "container-page",
+                            "parent": null,
+                            "name": "odoc"
+                          },
+                          "name": "deps"
+                        },
+                        "name": "Yojson"
+                      },
+                      "anchor": "",
+                      "kind": "module"
+                    },
+                    "inline": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "Yojson" }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "JSON" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "library." } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Heading",
+      "value": {
+        "label": "tyxml",
+        "level": 2,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Tyxml" } }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              {
+                "attr": [],
+                "desc": {
+                  "type": "InternalLink",
+                  "value": {
+                    "url": {
+                      "page": {
+                        "kind": "module",
+                        "parent": {
+                          "kind": "container-page",
+                          "parent": {
+                            "kind": "container-page",
+                            "parent": null,
+                            "name": "odoc"
+                          },
+                          "name": "deps"
+                        },
+                        "name": "Tyxml"
+                      },
+                      "anchor": "",
+                      "kind": "module"
+                    },
+                    "inline": [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Source",
+                          "value": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "Tyxml" }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "is" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "library" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "used" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "generate" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "HTML" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "pages." } }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "url": {
+    "kind": "container-page",
+    "parent": { "kind": "container-page", "parent": null, "name": "odoc" },
+    "name": "deps"
+  }
+}

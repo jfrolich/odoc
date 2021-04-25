@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head><title>Xml (odoc.deps.Xml_print.Make.1-Xml)</title>
+  <link rel="stylesheet" href="../../../../../odoc.css"/>
+  <meta charset="utf-8"/><meta name="generator" content="odoc %%VERSION%%"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script src="../../../../../highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body class="odoc">
+  <nav class="odoc-nav"><a href="../index.html">Up</a> – 
+   <a href="../../../../index.html">odoc</a> &#x00BB; 
+   <a href="../../../index.html">deps</a> &#x00BB; 
+   <a href="../../index.html">Xml_print</a> &#x00BB; 
+   <a href="../index.html">Make</a> &#x00BB; 1-Xml
+  </nav>
+  <header class="odoc-preamble">
+   <h1>Parameter <code><span>Make.1-Xml</span></code></h1>
+  </header>
+  <div class="odoc-content">
+   <div class="odoc-include">
+    <details open="open">
+     <summary class="spec include">
+      <code>
+       <span><span class="keyword">include</span> 
+        <a href="../../../Xml_sigs/module-type-NoWrap/index.html"
+         id="odoc.deps.Xml_sigs.NoWrap">Xml_sigs.NoWrap
+        </a><span class="keyword">;</span>
+       </span>
+      </code>
+     </summary>
+     <div class="odoc-spec">
+      <div class="spec module" id="module-W" class="anchored">
+       <a href="#module-W" class="anchor"></a>
+       <code><span><span class="keyword">module</span> </span><span>W</span>
+        <span> = 
+         <a href="../../../Xml_wrap/NoWrap/index.html"
+          id="odoc.deps.Xml_wrap.NoWrap">Xml_wrap.NoWrap
+         </a>
+        </span><span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-wrap" class="anchored">
+       <a href="#type-wrap" class="anchor"></a>
+       <code><span><span class="keyword">type</span> wrap('a)</span>
+        <span> = 
+         <a href="../../../Xml_wrap/NoWrap/index.html#type-t"
+          id="odoc.deps.Xml_wrap.NoWrap">W.t
+         </a>(<span class="type-var">'a</span>)
+        </span><span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-list_wrap" class="anchored">
+       <a href="#type-list_wrap" class="anchor"></a>
+       <code><span><span class="keyword">type</span> list_wrap('a)</span>
+        <span> = 
+         <a href="../../../Xml_wrap/NoWrap/index.html#type-tlist"
+          id="odoc.deps.Xml_wrap.NoWrap">W.tlist
+         </a>(<span class="type-var">'a</span>)
+        </span><span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-uri" class="anchored">
+       <a href="#type-uri" class="anchor"></a>
+       <code><span><span class="keyword">type</span> uri</span><span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-string_of_uri" class="anchored">
+       <a href="#val-string_of_uri" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> string_of_uri: 
+         <a href="../../../Xml_wrap/NoWrap/index.html#type-ft"
+          id="odoc.deps.Xml_wrap.NoWrap">W.ft
+         </a>
+         <span>(
+          <a href="#type-uri" id="odoc.deps.Xml_print.Make.1-Xml">uri</a>, 
+          string)
+         </span>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-uri_of_string" class="anchored">
+       <a href="#val-uri_of_string" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> uri_of_string: 
+         <a href="../../../Xml_wrap/NoWrap/index.html#type-ft"
+          id="odoc.deps.Xml_wrap.NoWrap">W.ft
+         </a>
+         <span>(string, 
+          <a href="#type-uri" id="odoc.deps.Xml_print.Make.1-Xml">uri</a>)
+         </span>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-aname" class="anchored">
+       <a href="#type-aname" class="anchor"></a>
+       <code><span><span class="keyword">type</span> aname</span>
+        <span> = string</span><span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-event_handler" class="anchored">
+       <a href="#type-event_handler" class="anchor"></a>
+       <code><span><span class="keyword">type</span> event_handler</span>
+        <span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-mouse_event_handler" class="anchored">
+       <a href="#type-mouse_event_handler" class="anchor"></a>
+       <code>
+        <span><span class="keyword">type</span> mouse_event_handler</span>
+        <span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-keyboard_event_handler"
+       class="anchored">
+       <a href="#type-keyboard_event_handler" class="anchor"></a>
+       <code>
+        <span><span class="keyword">type</span> keyboard_event_handler</span>
+        <span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-touch_event_handler" class="anchored">
+       <a href="#type-touch_event_handler" class="anchor"></a>
+       <code>
+        <span><span class="keyword">type</span> touch_event_handler</span>
+        <span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-attrib" class="anchored">
+       <a href="#type-attrib" class="anchor"></a>
+       <code><span><span class="keyword">type</span> attrib</span>
+        <span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-float_attrib" class="anchored">
+       <a href="#val-float_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> float_attrib: 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-wrap" id="odoc.deps.Xml_print.Make.1-Xml">wrap</a>(
+          float) <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-int_attrib" class="anchored">
+       <a href="#val-int_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> int_attrib: 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-wrap" id="odoc.deps.Xml_print.Make.1-Xml">wrap</a>(
+          int) <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-string_attrib" class="anchored">
+       <a href="#val-string_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> string_attrib: 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-wrap" id="odoc.deps.Xml_print.Make.1-Xml">wrap</a>(
+          string) <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-space_sep_attrib" class="anchored">
+       <a href="#val-space_sep_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> space_sep_attrib: 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-wrap" id="odoc.deps.Xml_print.Make.1-Xml">wrap</a>(
+          list(string)) <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-comma_sep_attrib" class="anchored">
+       <a href="#val-comma_sep_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> comma_sep_attrib: 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-wrap" id="odoc.deps.Xml_print.Make.1-Xml">wrap</a>(
+          list(string)) <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-event_handler_attrib" class="anchored">
+       <a href="#val-event_handler_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> event_handler_attrib: 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-event_handler" id="odoc.deps.Xml_print.Make.1-Xml">
+           event_handler
+          </a> <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-mouse_event_handler_attrib"
+       class="anchored">
+       <a href="#val-mouse_event_handler_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> mouse_event_handler_attrib: 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-mouse_event_handler"
+           id="odoc.deps.Xml_print.Make.1-Xml">mouse_event_handler
+          </a> <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-keyboard_event_handler_attrib"
+       class="anchored">
+       <a href="#val-keyboard_event_handler_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> keyboard_event_handler_attrib
+         : 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-keyboard_event_handler"
+           id="odoc.deps.Xml_print.Make.1-Xml">keyboard_event_handler
+          </a> <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-touch_event_handler_attrib"
+       class="anchored">
+       <a href="#val-touch_event_handler_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> touch_event_handler_attrib: 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-touch_event_handler"
+           id="odoc.deps.Xml_print.Make.1-Xml">touch_event_handler
+          </a> <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-uri_attrib" class="anchored">
+       <a href="#val-uri_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> uri_attrib: 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-wrap" id="odoc.deps.Xml_print.Make.1-Xml">wrap</a>(
+          <a href="#type-uri" id="odoc.deps.Xml_print.Make.1-Xml">uri</a>) 
+          <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-uris_attrib" class="anchored">
+       <a href="#val-uris_attrib" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> uris_attrib: 
+         <span>
+          <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-wrap" id="odoc.deps.Xml_print.Make.1-Xml">wrap</a>(
+          list(
+          <a href="#type-uri" id="odoc.deps.Xml_print.Make.1-Xml">uri</a>)) 
+          <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+         </a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-elt" class="anchored">
+       <a href="#type-elt" class="anchor"></a>
+       <code><span><span class="keyword">type</span> elt</span><span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec type" id="type-ename" class="anchored">
+       <a href="#type-ename" class="anchor"></a>
+       <code><span><span class="keyword">type</span> ename</span>
+        <span> = string</span><span>;</span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-empty" class="anchored">
+       <a href="#val-empty" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> empty: 
+         <span>unit <span class="arrow">=&gt;</span></span> 
+         <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-comment" class="anchored">
+       <a href="#val-comment" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> comment: 
+         <span>string <span class="arrow">=&gt;</span></span> 
+         <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-pcdata" class="anchored">
+       <a href="#val-pcdata" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> pcdata: 
+         <span>
+          <a href="#type-wrap" id="odoc.deps.Xml_print.Make.1-Xml">wrap</a>(
+          string) <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-encodedpcdata" class="anchored">
+       <a href="#val-encodedpcdata" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> encodedpcdata: 
+         <span>
+          <a href="#type-wrap" id="odoc.deps.Xml_print.Make.1-Xml">wrap</a>(
+          string) <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-entity" class="anchored">
+       <a href="#val-entity" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> entity: 
+         <span>string <span class="arrow">=&gt;</span></span> 
+         <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-leaf" class="anchored">
+       <a href="#val-leaf" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> leaf: 
+         <span>?a:list(
+          <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+          </a>) <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-ename" id="odoc.deps.Xml_print.Make.1-Xml">ename</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-node" class="anchored">
+       <a href="#val-node" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> node: 
+         <span>?a:list(
+          <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+          </a>) <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-ename" id="odoc.deps.Xml_print.Make.1-Xml">ename</a>
+           <span class="arrow">=&gt;</span>
+         </span> 
+         <span>
+          <a href="#type-list_wrap" id="odoc.deps.Xml_print.Make.1-Xml">
+           list_wrap
+          </a>(
+          <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>) 
+          <span class="arrow">=&gt;</span>
+         </span> 
+         <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-cdata" class="anchored">
+       <a href="#val-cdata" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> cdata: 
+         <span>string <span class="arrow">=&gt;</span></span> 
+         <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-cdata_script" class="anchored">
+       <a href="#val-cdata_script" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> cdata_script: 
+         <span>string <span class="arrow">=&gt;</span></span> 
+         <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>;
+        </span>
+       </code>
+      </div>
+     </div>
+     <div class="odoc-spec">
+      <div class="spec value" id="val-cdata_style" class="anchored">
+       <a href="#val-cdata_style" class="anchor"></a>
+       <code>
+        <span><span class="keyword">let</span> cdata_style: 
+         <span>string <span class="arrow">=&gt;</span></span> 
+         <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>;
+        </span>
+       </code>
+      </div>
+     </div>
+    </details>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-separator" class="anchored">
+     <a href="#type-separator" class="anchor"></a>
+     <code><span><span class="keyword">type</span> separator</span>
+      <span> = </span>
+     </code>
+     <table>
+      <tr id="type-separator.Space" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-separator.Space" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Space</span></span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-separator.Comma" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-separator.Comma" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Comma</span></span>
+        </code>
+       </td>
+      </tr>
+     </table><code><span>;</span></code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-aname" class="anchored">
+     <a href="#val-aname" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> aname: 
+       <span>
+        <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib</a>
+         <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-aname" id="odoc.deps.Xml_print.Make.1-Xml">aname</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-acontent" class="anchored">
+     <a href="#type-acontent" class="anchor"></a>
+     <code><span><span class="keyword">type</span> acontent</span>
+      <span> = <span class="keyword">pri</span> </span>
+     </code>
+     <table>
+      <tr id="type-acontent.AFloat" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-acontent.AFloat" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">AFloat</span>(float)</span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-acontent.AInt" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-acontent.AInt" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">AInt</span>(int)</span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-acontent.AStr" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-acontent.AStr" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">AStr</span>(string)</span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-acontent.AStrL" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-acontent.AStrL" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">AStrL</span>(
+          <a href="#type-separator" id="odoc.deps.Xml_print.Make.1-Xml">
+           separator
+          </a>, list(string))
+         </span>
+        </code>
+       </td>
+      </tr>
+     </table><code><span>;</span></code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-acontent" class="anchored">
+     <a href="#val-acontent" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> acontent: 
+       <span>
+        <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib</a>
+         <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-acontent" id="odoc.deps.Xml_print.Make.1-Xml">acontent
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-econtent" class="anchored">
+     <a href="#type-econtent" class="anchor"></a>
+     <code><span><span class="keyword">type</span> econtent</span>
+      <span> = <span class="keyword">pri</span> </span>
+     </code>
+     <table>
+      <tr id="type-econtent.Empty" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-econtent.Empty" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Empty</span></span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-econtent.Comment" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-econtent.Comment" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Comment</span>(string)</span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-econtent.EncodedPCDATA" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-econtent.EncodedPCDATA" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">EncodedPCDATA</span>(string)</span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-econtent.PCDATA" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-econtent.PCDATA" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">PCDATA</span>(string)</span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-econtent.Entity" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-econtent.Entity" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Entity</span>(string)</span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-econtent.Leaf" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-econtent.Leaf" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Leaf</span>(
+          <a href="#type-ename" id="odoc.deps.Xml_print.Make.1-Xml">ename</a>
+          , list(
+          <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+          </a>))
+         </span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-econtent.Node" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-econtent.Node" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Node</span>(
+          <a href="#type-ename" id="odoc.deps.Xml_print.Make.1-Xml">ename</a>
+          , list(
+          <a href="#type-attrib" id="odoc.deps.Xml_print.Make.1-Xml">attrib
+          </a>), list(
+          <a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a>))
+         </span>
+        </code>
+       </td>
+      </tr>
+     </table><code><span>;</span></code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-content" class="anchored">
+     <a href="#val-content" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> content: 
+       <span><a href="#type-elt" id="odoc.deps.Xml_print.Make.1-Xml">elt</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-econtent" id="odoc.deps.Xml_print.Make.1-Xml">econtent
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

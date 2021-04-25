@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head><title>NoWrap (odoc.deps.Xml_sigs.NoWrap)</title>
+  <link rel="stylesheet" href="../../../../odoc.css"/><meta charset="utf-8"/>
+  <meta name="generator" content="odoc %%VERSION%%"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script src="../../../../highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body class="odoc">
+  <nav class="odoc-nav"><a href="../index.html">Up</a> – 
+   <a href="../../../index.html">odoc</a> &#x00BB; 
+   <a href="../../index.html">deps</a> &#x00BB; 
+   <a href="../index.html">Xml_sigs</a> &#x00BB; NoWrap
+  </nav>
+  <header class="odoc-preamble">
+   <h1>Module type <code><span>Xml_sigs.NoWrap</span></code></h1>
+  </header>
+  <div class="odoc-content">
+   <div class="odoc-spec">
+    <div class="spec module" id="module-W" class="anchored">
+     <a href="#module-W" class="anchor"></a>
+     <code><span><span class="keyword">module</span> </span><span>W</span>
+      <span> = 
+       <a href="../../Xml_wrap/NoWrap/index.html"
+        id="odoc.deps.Xml_wrap.NoWrap">Xml_wrap.NoWrap
+       </a>
+      </span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-wrap" class="anchored">
+     <a href="#type-wrap" class="anchor"></a>
+     <code><span><span class="keyword">type</span> wrap('a)</span>
+      <span> = 
+       <a href="../../Xml_wrap/NoWrap/index.html#type-t"
+        id="odoc.deps.Xml_wrap.NoWrap">W.t
+       </a>(<span class="type-var">'a</span>)
+      </span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-list_wrap" class="anchored">
+     <a href="#type-list_wrap" class="anchor"></a>
+     <code><span><span class="keyword">type</span> list_wrap('a)</span>
+      <span> = 
+       <a href="../../Xml_wrap/NoWrap/index.html#type-tlist"
+        id="odoc.deps.Xml_wrap.NoWrap">W.tlist
+       </a>(<span class="type-var">'a</span>)
+      </span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-uri" class="anchored">
+     <a href="#type-uri" class="anchor"></a>
+     <code><span><span class="keyword">type</span> uri</span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-string_of_uri" class="anchored">
+     <a href="#val-string_of_uri" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> string_of_uri: 
+       <a href="../../Xml_wrap/NoWrap/index.html#type-ft"
+        id="odoc.deps.Xml_wrap.NoWrap">W.ft
+       </a>
+       <span>(<a href="#type-uri" id="odoc.deps.Xml_sigs.NoWrap">uri</a>, 
+        string)
+       </span>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-uri_of_string" class="anchored">
+     <a href="#val-uri_of_string" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> uri_of_string: 
+       <a href="../../Xml_wrap/NoWrap/index.html#type-ft"
+        id="odoc.deps.Xml_wrap.NoWrap">W.ft
+       </a>
+       <span>(string, 
+        <a href="#type-uri" id="odoc.deps.Xml_sigs.NoWrap">uri</a>)
+       </span>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-aname" class="anchored">
+     <a href="#type-aname" class="anchor"></a>
+     <code><span><span class="keyword">type</span> aname</span>
+      <span> = string</span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-event_handler" class="anchored">
+     <a href="#type-event_handler" class="anchor"></a>
+     <code><span><span class="keyword">type</span> event_handler</span>
+      <span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-mouse_event_handler" class="anchored">
+     <a href="#type-mouse_event_handler" class="anchor"></a>
+     <code><span><span class="keyword">type</span> mouse_event_handler</span>
+      <span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-keyboard_event_handler" class="anchored">
+     <a href="#type-keyboard_event_handler" class="anchor"></a>
+     <code>
+      <span><span class="keyword">type</span> keyboard_event_handler</span>
+      <span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-touch_event_handler" class="anchored">
+     <a href="#type-touch_event_handler" class="anchor"></a>
+     <code><span><span class="keyword">type</span> touch_event_handler</span>
+      <span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-attrib" class="anchored">
+     <a href="#type-attrib" class="anchor"></a>
+     <code><span><span class="keyword">type</span> attrib</span>
+      <span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-float_attrib" class="anchored">
+     <a href="#val-float_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> float_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-wrap" id="odoc.deps.Xml_sigs.NoWrap">wrap</a>(
+        float) <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-int_attrib" class="anchored">
+     <a href="#val-int_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> int_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-wrap" id="odoc.deps.Xml_sigs.NoWrap">wrap</a>(int
+        ) <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-string_attrib" class="anchored">
+     <a href="#val-string_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> string_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-wrap" id="odoc.deps.Xml_sigs.NoWrap">wrap</a>(
+        string) <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-space_sep_attrib" class="anchored">
+     <a href="#val-space_sep_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> space_sep_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-wrap" id="odoc.deps.Xml_sigs.NoWrap">wrap</a>(
+        list(string)) <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-comma_sep_attrib" class="anchored">
+     <a href="#val-comma_sep_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> comma_sep_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-wrap" id="odoc.deps.Xml_sigs.NoWrap">wrap</a>(
+        list(string)) <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-event_handler_attrib" class="anchored">
+     <a href="#val-event_handler_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> event_handler_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="#type-event_handler" id="odoc.deps.Xml_sigs.NoWrap">
+         event_handler
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-mouse_event_handler_attrib"
+     class="anchored">
+     <a href="#val-mouse_event_handler_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> mouse_event_handler_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="#type-mouse_event_handler" id="odoc.deps.Xml_sigs.NoWrap">
+         mouse_event_handler
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-keyboard_event_handler_attrib"
+     class="anchored">
+     <a href="#val-keyboard_event_handler_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> keyboard_event_handler_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="#type-keyboard_event_handler" id="odoc.deps.Xml_sigs.NoWrap">
+         keyboard_event_handler
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-touch_event_handler_attrib"
+     class="anchored">
+     <a href="#val-touch_event_handler_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> touch_event_handler_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="#type-touch_event_handler" id="odoc.deps.Xml_sigs.NoWrap">
+         touch_event_handler
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-uri_attrib" class="anchored">
+     <a href="#val-uri_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> uri_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-wrap" id="odoc.deps.Xml_sigs.NoWrap">wrap</a>(
+        <a href="#type-uri" id="odoc.deps.Xml_sigs.NoWrap">uri</a>) 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-uris_attrib" class="anchored">
+     <a href="#val-uris_attrib" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> uris_attrib: 
+       <span><a href="#type-aname" id="odoc.deps.Xml_sigs.NoWrap">aname</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-wrap" id="odoc.deps.Xml_sigs.NoWrap">wrap</a>(
+        list(<a href="#type-uri" id="odoc.deps.Xml_sigs.NoWrap">uri</a>)) 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-elt" class="anchored">
+     <a href="#type-elt" class="anchor"></a>
+     <code><span><span class="keyword">type</span> elt</span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-ename" class="anchored">
+     <a href="#type-ename" class="anchor"></a>
+     <code><span><span class="keyword">type</span> ename</span>
+      <span> = string</span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-empty" class="anchored">
+     <a href="#val-empty" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> empty: 
+       <span>unit <span class="arrow">=&gt;</span></span> 
+       <a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-comment" class="anchored">
+     <a href="#val-comment" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> comment: 
+       <span>string <span class="arrow">=&gt;</span></span> 
+       <a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-pcdata" class="anchored">
+     <a href="#val-pcdata" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> pcdata: 
+       <span><a href="#type-wrap" id="odoc.deps.Xml_sigs.NoWrap">wrap</a>(
+        string) <span class="arrow">=&gt;</span>
+       </span> <a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-encodedpcdata" class="anchored">
+     <a href="#val-encodedpcdata" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> encodedpcdata: 
+       <span><a href="#type-wrap" id="odoc.deps.Xml_sigs.NoWrap">wrap</a>(
+        string) <span class="arrow">=&gt;</span>
+       </span> <a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-entity" class="anchored">
+     <a href="#val-entity" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> entity: 
+       <span>string <span class="arrow">=&gt;</span></span> 
+       <a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-leaf" class="anchored">
+     <a href="#val-leaf" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> leaf: 
+       <span>?a:list(
+        <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>) 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-ename" id="odoc.deps.Xml_sigs.NoWrap">ename</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-node" class="anchored">
+     <a href="#val-node" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> node: 
+       <span>?a:list(
+        <a href="#type-attrib" id="odoc.deps.Xml_sigs.NoWrap">attrib</a>) 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-ename" id="odoc.deps.Xml_sigs.NoWrap">ename</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="#type-list_wrap" id="odoc.deps.Xml_sigs.NoWrap">list_wrap
+        </a>(<a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>) 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-cdata" class="anchored">
+     <a href="#val-cdata" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> cdata: 
+       <span>string <span class="arrow">=&gt;</span></span> 
+       <a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-cdata_script" class="anchored">
+     <a href="#val-cdata_script" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> cdata_script: 
+       <span>string <span class="arrow">=&gt;</span></span> 
+       <a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-cdata_style" class="anchored">
+     <a href="#val-cdata_style" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> cdata_style: 
+       <span>string <span class="arrow">=&gt;</span></span> 
+       <a href="#type-elt" id="odoc.deps.Xml_sigs.NoWrap">elt</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
