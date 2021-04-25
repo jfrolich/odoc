@@ -1,0 +1,715 @@
+{
+  "title": "Tag",
+  "header": [
+    {
+      "type": "Heading",
+      "value": {
+        "label": null,
+        "level": 0,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Module " } },
+          {
+            "attr": [],
+            "desc": {
+              "type": "Source",
+              "value": [
+                {
+                  "tag": null,
+                  "source": [
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "Codefmt.Tag" }
+                      }
+                    ]
+                  ]
+                },
+                [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "Ugly" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "terrible" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "implementation" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Format" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Semantic" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "tags" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "for" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "OCaml" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "<" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "4.08." } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Please" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "get" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "rid" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "it" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "as" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "soon" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "as" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "possible." }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "module",
+                "parent": {
+                  "kind": "container-page",
+                  "parent": null,
+                  "name": "odoc"
+                },
+                "name": "Odoc_document"
+              },
+              "name": "Codefmt"
+            },
+            "name": "Tag"
+          },
+          "anchor": "val-setup_tags",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "setup_tags" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "Stdlib"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": ".Format" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": ".formatter" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "url": {
+                                "page": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "container-page",
+                                        "parent": null,
+                                        "name": "odoc"
+                                      },
+                                      "name": "Odoc_document"
+                                    },
+                                    "name": "Codefmt"
+                                  },
+                                  "name": "State"
+                                },
+                                "anchor": "type-t",
+                                "kind": "type"
+                              },
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "State.t"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "unit" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    },
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "module",
+                "parent": {
+                  "kind": "container-page",
+                  "parent": null,
+                  "name": "odoc"
+                },
+                "name": "Odoc_document"
+              },
+              "name": "Codefmt"
+            },
+            "name": "Tag"
+          },
+          "anchor": "val-elt",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "elt" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "Stdlib"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": ".Format" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": ".formatter" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "url": {
+                                "page": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "container-page",
+                                        "parent": null,
+                                        "name": "odoc"
+                                      },
+                                      "name": "Odoc_document"
+                                    },
+                                    "name": "Types"
+                                  },
+                                  "name": "Inline"
+                                },
+                                "anchor": "type-t",
+                                "kind": "type"
+                              },
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "Types.Inline.t"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "unit" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    }
+  ],
+  "url": {
+    "kind": "module",
+    "parent": {
+      "kind": "module",
+      "parent": {
+        "kind": "module",
+        "parent": {
+          "kind": "container-page",
+          "parent": null,
+          "name": "odoc"
+        },
+        "name": "Odoc_document"
+      },
+      "name": "Codefmt"
+    },
+    "name": "Tag"
+  }
+}

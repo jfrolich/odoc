@@ -103,43 +103,7 @@
               {
                 "tag": null,
                 "source": [
-                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
-                  [
-                    {
-                      "attr": [],
-                      "desc": { "type": "Text", "value": " = " }
-                    }
-                  ],
-                  [
-                    {
-                      "attr": [],
-                      "desc": {
-                        "type": "InternalLink",
-                        "value": {
-                          "inline": [
-                            {
-                              "attr": [],
-                              "desc": {
-                                "type": "Text",
-                                "value": "Odoc_parser__"
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  ],
-                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
-                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
-                  [
-                    {
-                      "attr": [],
-                      "desc": { "type": "Text", "value": ".Error" }
-                    }
-                  ],
-                  [
-                    { "attr": [], "desc": { "type": "Text", "value": ".t" } }
-                  ]
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
                 ]
               },
               [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
@@ -232,12 +196,29 @@
                               "desc": {
                                 "type": "InternalLink",
                                 "value": {
+                                  "url": {
+                                    "page": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "module",
+                                        "parent": {
+                                          "kind": "container-page",
+                                          "parent": null,
+                                          "name": "odoc"
+                                        },
+                                        "name": "Odoc_parser"
+                                      },
+                                      "name": "Location"
+                                    },
+                                    "anchor": "type-span",
+                                    "kind": "type"
+                                  },
                                   "inline": [
                                     {
                                       "attr": [],
                                       "desc": {
                                         "type": "Text",
-                                        "value": "Location"
+                                        "value": "Location.span"
                                       }
                                     }
                                   ]
@@ -255,12 +236,6 @@
                             {
                               "attr": [],
                               "desc": { "type": "Text", "value": "" }
-                            }
-                          ],
-                          [
-                            {
-                              "attr": [],
-                              "desc": { "type": "Text", "value": ".span" }
                             }
                           ],
                           [

@@ -1,0 +1,1305 @@
+{
+  "title": "Include",
+  "header": [
+    {
+      "type": "Heading",
+      "value": {
+        "label": null,
+        "level": 0,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Module " } },
+          {
+            "attr": [],
+            "desc": {
+              "type": "Source",
+              "value": [
+                {
+                  "tag": null,
+                  "source": [
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Text",
+                          "value": "Component.Include"
+                        }
+                      }
+                    ]
+                  ]
+                },
+                [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "items": [
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "type" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "module",
+                "parent": {
+                  "kind": "container-page",
+                  "parent": null,
+                  "name": "odoc"
+                },
+                "name": "Odoc_xref2"
+              },
+              "name": "Component"
+            },
+            "name": "Include"
+          },
+          "anchor": "type-decl",
+          "kind": "type"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "type" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "decl" }
+                    }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": " = " }
+                    }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Nested",
+            "value": {
+              "attrs": [ "def", "variant", "constructor" ],
+              "anchor": {
+                "page": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "module",
+                      "parent": {
+                        "kind": "container-page",
+                        "parent": null,
+                        "name": "odoc"
+                      },
+                      "name": "Odoc_xref2"
+                    },
+                    "name": "Component"
+                  },
+                  "name": "Include"
+                },
+                "anchor": "type-decl.Alias",
+                "kind": "constructor"
+              },
+              "code": [
+                {
+                  "type": "Code",
+                  "value": [
+                    {
+                      "tag": null,
+                      "source": [
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "| " }
+                          }
+                        ]
+                      ]
+                    },
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ]
+                  ]
+                },
+                {
+                  "type": "Code",
+                  "value": [
+                    {
+                      "tag": null,
+                      "source": [
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        {
+                          "tag": "constructor",
+                          "source": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "" }
+                              }
+                            ],
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "Alias" }
+                              }
+                            ]
+                          ]
+                        },
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "(" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": {
+                              "type": "InternalLink",
+                              "value": {
+                                "url": {
+                                  "page": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "container-page",
+                                        "parent": null,
+                                        "name": "odoc"
+                                      },
+                                      "name": "Odoc_xref2"
+                                    },
+                                    "name": "Cpath"
+                                  },
+                                  "anchor": "type-module_",
+                                  "kind": "type"
+                                },
+                                "inline": [
+                                  {
+                                    "attr": [],
+                                    "desc": {
+                                      "type": "Text",
+                                      "value": "Cpath.module_"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": ")" }
+                          }
+                        ]
+                      ]
+                    },
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ]
+                  ]
+                }
+              ],
+              "doc": [],
+              "markers": [ "/*", "*/" ]
+            }
+          },
+          {
+            "type": "Nested",
+            "value": {
+              "attrs": [ "def", "variant", "constructor" ],
+              "anchor": {
+                "page": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "module",
+                      "parent": {
+                        "kind": "container-page",
+                        "parent": null,
+                        "name": "odoc"
+                      },
+                      "name": "Odoc_xref2"
+                    },
+                    "name": "Component"
+                  },
+                  "name": "Include"
+                },
+                "anchor": "type-decl.ModuleType",
+                "kind": "constructor"
+              },
+              "code": [
+                {
+                  "type": "Code",
+                  "value": [
+                    {
+                      "tag": null,
+                      "source": [
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "| " }
+                          }
+                        ]
+                      ]
+                    },
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ]
+                  ]
+                },
+                {
+                  "type": "Code",
+                  "value": [
+                    {
+                      "tag": null,
+                      "source": [
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        {
+                          "tag": "constructor",
+                          "source": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "" }
+                              }
+                            ],
+                            [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "ModuleType"
+                                }
+                              }
+                            ]
+                          ]
+                        },
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "(" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": {
+                              "type": "InternalLink",
+                              "value": {
+                                "url": {
+                                  "page": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "module",
+                                        "parent": {
+                                          "kind": "module",
+                                          "parent": {
+                                            "kind": "container-page",
+                                            "parent": null,
+                                            "name": "odoc"
+                                          },
+                                          "name": "Odoc_xref2"
+                                        },
+                                        "name": "Component"
+                                      },
+                                      "name": "ModuleType"
+                                    },
+                                    "name": "U"
+                                  },
+                                  "anchor": "type-expr",
+                                  "kind": "type"
+                                },
+                                "inline": [
+                                  {
+                                    "attr": [],
+                                    "desc": {
+                                      "type": "Text",
+                                      "value": "ModuleType.U.expr"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": ")" }
+                          }
+                        ]
+                      ]
+                    },
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ]
+                  ]
+                }
+              ],
+              "doc": [],
+              "markers": [ "/*", "*/" ]
+            }
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    },
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "type" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "module",
+                "parent": {
+                  "kind": "container-page",
+                  "parent": null,
+                  "name": "odoc"
+                },
+                "name": "Odoc_xref2"
+              },
+              "name": "Component"
+            },
+            "name": "Include"
+          },
+          "anchor": "type-t",
+          "kind": "type"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "type" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": "t" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": " = " }
+                    }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": "{" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Documented",
+            "value": {
+              "attrs": [ "def", "record", "field" ],
+              "anchor": {
+                "page": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "module",
+                      "parent": {
+                        "kind": "container-page",
+                        "parent": null,
+                        "name": "odoc"
+                      },
+                      "name": "Odoc_xref2"
+                    },
+                    "name": "Component"
+                  },
+                  "name": "Include"
+                },
+                "anchor": "type-t.parent",
+                "kind": "field"
+              },
+              "code": [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Source",
+                    "value": [
+                      {
+                        "tag": null,
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "parent" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": ": " }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "InternalLink",
+                                "value": {
+                                  "url": {
+                                    "page": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "module",
+                                        "parent": {
+                                          "kind": "module",
+                                          "parent": {
+                                            "kind": "module",
+                                            "parent": {
+                                              "kind": "container-page",
+                                              "parent": null,
+                                              "name": "odoc"
+                                            },
+                                            "name": "Odoc_model"
+                                          },
+                                          "name": "Paths"
+                                        },
+                                        "name": "Identifier"
+                                      },
+                                      "name": "Signature"
+                                    },
+                                    "anchor": "type-t",
+                                    "kind": "type"
+                                  },
+                                  "inline": [
+                                    {
+                                      "attr": [],
+                                      "desc": {
+                                        "type": "Text",
+                                        "value":
+                                          "Odoc_model.Paths.Identifier.Signature.t"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "," }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ],
+              "doc": [],
+              "markers": [ "/*", "*/" ]
+            }
+          },
+          {
+            "type": "Documented",
+            "value": {
+              "attrs": [ "def", "record", "field" ],
+              "anchor": {
+                "page": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "module",
+                      "parent": {
+                        "kind": "container-page",
+                        "parent": null,
+                        "name": "odoc"
+                      },
+                      "name": "Odoc_xref2"
+                    },
+                    "name": "Component"
+                  },
+                  "name": "Include"
+                },
+                "anchor": "type-t.doc",
+                "kind": "field"
+              },
+              "code": [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Source",
+                    "value": [
+                      {
+                        "tag": null,
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "doc" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": ": " }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "InternalLink",
+                                "value": {
+                                  "url": {
+                                    "page": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "module",
+                                        "parent": {
+                                          "kind": "module",
+                                          "parent": {
+                                            "kind": "container-page",
+                                            "parent": null,
+                                            "name": "odoc"
+                                          },
+                                          "name": "Odoc_xref2"
+                                        },
+                                        "name": "Component"
+                                      },
+                                      "name": "CComment"
+                                    },
+                                    "anchor": "type-docs",
+                                    "kind": "type"
+                                  },
+                                  "inline": [
+                                    {
+                                      "attr": [],
+                                      "desc": {
+                                        "type": "Text",
+                                        "value": "CComment.docs"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "," }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ],
+              "doc": [],
+              "markers": [ "/*", "*/" ]
+            }
+          },
+          {
+            "type": "Documented",
+            "value": {
+              "attrs": [ "def", "record", "field" ],
+              "anchor": {
+                "page": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "module",
+                      "parent": {
+                        "kind": "container-page",
+                        "parent": null,
+                        "name": "odoc"
+                      },
+                      "name": "Odoc_xref2"
+                    },
+                    "name": "Component"
+                  },
+                  "name": "Include"
+                },
+                "anchor": "type-t.shadowed",
+                "kind": "field"
+              },
+              "code": [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Source",
+                    "value": [
+                      {
+                        "tag": null,
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "shadowed" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": ": " }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "InternalLink",
+                                "value": {
+                                  "url": {
+                                    "page": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "module",
+                                        "parent": {
+                                          "kind": "module",
+                                          "parent": {
+                                            "kind": "container-page",
+                                            "parent": null,
+                                            "name": "odoc"
+                                          },
+                                          "name": "Odoc_model"
+                                        },
+                                        "name": "Lang"
+                                      },
+                                      "name": "Include"
+                                    },
+                                    "anchor": "type-shadowed",
+                                    "kind": "type"
+                                  },
+                                  "inline": [
+                                    {
+                                      "attr": [],
+                                      "desc": {
+                                        "type": "Text",
+                                        "value":
+                                          "Odoc_model.Lang.Include.shadowed"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "," }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ],
+              "doc": [],
+              "markers": [ "/*", "*/" ]
+            }
+          },
+          {
+            "type": "Documented",
+            "value": {
+              "attrs": [ "def", "record", "field" ],
+              "anchor": {
+                "page": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "module",
+                      "parent": {
+                        "kind": "container-page",
+                        "parent": null,
+                        "name": "odoc"
+                      },
+                      "name": "Odoc_xref2"
+                    },
+                    "name": "Component"
+                  },
+                  "name": "Include"
+                },
+                "anchor": "type-t.expansion_",
+                "kind": "field"
+              },
+              "code": [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Source",
+                    "value": [
+                      {
+                        "tag": null,
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "Text",
+                                "value": "expansion_"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": ": " }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "InternalLink",
+                                "value": {
+                                  "url": {
+                                    "page": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "module",
+                                        "parent": {
+                                          "kind": "module",
+                                          "parent": {
+                                            "kind": "container-page",
+                                            "parent": null,
+                                            "name": "odoc"
+                                          },
+                                          "name": "Odoc_xref2"
+                                        },
+                                        "name": "Component"
+                                      },
+                                      "name": "Signature"
+                                    },
+                                    "anchor": "type-t",
+                                    "kind": "type"
+                                  },
+                                  "inline": [
+                                    {
+                                      "attr": [],
+                                      "desc": {
+                                        "type": "Text",
+                                        "value": "Signature.t"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "," }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ],
+              "doc": [],
+              "markers": [ "/*", "*/" ]
+            }
+          },
+          {
+            "type": "Documented",
+            "value": {
+              "attrs": [ "def", "record", "field" ],
+              "anchor": {
+                "page": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "module",
+                      "parent": {
+                        "kind": "container-page",
+                        "parent": null,
+                        "name": "odoc"
+                      },
+                      "name": "Odoc_xref2"
+                    },
+                    "name": "Component"
+                  },
+                  "name": "Include"
+                },
+                "anchor": "type-t.decl",
+                "kind": "field"
+              },
+              "code": [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Source",
+                    "value": [
+                      {
+                        "tag": null,
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "decl" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": ": " }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "InternalLink",
+                                "value": {
+                                  "url": {
+                                    "page": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "module",
+                                        "parent": {
+                                          "kind": "module",
+                                          "parent": {
+                                            "kind": "container-page",
+                                            "parent": null,
+                                            "name": "odoc"
+                                          },
+                                          "name": "Odoc_xref2"
+                                        },
+                                        "name": "Component"
+                                      },
+                                      "name": "Include"
+                                    },
+                                    "anchor": "type-decl",
+                                    "kind": "type"
+                                  },
+                                  "inline": [
+                                    {
+                                      "attr": [],
+                                      "desc": {
+                                        "type": "Text",
+                                        "value": "decl"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "," }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ],
+              "doc": [],
+              "markers": [ "/*", "*/" ]
+            }
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": "}" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    }
+  ],
+  "url": {
+    "kind": "module",
+    "parent": {
+      "kind": "module",
+      "parent": {
+        "kind": "module",
+        "parent": {
+          "kind": "container-page",
+          "parent": null,
+          "name": "odoc"
+        },
+        "name": "Odoc_xref2"
+      },
+      "name": "Component"
+    },
+    "name": "Include"
+  }
+}

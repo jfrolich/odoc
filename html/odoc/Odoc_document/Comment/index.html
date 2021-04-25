@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head><title>Comment (odoc.Odoc_document.Comment)</title>
+  <link rel="stylesheet" href="../../../odoc.css"/><meta charset="utf-8"/>
+  <meta name="generator" content="odoc %%VERSION%%"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script src="../../../highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body class="odoc">
+  <nav class="odoc-nav"><a href="../index.html">Up</a> – 
+   <a href="../../index.html">odoc</a> &#x00BB; 
+   <a href="../index.html">Odoc_document</a> &#x00BB; Comment
+  </nav>
+  <header class="odoc-preamble">
+   <h1>Module <code><span>Odoc_document.Comment</span></code></h1>
+  </header>
+  <div class="odoc-content">
+   <div class="odoc-spec">
+    <div class="spec module" id="module-Comment" class="anchored">
+     <a href="#module-Comment" class="anchor"></a>
+     <code><span><span class="keyword">module</span> </span>
+      <span>Comment</span>
+      <span> = 
+       <a href="../../Odoc_model/Comment/index.html"
+        id="odoc.Odoc_model.Comment">Odoc_model.Comment
+       </a>
+      </span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-source_of_code" class="anchored">
+     <a href="#val-source_of_code" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> source_of_code: 
+       <span>string <span class="arrow">=&gt;</span></span> list(
+       <a href="../Types/Source/index.html#type-token"
+        id="odoc.Odoc_document.Types.Source">Types.Source.token
+       </a>);
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec module" id="module-Reference" class="anchored">
+     <a href="#module-Reference" class="anchor"></a>
+     <code><span><span class="keyword">module</span> </span>
+      <span>
+       <a href="Reference/index.html"
+        id="odoc.Odoc_document.Comment.Reference">Reference
+       </a>
+      </span><span>: { ... }</span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-leaf_inline_element" class="anchored">
+     <a href="#val-leaf_inline_element" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> leaf_inline_element: 
+       <span>
+        <a
+         href="../../Odoc_model/Comment/index.html#type-leaf_inline_element"
+         id="odoc.Odoc_model.Comment">Comment.leaf_inline_element
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Inline/index.html#type-one"
+        id="odoc.Odoc_document.Types.Inline">Types.Inline.one
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-non_link_inline_element" class="anchored">
+     <a href="#val-non_link_inline_element" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> non_link_inline_element: 
+       <span>
+        <a
+         href="../../Odoc_model/Comment/index.html#type-non_link_inline_element"
+         id="odoc.Odoc_model.Comment">Comment.non_link_inline_element
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Inline/index.html#type-one"
+        id="odoc.Odoc_document.Types.Inline">Types.Inline.one
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-non_link_inline_element_list"
+     class="anchored">
+     <a href="#val-non_link_inline_element_list" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> non_link_inline_element_list: 
+       <span>list(
+        <a href="../../Odoc_model/Comment/index.html#type-with_location"
+         id="odoc.Odoc_model.Comment">Comment.with_location
+        </a>(
+        <a
+         href="../../Odoc_model/Comment/index.html#type-non_link_inline_element"
+         id="odoc.Odoc_model.Comment">Comment.non_link_inline_element
+        </a>)) <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Inline/index.html#type-t"
+        id="odoc.Odoc_document.Types.Inline">Types.Inline.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-link_content" class="anchored">
+     <a href="#val-link_content" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> link_content: 
+       <span>list(
+        <a href="../../Odoc_model/Comment/index.html#type-with_location"
+         id="odoc.Odoc_model.Comment">Comment.with_location
+        </a>(
+        <a
+         href="../../Odoc_model/Comment/index.html#type-non_link_inline_element"
+         id="odoc.Odoc_model.Comment">Comment.non_link_inline_element
+        </a>)) <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Inline/index.html#type-t"
+        id="odoc.Odoc_document.Types.Inline">Types.Inline.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-inline_element" class="anchored">
+     <a href="#val-inline_element" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> inline_element: 
+       <span>
+        <a href="../../Odoc_model/Comment/index.html#type-inline_element"
+         id="odoc.Odoc_model.Comment">Comment.inline_element
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Inline/index.html#type-t"
+        id="odoc.Odoc_document.Types.Inline">Types.Inline.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-inline_element_list" class="anchored">
+     <a href="#val-inline_element_list" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> inline_element_list: 
+       <span>list(
+        <a href="../../Odoc_model/Location_/index.html#type-with_location"
+         id="odoc.Odoc_model.Location_">Odoc_model.Location_.with_location
+        </a>(
+        <a href="../../Odoc_model/Comment/index.html#type-inline_element"
+         id="odoc.Odoc_model.Comment">Comment.inline_element
+        </a>)) <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Inline/index.html#type-t"
+        id="odoc.Odoc_document.Types.Inline">Types.Inline.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-module_references" class="anchored">
+     <a href="#val-module_references" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> module_references: 
+       <span>list(
+        <a href="../../Odoc_model/Comment/index.html#type-module_reference"
+         id="odoc.Odoc_model.Comment">Comment.module_reference
+        </a>) <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Block/index.html#type-one"
+        id="odoc.Odoc_document.Types.Block">Types.Block.one
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-nestable_block_element" class="anchored">
+     <a href="#val-nestable_block_element" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> nestable_block_element: 
+       <span>
+        <a
+         href="../../Odoc_model/Comment/index.html#type-nestable_block_element"
+         id="odoc.Odoc_model.Comment">Comment.nestable_block_element
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Block/index.html#type-one"
+        id="odoc.Odoc_document.Types.Block">Types.Block.one
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-paragraph" class="anchored">
+     <a href="#val-paragraph" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> paragraph: 
+       <span>
+        <a href="../../Odoc_model/Comment/index.html#type-paragraph"
+         id="odoc.Odoc_model.Comment">Comment.paragraph
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Block/index.html#type-one"
+        id="odoc.Odoc_document.Types.Block">Types.Block.one
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-nestable_block_element_list"
+     class="anchored">
+     <a href="#val-nestable_block_element_list" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> nestable_block_element_list: 
+       <span>list(
+        <a href="../../Odoc_model/Location_/index.html#type-with_location"
+         id="odoc.Odoc_model.Location_">Odoc_model.Location_.with_location
+        </a>(
+        <a
+         href="../../Odoc_model/Comment/index.html#type-nestable_block_element"
+         id="odoc.Odoc_model.Comment">Comment.nestable_block_element
+        </a>)) <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Block/index.html#type-t"
+        id="odoc.Odoc_document.Types.Block">Types.Block.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-tag" class="anchored">
+     <a href="#val-tag" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> tag: 
+       <span>
+        <a href="../../Odoc_model/Comment/index.html#type-tag"
+         id="odoc.Odoc_model.Comment">Comment.tag
+        </a> <span class="arrow">=&gt;</span>
+       </span> option(
+       <a href="../Types/Description/index.html#type-one"
+        id="odoc.Odoc_document.Types.Description">Types.Description.one
+       </a>);
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-attached_block_element" class="anchored">
+     <a href="#val-attached_block_element" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> attached_block_element: 
+       <span>
+        <a
+         href="../../Odoc_model/Comment/index.html#type-attached_block_element"
+         id="odoc.Odoc_model.Comment">Comment.attached_block_element
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Block/index.html#type-t"
+        id="odoc.Odoc_document.Types.Block">Types.Block.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-block_element" class="anchored">
+     <a href="#val-block_element" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> block_element: 
+       <span>
+        <a href="../../Odoc_model/Comment/index.html#type-block_element"
+         id="odoc.Odoc_model.Comment">Comment.block_element
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Block/index.html#type-t"
+        id="odoc.Odoc_document.Types.Block">Types.Block.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-heading_level" class="anchored">
+     <a href="#val-heading_level" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> heading_level: 
+       <span>
+        <span>[&lt; `Paragraph <span>| `Section</span> 
+         <span>| `Subparagraph</span> <span>| `Subsection</span> 
+         <span>| `Subsubsection</span> <span>| `Title</span> ]
+        </span> <span class="arrow">=&gt;</span>
+       </span> int;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-heading" class="anchored">
+     <a href="#val-heading" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> heading: 
+       <span>
+        <span>[&lt; 
+         <span>`Heading
+          <span>(
+           <span>(
+            <span>[&lt; `Paragraph <span>| `Section</span> 
+             <span>| `Subparagraph</span> <span>| `Subsection</span> 
+             <span>| `Subsubsection</span> <span>| `Title</span> ]
+            </span>, 
+            <span>[&lt; 
+             <span>`Label
+              <span>(
+               <span>(<span class="type-var">'a</span>, 
+                <a href="../../Odoc_model/Names/LabelName/index.html#type-t"
+                 id="odoc.Odoc_model.Names.LabelName">
+                 Odoc_model.Names.LabelName.t
+                </a>)
+               </span>)
+              </span>
+             </span> ]
+            </span>, list(
+            <a href="../../Odoc_model/Comment/index.html#type-with_location"
+             id="odoc.Odoc_model.Comment">Comment.with_location
+            </a>(
+            <a
+             href="../../Odoc_model/Comment/index.html#type-non_link_inline_element"
+             id="odoc.Odoc_model.Comment">Comment.non_link_inline_element
+            </a>)))
+           </span>)
+          </span>
+         </span> ]
+        </span> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Item/index.html#type-t"
+        id="odoc.Odoc_document.Types.Item">Types.Item.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-item_element" class="anchored">
+     <a href="#val-item_element" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> item_element: 
+       <span>
+        <a href="../../Odoc_model/Comment/index.html#type-block_element"
+         id="odoc.Odoc_model.Comment">Comment.block_element
+        </a> <span class="arrow">=&gt;</span>
+       </span> list(
+       <a href="../Types/Item/index.html#type-t"
+        id="odoc.Odoc_document.Types.Item">Types.Item.t
+       </a>);
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-synopsis" class="anchored">
+     <a href="#val-synopsis" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> synopsis: 
+       <span>decl_doc:list(
+        <a href="../../Odoc_model/Location_/index.html#type-with_location"
+         id="odoc.Odoc_model.Location_">Odoc_model.Location_.with_location
+        </a>(
+        <span>[&gt; 
+         <span>`Paragraph
+          <span>(
+           <a href="../../Odoc_model/Comment/index.html#type-paragraph"
+            id="odoc.Odoc_model.Comment">Comment.paragraph
+           </a>)
+          </span>
+         </span> ]
+        </span> <span class="keyword">as</span> 'a)) 
+        <span class="arrow">=&gt;</span>
+       </span>
+
+       <span>expansion_doc:option(list(
+        <a href="../../Odoc_model/Location_/index.html#type-with_location"
+         id="odoc.Odoc_model.Location_">Odoc_model.Location_.with_location
+        </a>(<span class="type-var">'a</span>))) 
+        <span class="arrow">=&gt;</span>
+       </span> list(
+       <a href="../Types/Block/index.html#type-one"
+        id="odoc.Odoc_document.Types.Block">Types.Block.one
+       </a>);
+      </span>
+     </code>
+    </div>
+    <div class="spec-doc">
+     <p>The documentation of the expansion is used if there is no comment 
+      attached to the declaration.
+     </p>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-standalone" class="anchored">
+     <a href="#val-standalone" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> standalone: 
+       <span>list(
+        <a href="../../Odoc_model/Location_/index.html#type-with_location"
+         id="odoc.Odoc_model.Location_">Odoc_model.Location_.with_location
+        </a>(
+        <a href="../../Odoc_model/Comment/index.html#type-block_element"
+         id="odoc.Odoc_model.Comment">Comment.block_element
+        </a>)) <span class="arrow">=&gt;</span>
+       </span> list(
+       <a href="../Types/Item/index.html#type-t"
+        id="odoc.Odoc_document.Types.Item">Types.Item.t
+       </a>);
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-to_ir" class="anchored">
+     <a href="#val-to_ir" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> to_ir: 
+       <span>
+        <a href="../../Odoc_model/Comment/index.html#type-docs"
+         id="odoc.Odoc_model.Comment">Comment.docs
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Types/Block/index.html#type-t"
+        id="odoc.Odoc_document.Types.Block">Types.Block.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-has_doc" class="anchored">
+     <a href="#val-has_doc" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> has_doc: 
+       <span>list(<span class="type-var">'a</span>) 
+        <span class="arrow">=&gt;</span>
+       </span> bool;
+      </span>
+     </code>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

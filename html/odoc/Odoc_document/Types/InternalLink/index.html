@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head><title>InternalLink (odoc.Odoc_document.Types.InternalLink)</title>
+  <link rel="stylesheet" href="../../../../odoc.css"/><meta charset="utf-8"/>
+  <meta name="generator" content="odoc %%VERSION%%"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script src="../../../../highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body class="odoc">
+  <nav class="odoc-nav"><a href="../index.html">Up</a> – 
+   <a href="../../../index.html">odoc</a> &#x00BB; 
+   <a href="../../index.html">Odoc_document</a> &#x00BB; 
+   <a href="../index.html">Types</a> &#x00BB; InternalLink
+  </nav>
+  <header class="odoc-preamble">
+   <h1>Module <code><span>Types.InternalLink</span></code></h1>
+  </header>
+  <div class="odoc-content">
+   <div class="odoc-spec">
+    <div class="spec type" id="type-resolved" class="anchored">
+     <a href="#type-resolved" class="anchor"></a>
+     <code><span><span class="keyword">type</span> resolved</span>
+      <span> = 
+       <span>(
+        <a href="../UrlType/index.html#type-t"
+         id="odoc.Odoc_document.Types.UrlType">UrlType.t
+        </a>, 
+        <a href="../Inline/index.html#type-t"
+         id="odoc.Odoc_document.Types.Inline">Inline.t
+        </a>)
+       </span>
+      </span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-unresolved" class="anchored">
+     <a href="#type-unresolved" class="anchor"></a>
+     <code><span><span class="keyword">type</span> unresolved</span>
+      <span> = 
+       <a href="../Inline/index.html#type-t"
+        id="odoc.Odoc_document.Types.Inline">Inline.t
+       </a>
+      </span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-t" class="anchored">
+     <a href="#type-t" class="anchor"></a>
+     <code><span><span class="keyword">type</span> t</span><span> = </span>
+     </code>
+     <table>
+      <tr id="type-t.Resolved" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Resolved" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Resolved</span>(
+          <a href="#type-resolved" id="odoc.Odoc_document.Types.InternalLink">
+           resolved
+          </a>)
+         </span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Unresolved" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Unresolved" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Unresolved</span>(
+          <a href="../Inline/index.html#type-t"
+           id="odoc.Odoc_document.Types.Inline">Inline.t
+          </a>)
+         </span>
+        </code>
+       </td>
+      </tr>
+     </table><code><span>;</span></code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-serialize" class="anchored">
+     <a href="#val-serialize" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> serialize: 
+       <span>
+        <a href="#type-t" id="odoc.Odoc_document.Types.InternalLink">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../../../deps/Yojson/Basic/index.html#type-t"
+        id="odoc.deps.Yojson.Basic">Yojson.Basic.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

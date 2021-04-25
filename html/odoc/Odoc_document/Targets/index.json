@@ -1,0 +1,638 @@
+{
+  "title": "Targets",
+  "header": [
+    {
+      "type": "Heading",
+      "value": {
+        "label": null,
+        "level": 0,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Module " } },
+          {
+            "attr": [],
+            "desc": {
+              "type": "Source",
+              "value": [
+                {
+                  "tag": null,
+                  "source": [
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Text",
+                          "value": "Odoc_document.Targets"
+                        }
+                      }
+                    ]
+                  ]
+                },
+                [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+              ]
+            }
+          }
+        ]
+      }
+    },
+    { "type": "Text", "value": [] },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "Collect" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "all" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "urls" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "pages" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "defined" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "by" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "model." } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Text",
+      "value": [
+        {
+          "attr": [],
+          "desc": {
+            "type": "Paragraph",
+            "value": [
+              { "attr": [], "desc": { "type": "Text", "value": "Roughly" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "simplified" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "version" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "of" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "normal" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "process" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "convert" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "model" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "into" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "a" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "document," }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "only" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "for" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "extracting" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Urls." } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "Used" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "to" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              {
+                "attr": [],
+                "desc": { "type": "Text", "value": "determine" }
+              },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "the" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "build" } },
+              { "attr": [], "desc": { "type": "Text", "value": " " } },
+              { "attr": [], "desc": { "type": "Text", "value": "targets." } }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "Odoc_document"
+            },
+            "name": "Targets"
+          },
+          "anchor": "val-unit",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "unit" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "url": {
+                                "page": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "container-page",
+                                        "parent": null,
+                                        "name": "odoc"
+                                      },
+                                      "name": "Odoc_model"
+                                    },
+                                    "name": "Lang"
+                                  },
+                                  "name": "Compilation_unit"
+                                },
+                                "anchor": "type-t",
+                                "kind": "type"
+                              },
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value":
+                                      "Odoc_model.Lang.Compilation_unit.t"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "list" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": "(" } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "InternalLink",
+                        "value": {
+                          "url": {
+                            "page": {
+                              "kind": "module",
+                              "parent": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "container-page",
+                                    "parent": null,
+                                    "name": "odoc"
+                                  },
+                                  "name": "Odoc_document"
+                                },
+                                "name": "Url"
+                              },
+                              "name": "Path"
+                            },
+                            "anchor": "type-t",
+                            "kind": "type"
+                          },
+                          "inline": [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "Text",
+                                "value": "Url.Path.t"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ")" } }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    },
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "Odoc_document"
+            },
+            "name": "Targets"
+          },
+          "anchor": "val-page",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "page" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "url": {
+                                "page": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "container-page",
+                                        "parent": null,
+                                        "name": "odoc"
+                                      },
+                                      "name": "Odoc_model"
+                                    },
+                                    "name": "Lang"
+                                  },
+                                  "name": "Page"
+                                },
+                                "anchor": "type-t",
+                                "kind": "type"
+                              },
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "Odoc_model.Lang.Page.t"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "list" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": "(" } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "InternalLink",
+                        "value": {
+                          "url": {
+                            "page": {
+                              "kind": "module",
+                              "parent": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "container-page",
+                                    "parent": null,
+                                    "name": "odoc"
+                                  },
+                                  "name": "Odoc_document"
+                                },
+                                "name": "Url"
+                              },
+                              "name": "Path"
+                            },
+                            "anchor": "type-t",
+                            "kind": "type"
+                          },
+                          "inline": [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "Text",
+                                "value": "Url.Path.t"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ")" } }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    }
+  ],
+  "url": {
+    "kind": "module",
+    "parent": {
+      "kind": "module",
+      "parent": { "kind": "container-page", "parent": null, "name": "odoc" },
+      "name": "Odoc_document"
+    },
+    "name": "Targets"
+  }
+}

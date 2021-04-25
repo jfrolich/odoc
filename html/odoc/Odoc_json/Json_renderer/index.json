@@ -1,0 +1,4468 @@
+{
+  "title": "Json_renderer",
+  "header": [
+    {
+      "type": "Heading",
+      "value": {
+        "label": null,
+        "level": 0,
+        "title": [
+          { "attr": [], "desc": { "type": "Text", "value": "Module " } },
+          {
+            "attr": [],
+            "desc": {
+              "type": "Source",
+              "value": [
+                {
+                  "tag": null,
+                  "source": [
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": {
+                          "type": "Text",
+                          "value": "Odoc_json.Json_renderer"
+                        }
+                      }
+                    ]
+                  ]
+                },
+                [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+              ]
+            }
+          }
+        ]
+      }
+    },
+    { "type": "Text", "value": [] }
+  ],
+  "items": [
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "type" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "Odoc_json"
+            },
+            "name": "Json_renderer"
+          },
+          "anchor": "type-args",
+          "kind": "type"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "type" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "args" }
+                    }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": " = " }
+                    }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": "{" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Documented",
+            "value": {
+              "attrs": [ "def", "record", "field" ],
+              "anchor": {
+                "page": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "container-page",
+                      "parent": null,
+                      "name": "odoc"
+                    },
+                    "name": "Odoc_json"
+                  },
+                  "name": "Json_renderer"
+                },
+                "anchor": "type-args.semantic_uris",
+                "kind": "field"
+              },
+              "code": [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Source",
+                    "value": [
+                      {
+                        "tag": null,
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "Text",
+                                "value": "semantic_uris"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": ": " }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "bool" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "," }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ],
+              "doc": [],
+              "markers": [ "/*", "*/" ]
+            }
+          },
+          {
+            "type": "Documented",
+            "value": {
+              "attrs": [ "def", "record", "field" ],
+              "anchor": {
+                "page": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "container-page",
+                      "parent": null,
+                      "name": "odoc"
+                    },
+                    "name": "Odoc_json"
+                  },
+                  "name": "Json_renderer"
+                },
+                "anchor": "type-args.closed_details",
+                "kind": "field"
+              },
+              "code": [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Source",
+                    "value": [
+                      {
+                        "tag": null,
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "Text",
+                                "value": "closed_details"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": ": " }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "bool" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "," }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ],
+              "doc": [],
+              "markers": [ "/*", "*/" ]
+            }
+          },
+          {
+            "type": "Documented",
+            "value": {
+              "attrs": [ "def", "record", "field" ],
+              "anchor": {
+                "page": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "container-page",
+                      "parent": null,
+                      "name": "odoc"
+                    },
+                    "name": "Odoc_json"
+                  },
+                  "name": "Json_renderer"
+                },
+                "anchor": "type-args.indent",
+                "kind": "field"
+              },
+              "code": [
+                {
+                  "attr": [],
+                  "desc": {
+                    "type": "Source",
+                    "value": [
+                      {
+                        "tag": null,
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "indent" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": ": " }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "bool" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "," }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ],
+              "doc": [],
+              "markers": [ "/*", "*/" ]
+            }
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": "}" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    },
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "Odoc_json"
+            },
+            "name": "Json_renderer"
+          },
+          "anchor": "val-list_concat_map",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "list_concat_map" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "?" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "sep" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": ":" }
+                        }
+                      ],
+                      {
+                        "tag": "type-var",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "'a" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "f" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": ":" }
+                        }
+                      ],
+                      {
+                        "tag": null,
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "(" }
+                            }
+                          ],
+                          {
+                            "tag": null,
+                            "source": [
+                              [
+                                {
+                                  "attr": [],
+                                  "desc": { "type": "Text", "value": "" }
+                                }
+                              ],
+                              {
+                                "tag": "type-var",
+                                "source": [
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": { "type": "Text", "value": "" }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": {
+                                        "type": "Text",
+                                        "value": "'b"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              },
+                              [
+                                {
+                                  "attr": [],
+                                  "desc": { "type": "Text", "value": "" }
+                                }
+                              ],
+                              [
+                                {
+                                  "attr": [],
+                                  "desc": { "type": "Text", "value": " " }
+                                }
+                              ],
+                              {
+                                "tag": "arrow",
+                                "source": [
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": { "type": "Text", "value": "" }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": {
+                                        "type": "Text",
+                                        "value": "="
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": {
+                                        "type": "Entity",
+                                        "value": "gt"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": { "type": "Text", "value": "" }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": { "type": "Text", "value": "" }
+                                    }
+                                  ]
+                                ]
+                              },
+                              [
+                                {
+                                  "attr": [],
+                                  "desc": { "type": "Text", "value": "" }
+                                }
+                              ]
+                            ]
+                          },
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": " " }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "list" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "(" }
+                            }
+                          ],
+                          {
+                            "tag": "type-var",
+                            "source": [
+                              [
+                                {
+                                  "attr": [],
+                                  "desc": { "type": "Text", "value": "" }
+                                }
+                              ],
+                              [
+                                {
+                                  "attr": [],
+                                  "desc": { "type": "Text", "value": "'a" }
+                                }
+                              ]
+                            ]
+                          },
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": ")" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": ")" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "list" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "(" }
+                        }
+                      ],
+                      {
+                        "tag": "type-var",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "'b" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": ")" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "list" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": "(" } }
+                  ],
+                  {
+                    "tag": "type-var",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "'a" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ")" } }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    },
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "module" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "Odoc_json"
+            },
+            "name": "Json_renderer"
+          },
+          "anchor": "module-Page",
+          "kind": "module"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "module" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "InternalLink",
+                        "value": {
+                          "url": {
+                            "page": {
+                              "kind": "module",
+                              "parent": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "container-page",
+                                    "parent": null,
+                                    "name": "odoc"
+                                  },
+                                  "name": "Odoc_json"
+                                },
+                                "name": "Json_renderer"
+                              },
+                              "name": "Page"
+                            },
+                            "anchor": "",
+                            "kind": "module"
+                          },
+                          "inline": [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "Page" }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          },
+          {
+            "type": "Alternative",
+            "value": {
+              "type": "Expansion",
+              "status": "Inline",
+              "summary": [
+                {
+                  "tag": null,
+                  "source": [
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": ": " }
+                      }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "{" }
+                      }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": " ... " }
+                      }
+                    ],
+                    [
+                      {
+                        "attr": [],
+                        "desc": { "type": "Text", "value": "}" }
+                      }
+                    ]
+                  ]
+                },
+                [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+              ],
+              "expansion": [
+                {
+                  "type": "Code",
+                  "value": [
+                    {
+                      "tag": null,
+                      "source": [
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": ": " }
+                          }
+                        ],
+                        {
+                          "tag": "keyword",
+                          "source": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "" }
+                              }
+                            ],
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "sig" }
+                              }
+                            ]
+                          ]
+                        },
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ]
+                      ]
+                    },
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ]
+                  ]
+                },
+                {
+                  "type": "Subpage",
+                  "value": {
+                    "status": "Inline",
+                    "content": {
+                      "title": "Page",
+                      "header": [
+                        {
+                          "type": "Heading",
+                          "value": {
+                            "label": null,
+                            "level": 0,
+                            "title": [
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Text",
+                                  "value": "Module "
+                                }
+                              },
+                              {
+                                "attr": [],
+                                "desc": {
+                                  "type": "Source",
+                                  "value": [
+                                    {
+                                      "tag": null,
+                                      "source": [
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": ""
+                                            }
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "attr": [],
+                                            "desc": {
+                                              "type": "Text",
+                                              "value": "Json_renderer.Page"
+                                            }
+                                          }
+                                        ]
+                                      ]
+                                    },
+                                    [
+                                      {
+                                        "attr": [],
+                                        "desc": {
+                                          "type": "Text",
+                                          "value": ""
+                                        }
+                                      }
+                                    ]
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "items": [
+                        {
+                          "type": "Declaration",
+                          "value": {
+                            "attr": [ "value" ],
+                            "anchor": {
+                              "page": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "container-page",
+                                      "parent": null,
+                                      "name": "odoc"
+                                    },
+                                    "name": "Odoc_json"
+                                  },
+                                  "name": "Json_renderer"
+                                },
+                                "name": "Page"
+                              },
+                              "anchor": "val-include_",
+                              "kind": "val"
+                            },
+                            "content": [
+                              {
+                                "type": "Code",
+                                "value": [
+                                  {
+                                    "tag": null,
+                                    "source": [
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": "keyword",
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "let"
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": "include_"
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ": "
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": null,
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "?"
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "theme_uri"
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ":"
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "type-var",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "'a"
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": " "
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "arrow",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "="
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Entity",
+                                                    "value": "gt"
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": null,
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "type-var",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "'b"
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": " "
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "arrow",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "="
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Entity",
+                                                    "value": "gt"
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": null,
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "InternalLink",
+                                                "value": {
+                                                  "url": {
+                                                    "page": {
+                                                      "kind": "module",
+                                                      "parent": {
+                                                        "kind": "module",
+                                                        "parent": {
+                                                          "kind": "module",
+                                                          "parent": {
+                                                            "kind":
+                                                              "container-page",
+                                                            "parent": null,
+                                                            "name": "odoc"
+                                                          },
+                                                          "name":
+                                                            "Odoc_document"
+                                                        },
+                                                        "name": "Types"
+                                                      },
+                                                      "name": "Subpage"
+                                                    },
+                                                    "anchor": "type-t",
+                                                    "kind": "type"
+                                                  },
+                                                  "inline": [
+                                                    {
+                                                      "attr": [],
+                                                      "desc": {
+                                                        "type": "Text",
+                                                        "value":
+                                                          "Odoc_document.Types.Subpage.t"
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": " "
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "arrow",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "="
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Entity",
+                                                    "value": "gt"
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": "list"
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": "("
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "InternalLink",
+                                            "value": {
+                                              "url": {
+                                                "page": {
+                                                  "kind": "module",
+                                                  "parent": {
+                                                    "kind": "module",
+                                                    "parent": {
+                                                      "kind":
+                                                        "container-page",
+                                                      "parent": null,
+                                                      "name": "odoc"
+                                                    },
+                                                    "name": "Odoc_document"
+                                                  },
+                                                  "name": "Renderer"
+                                                },
+                                                "anchor": "type-page",
+                                                "kind": "type"
+                                              },
+                                              "inline": [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value":
+                                                      "Odoc_document.Renderer.page"
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ")"
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ";"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  },
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": { "type": "Text", "value": "" }
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            "doc": []
+                          }
+                        },
+                        {
+                          "type": "Declaration",
+                          "value": {
+                            "attr": [ "value" ],
+                            "anchor": {
+                              "page": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "container-page",
+                                      "parent": null,
+                                      "name": "odoc"
+                                    },
+                                    "name": "Odoc_json"
+                                  },
+                                  "name": "Json_renderer"
+                                },
+                                "name": "Page"
+                              },
+                              "anchor": "val-subpages",
+                              "kind": "val"
+                            },
+                            "content": [
+                              {
+                                "type": "Code",
+                                "value": [
+                                  {
+                                    "tag": null,
+                                    "source": [
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": "keyword",
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "let"
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": "subpages"
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ": "
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": null,
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "?"
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "theme_uri"
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ":"
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "type-var",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "'a"
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": " "
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "arrow",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "="
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Entity",
+                                                    "value": "gt"
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": null,
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "type-var",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "'b"
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": " "
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "arrow",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "="
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Entity",
+                                                    "value": "gt"
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": null,
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "InternalLink",
+                                                "value": {
+                                                  "url": {
+                                                    "page": {
+                                                      "kind": "module",
+                                                      "parent": {
+                                                        "kind": "module",
+                                                        "parent": {
+                                                          "kind": "module",
+                                                          "parent": {
+                                                            "kind":
+                                                              "container-page",
+                                                            "parent": null,
+                                                            "name": "odoc"
+                                                          },
+                                                          "name":
+                                                            "Odoc_document"
+                                                        },
+                                                        "name": "Types"
+                                                      },
+                                                      "name": "Page"
+                                                    },
+                                                    "anchor": "type-t",
+                                                    "kind": "type"
+                                                  },
+                                                  "inline": [
+                                                    {
+                                                      "attr": [],
+                                                      "desc": {
+                                                        "type": "Text",
+                                                        "value":
+                                                          "Odoc_document.Types.Page.t"
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": " "
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "arrow",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "="
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Entity",
+                                                    "value": "gt"
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": "list"
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": "("
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "InternalLink",
+                                            "value": {
+                                              "url": {
+                                                "page": {
+                                                  "kind": "module",
+                                                  "parent": {
+                                                    "kind": "module",
+                                                    "parent": {
+                                                      "kind":
+                                                        "container-page",
+                                                      "parent": null,
+                                                      "name": "odoc"
+                                                    },
+                                                    "name": "Odoc_document"
+                                                  },
+                                                  "name": "Renderer"
+                                                },
+                                                "anchor": "type-page",
+                                                "kind": "type"
+                                              },
+                                              "inline": [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value":
+                                                      "Odoc_document.Renderer.page"
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ")"
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ";"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  },
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": { "type": "Text", "value": "" }
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            "doc": []
+                          }
+                        },
+                        {
+                          "type": "Declaration",
+                          "value": {
+                            "attr": [ "value" ],
+                            "anchor": {
+                              "page": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "container-page",
+                                      "parent": null,
+                                      "name": "odoc"
+                                    },
+                                    "name": "Odoc_json"
+                                  },
+                                  "name": "Json_renderer"
+                                },
+                                "name": "Page"
+                              },
+                              "anchor": "val-page",
+                              "kind": "val"
+                            },
+                            "content": [
+                              {
+                                "type": "Code",
+                                "value": [
+                                  {
+                                    "tag": null,
+                                    "source": [
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": "keyword",
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "let"
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": "page"
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ": "
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": null,
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "?"
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "theme_uri"
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ":"
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "type-var",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "'a"
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": " "
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "arrow",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "="
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Entity",
+                                                    "value": "gt"
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": null,
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "?"
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": "support_uri"
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ":"
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "type-var",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "'b"
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": " "
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "arrow",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "="
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Entity",
+                                                    "value": "gt"
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": null,
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "type-var",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "'c"
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": " "
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "arrow",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "="
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Entity",
+                                                    "value": "gt"
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      {
+                                        "tag": null,
+                                        "source": [
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "InternalLink",
+                                                "value": {
+                                                  "url": {
+                                                    "page": {
+                                                      "kind": "module",
+                                                      "parent": {
+                                                        "kind": "module",
+                                                        "parent": {
+                                                          "kind": "module",
+                                                          "parent": {
+                                                            "kind":
+                                                              "container-page",
+                                                            "parent": null,
+                                                            "name": "odoc"
+                                                          },
+                                                          "name":
+                                                            "Odoc_document"
+                                                        },
+                                                        "name": "Types"
+                                                      },
+                                                      "name": "Page"
+                                                    },
+                                                    "anchor": "type-t",
+                                                    "kind": "type"
+                                                  },
+                                                  "inline": [
+                                                    {
+                                                      "attr": [],
+                                                      "desc": {
+                                                        "type": "Text",
+                                                        "value":
+                                                          "Odoc_document.Types.Page.t"
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ],
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": " "
+                                              }
+                                            }
+                                          ],
+                                          {
+                                            "tag": "arrow",
+                                            "source": [
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": "="
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Entity",
+                                                    "value": "gt"
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value": ""
+                                                  }
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          [
+                                            {
+                                              "attr": [],
+                                              "desc": {
+                                                "type": "Text",
+                                                "value": ""
+                                              }
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": " "
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "InternalLink",
+                                            "value": {
+                                              "url": {
+                                                "page": {
+                                                  "kind": "module",
+                                                  "parent": {
+                                                    "kind": "module",
+                                                    "parent": {
+                                                      "kind":
+                                                        "container-page",
+                                                      "parent": null,
+                                                      "name": "odoc"
+                                                    },
+                                                    "name": "Odoc_document"
+                                                  },
+                                                  "name": "Renderer"
+                                                },
+                                                "anchor": "type-page",
+                                                "kind": "type"
+                                              },
+                                              "inline": [
+                                                {
+                                                  "attr": [],
+                                                  "desc": {
+                                                    "type": "Text",
+                                                    "value":
+                                                      "Odoc_document.Renderer.page"
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ""
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "attr": [],
+                                          "desc": {
+                                            "type": "Text",
+                                            "value": ";"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  },
+                                  [
+                                    {
+                                      "attr": [],
+                                      "desc": { "type": "Text", "value": "" }
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            "doc": []
+                          }
+                        }
+                      ],
+                      "url": {
+                        "kind": "module",
+                        "parent": {
+                          "kind": "module",
+                          "parent": {
+                            "kind": "module",
+                            "parent": {
+                              "kind": "container-page",
+                              "parent": null,
+                              "name": "odoc"
+                            },
+                            "name": "Odoc_json"
+                          },
+                          "name": "Json_renderer"
+                        },
+                        "name": "Page"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "Code",
+                  "value": [
+                    {
+                      "tag": null,
+                      "source": [
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ],
+                        {
+                          "tag": "keyword",
+                          "source": [
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "" }
+                              }
+                            ],
+                            [
+                              {
+                                "attr": [],
+                                "desc": { "type": "Text", "value": "end" }
+                              }
+                            ]
+                          ]
+                        },
+                        [
+                          {
+                            "attr": [],
+                            "desc": { "type": "Text", "value": "" }
+                          }
+                        ]
+                      ]
+                    },
+                    [
+                      { "attr": [], "desc": { "type": "Text", "value": "" } }
+                    ]
+                  ]
+                }
+              ],
+              "url": {
+                "kind": "module",
+                "parent": {
+                  "kind": "module",
+                  "parent": {
+                    "kind": "module",
+                    "parent": {
+                      "kind": "container-page",
+                      "parent": null,
+                      "name": "odoc"
+                    },
+                    "name": "Odoc_json"
+                  },
+                  "name": "Json_renderer"
+                },
+                "name": "Page"
+              }
+            }
+          },
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    },
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "Odoc_json"
+            },
+            "name": "Json_renderer"
+          },
+          "anchor": "val-render",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "render" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "url": {
+                                "page": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "container-page",
+                                      "parent": null,
+                                      "name": "odoc"
+                                    },
+                                    "name": "Odoc_json"
+                                  },
+                                  "name": "Json_renderer"
+                                },
+                                "anchor": "type-args",
+                                "kind": "type"
+                              },
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": { "type": "Text", "value": "args" }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "url": {
+                                "page": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "container-page",
+                                        "parent": null,
+                                        "name": "odoc"
+                                      },
+                                      "name": "Odoc_document"
+                                    },
+                                    "name": "Types"
+                                  },
+                                  "name": "Page"
+                                },
+                                "anchor": "type-t",
+                                "kind": "type"
+                              },
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "Odoc_document.Types.Page.t"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "InternalLink",
+                        "value": {
+                          "url": {
+                            "page": {
+                              "kind": "module",
+                              "parent": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "container-page",
+                                  "parent": null,
+                                  "name": "odoc"
+                                },
+                                "name": "Odoc_document"
+                              },
+                              "name": "Renderer"
+                            },
+                            "anchor": "type-page",
+                            "kind": "type"
+                          },
+                          "inline": [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "Text",
+                                "value": "Odoc_document.Renderer.page"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    },
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "Odoc_json"
+            },
+            "name": "Json_renderer"
+          },
+          "anchor": "val-files_of_url",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "files_of_url" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "url": {
+                                "page": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "container-page",
+                                        "parent": null,
+                                        "name": "odoc"
+                                      },
+                                      "name": "Odoc_document"
+                                    },
+                                    "name": "Url"
+                                  },
+                                  "name": "Path"
+                                },
+                                "anchor": "type-t",
+                                "kind": "type"
+                              },
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "Odoc_document.Url.Path.t"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "list" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": "(" } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "InternalLink",
+                        "value": {
+                          "url": {
+                            "page": {
+                              "kind": "module",
+                              "parent": {
+                                "kind": "container-page",
+                                "parent": {
+                                  "kind": "container-page",
+                                  "parent": null,
+                                  "name": "odoc"
+                                },
+                                "name": "deps"
+                              },
+                              "name": "Fpath"
+                            },
+                            "anchor": "type-t",
+                            "kind": "type"
+                          },
+                          "inline": [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "Fpath.t" }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ")" } }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    },
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "Odoc_json"
+            },
+            "name": "Json_renderer"
+          },
+          "anchor": "val-renderer",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "renderer" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "InternalLink",
+                        "value": {
+                          "url": {
+                            "page": {
+                              "kind": "module",
+                              "parent": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "container-page",
+                                  "parent": null,
+                                  "name": "odoc"
+                                },
+                                "name": "Odoc_document"
+                              },
+                              "name": "Renderer"
+                            },
+                            "anchor": "type-t",
+                            "kind": "type"
+                          },
+                          "inline": [
+                            {
+                              "attr": [],
+                              "desc": {
+                                "type": "Text",
+                                "value": "Odoc_document.Renderer.t"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": "(" } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": {
+                        "type": "InternalLink",
+                        "value": {
+                          "url": {
+                            "page": {
+                              "kind": "module",
+                              "parent": {
+                                "kind": "module",
+                                "parent": {
+                                  "kind": "container-page",
+                                  "parent": null,
+                                  "name": "odoc"
+                                },
+                                "name": "Odoc_json"
+                              },
+                              "name": "Json_renderer"
+                            },
+                            "anchor": "type-args",
+                            "kind": "type"
+                          },
+                          "inline": [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "args" }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ")" } }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    },
+    {
+      "type": "Declaration",
+      "value": {
+        "attr": [ "value" ],
+        "anchor": {
+          "page": {
+            "kind": "module",
+            "parent": {
+              "kind": "module",
+              "parent": {
+                "kind": "container-page",
+                "parent": null,
+                "name": "odoc"
+              },
+              "name": "Odoc_json"
+            },
+            "name": "Json_renderer"
+          },
+          "anchor": "val-doc",
+          "kind": "val"
+        },
+        "content": [
+          {
+            "type": "Code",
+            "value": [
+              {
+                "tag": null,
+                "source": [
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  {
+                    "tag": "keyword",
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "let" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "doc" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ": " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "url": {
+                                "page": {
+                                  "kind": "module",
+                                  "parent": {
+                                    "kind": "module",
+                                    "parent": {
+                                      "kind": "module",
+                                      "parent": {
+                                        "kind": "container-page",
+                                        "parent": null,
+                                        "name": "odoc"
+                                      },
+                                      "name": "Odoc_document"
+                                    },
+                                    "name": "Types"
+                                  },
+                                  "name": "Block"
+                                },
+                                "anchor": "type-t",
+                                "kind": "type"
+                              },
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "Odoc_document.Types.Block.t"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  {
+                    "tag": null,
+                    "source": [
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": {
+                            "type": "InternalLink",
+                            "value": {
+                              "inline": [
+                                {
+                                  "attr": [],
+                                  "desc": {
+                                    "type": "Text",
+                                    "value": "Stdlib"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": ".Format" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": ".formatter" }
+                        }
+                      ],
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": " " }
+                        }
+                      ],
+                      {
+                        "tag": "arrow",
+                        "source": [
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "=" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Entity", "value": "gt" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ],
+                          [
+                            {
+                              "attr": [],
+                              "desc": { "type": "Text", "value": "" }
+                            }
+                          ]
+                        ]
+                      },
+                      [
+                        {
+                          "attr": [],
+                          "desc": { "type": "Text", "value": "" }
+                        }
+                      ]
+                    ]
+                  },
+                  [ { "attr": [], "desc": { "type": "Text", "value": "" } } ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": " " } }
+                  ],
+                  [
+                    {
+                      "attr": [],
+                      "desc": { "type": "Text", "value": "unit" }
+                    }
+                  ],
+                  [
+                    { "attr": [], "desc": { "type": "Text", "value": ";" } }
+                  ]
+                ]
+              },
+              [ { "attr": [], "desc": { "type": "Text", "value": "" } } ]
+            ]
+          }
+        ],
+        "doc": []
+      }
+    }
+  ],
+  "url": {
+    "kind": "module",
+    "parent": {
+      "kind": "module",
+      "parent": { "kind": "container-page", "parent": null, "name": "odoc" },
+      "name": "Odoc_json"
+    },
+    "name": "Json_renderer"
+  }
+}

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head><title>Subst (odoc.Odoc_xref2.Subst)</title>
+  <link rel="stylesheet" href="../../../odoc.css"/><meta charset="utf-8"/>
+  <meta name="generator" content="odoc %%VERSION%%"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script src="../../../highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body class="odoc">
+  <nav class="odoc-nav"><a href="../index.html">Up</a> – 
+   <a href="../../index.html">odoc</a> &#x00BB; 
+   <a href="../index.html">Odoc_xref2</a> &#x00BB; Subst
+  </nav>
+  <header class="odoc-preamble">
+   <h1>Module <code><span>Odoc_xref2.Subst</span></code></h1>
+  </header>
+  <div class="odoc-content">
+   <div class="odoc-spec">
+    <div class="spec type" id="type-t" class="anchored">
+     <a href="#type-t" class="anchor"></a>
+     <code><span><span class="keyword">type</span> t</span>
+      <span> = 
+       <a href="../Component/Substitution/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.Substitution">Component.Substitution.t
+       </a>
+      </span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-identity" class="anchored">
+     <a href="#val-identity" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> identity: 
+       <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-unresolve_opaque_paths" class="anchored">
+     <a href="#val-unresolve_opaque_paths" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> unresolve_opaque_paths: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-path_invalidate_module" class="anchored">
+     <a href="#val-path_invalidate_module" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> path_invalidate_module: 
+       <span>
+        <a href="../Ident/index.html#type-path_module"
+         id="odoc.Odoc_xref2.Ident">Ident.path_module
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-mto_invalidate_module" class="anchored">
+     <a href="#val-mto_invalidate_module" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> mto_invalidate_module: 
+       <span>
+        <a href="../Ident/index.html#type-path_module"
+         id="odoc.Odoc_xref2.Ident">Ident.path_module
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-add_module" class="anchored">
+     <a href="#val-add_module" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> add_module: 
+       <span>
+        <a href="../Ident/index.html#type-path_module"
+         id="odoc.Odoc_xref2.Ident">Ident.path_module
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Cpath/index.html#type-module_" id="odoc.Odoc_xref2.Cpath">
+         Cpath.module_
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Cpath/Resolved/index.html#type-module_"
+         id="odoc.Odoc_xref2.Cpath.Resolved">Cpath.Resolved.module_
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-add_module_type" class="anchored">
+     <a href="#val-add_module_type" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> add_module_type: 
+       <span>
+        <a href="../Ident/index.html#type-module_type"
+         id="odoc.Odoc_xref2.Ident">Ident.module_type
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Cpath/index.html#type-module_type"
+         id="odoc.Odoc_xref2.Cpath">Cpath.module_type
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Cpath/Resolved/index.html#type-module_type"
+         id="odoc.Odoc_xref2.Cpath.Resolved">Cpath.Resolved.module_type
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-add_type" class="anchored">
+     <a href="#val-add_type" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> add_type: 
+       <span>
+        <a href="../Ident/index.html#type-type_" id="odoc.Odoc_xref2.Ident">
+         Ident.type_
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Cpath/index.html#type-type_" id="odoc.Odoc_xref2.Cpath">
+         Cpath.type_
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Cpath/Resolved/index.html#type-type_"
+         id="odoc.Odoc_xref2.Cpath.Resolved">Cpath.Resolved.type_
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-add_class" class="anchored">
+     <a href="#val-add_class" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> add_class: 
+       <span>
+        <a href="../Ident/index.html#type-class_" id="odoc.Odoc_xref2.Ident">
+         Ident.class_
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Cpath/index.html#type-class_type"
+         id="odoc.Odoc_xref2.Cpath">Cpath.class_type
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Cpath/Resolved/index.html#type-class_type"
+         id="odoc.Odoc_xref2.Cpath.Resolved">Cpath.Resolved.class_type
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-add_class_type" class="anchored">
+     <a href="#val-add_class_type" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> add_class_type: 
+       <span>
+        <a href="../Ident/index.html#type-class_type"
+         id="odoc.Odoc_xref2.Ident">Ident.class_type
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Cpath/index.html#type-class_type"
+         id="odoc.Odoc_xref2.Cpath">Cpath.class_type
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Cpath/Resolved/index.html#type-class_type"
+         id="odoc.Odoc_xref2.Cpath.Resolved">Cpath.Resolved.class_type
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-add_type_replacement" class="anchored">
+     <a href="#val-add_type_replacement" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> add_type_replacement: 
+       <span>
+        <a href="../Ident/index.html#type-path_type"
+         id="odoc.Odoc_xref2.Ident">Ident.path_type
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/TypeExpr/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.TypeExpr">Component.TypeExpr.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/TypeDecl/Equation/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.TypeDecl.Equation">
+         Component.TypeDecl.Equation.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-add_module_substitution" class="anchored">
+     <a href="#val-add_module_substitution" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> add_module_substitution: 
+       <span>
+        <a href="../Ident/index.html#type-path_module"
+         id="odoc.Odoc_xref2.Ident">Ident.path_module
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> <a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-type_" class="anchored">
+     <a href="#val-type_" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> type_: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/TypeDecl/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.TypeDecl">Component.TypeDecl.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/TypeDecl/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.TypeDecl">Component.TypeDecl.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-type_expr" class="anchored">
+     <a href="#val-type_expr" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> type_expr: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/TypeExpr/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.TypeExpr">Component.TypeExpr.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/TypeExpr/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.TypeExpr">Component.TypeExpr.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-module_" class="anchored">
+     <a href="#val-module_" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> module_: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/Module/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.Module">Component.Module.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/Module/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.Module">Component.Module.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-module_type" class="anchored">
+     <a href="#val-module_type" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> module_type: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/ModuleType/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.ModuleType">Component.ModuleType.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/ModuleType/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.ModuleType">Component.ModuleType.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-module_substitution" class="anchored">
+     <a href="#val-module_substitution" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> module_substitution: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/ModuleSubstitution/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.ModuleSubstitution">
+         Component.ModuleSubstitution.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/ModuleSubstitution/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.ModuleSubstitution">
+        Component.ModuleSubstitution.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-module_type_expr" class="anchored">
+     <a href="#val-module_type_expr" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> module_type_expr: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/ModuleType/index.html#type-expr"
+         id="odoc.Odoc_xref2.Component.ModuleType">Component.ModuleType.expr
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/ModuleType/index.html#type-expr"
+        id="odoc.Odoc_xref2.Component.ModuleType">Component.ModuleType.expr
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-exception_" class="anchored">
+     <a href="#val-exception_" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> exception_: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/Exception/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.Exception">Component.Exception.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/Exception/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.Exception">Component.Exception.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-extension" class="anchored">
+     <a href="#val-extension" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> extension: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/Extension/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.Extension">Component.Extension.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/Extension/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.Extension">Component.Extension.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-external_" class="anchored">
+     <a href="#val-external_" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> external_: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/External/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.External">Component.External.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/External/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.External">Component.External.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-include_" class="anchored">
+     <a href="#val-include_" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> include_: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/Include/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.Include">Component.Include.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/Include/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.Include">Component.Include.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-open_" class="anchored">
+     <a href="#val-open_" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> open_: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/Open/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.Open">Component.Open.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/Open/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.Open">Component.Open.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-value" class="anchored">
+     <a href="#val-value" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> value: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/Value/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.Value">Component.Value.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/Value/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.Value">Component.Value.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-class_" class="anchored">
+     <a href="#val-class_" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> class_: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/Class/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.Class">Component.Class.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/Class/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.Class">Component.Class.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-class_decl" class="anchored">
+     <a href="#val-class_decl" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> class_decl: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/Class/index.html#type-decl"
+         id="odoc.Odoc_xref2.Component.Class">Component.Class.decl
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/Class/index.html#type-decl"
+        id="odoc.Odoc_xref2.Component.Class">Component.Class.decl
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-class_type" class="anchored">
+     <a href="#val-class_type" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> class_type: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/ClassType/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.ClassType">Component.ClassType.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/ClassType/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.ClassType">Component.ClassType.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-signature" class="anchored">
+     <a href="#val-signature" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> signature: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>
+        <a href="../Component/Signature/index.html#type-t"
+         id="odoc.Odoc_xref2.Component.Signature">Component.Signature.t
+        </a> <span class="arrow">=&gt;</span>
+       </span> 
+       <a href="../Component/Signature/index.html#type-t"
+        id="odoc.Odoc_xref2.Component.Signature">Component.Signature.t
+       </a>;
+      </span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec value" id="val-apply_sig_map" class="anchored">
+     <a href="#val-apply_sig_map" class="anchor"></a>
+     <code>
+      <span><span class="keyword">let</span> apply_sig_map: 
+       <span><a href="#type-t" id="odoc.Odoc_xref2.Subst">t</a> 
+        <span class="arrow">=&gt;</span>
+       </span> 
+       <span>list(
+        <a href="../Component/Signature/index.html#type-item"
+         id="odoc.Odoc_xref2.Component.Signature">Component.Signature.item
+        </a>) <span class="arrow">=&gt;</span>
+       </span> 
+       <span>list(
+        <a href="../Component/Signature/index.html#type-removed_item"
+         id="odoc.Odoc_xref2.Component.Signature">
+         Component.Signature.removed_item
+        </a>) <span class="arrow">=&gt;</span>
+       </span> 
+       <span>(list(
+        <a href="../Component/Signature/index.html#type-item"
+         id="odoc.Odoc_xref2.Component.Signature">Component.Signature.item
+        </a>), list(
+        <a href="../Component/Signature/index.html#type-removed_item"
+         id="odoc.Odoc_xref2.Component.Signature">
+         Component.Signature.removed_item
+        </a>), bool)
+       </span>;
+      </span>
+     </code>
+    </div>
+    <div class="spec-doc">
+     <p>Apply substitutions. The third value is <code>false</code> if the 
+      corresponding signature needs to be compiled again and 
+      <code>true</code> otherwise.
+     </p>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

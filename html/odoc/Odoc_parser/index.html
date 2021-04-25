@@ -18,9 +18,9 @@
    <div class="odoc-spec">
     <div class="spec module" id="module-Ast" class="anchored">
      <a href="#module-Ast" class="anchor"></a>
-     <code><span><span class="keyword">module</span> </span><span>Ast</span>
-      <span> = <a href="Ast/index.html" id="odoc.Odoc_parser.Ast">Ast</a>
-      </span><span>;</span>
+     <code><span><span class="keyword">module</span> </span>
+      <span><a href="Ast/index.html" id="odoc.Odoc_parser.Ast">Ast</a></span>
+      <span>: { ... }</span><span>;</span>
      </code>
     </div>
    </div>
@@ -28,11 +28,10 @@
     <div class="spec module" id="module-Location" class="anchored">
      <a href="#module-Location" class="anchor"></a>
      <code><span><span class="keyword">module</span> </span>
-      <span>Location</span>
-      <span> = 
+      <span>
        <a href="Location/index.html" id="odoc.Odoc_parser.Location">Location
        </a>
-      </span><span>;</span>
+      </span><span>: { ... }</span><span>;</span>
      </code>
     </div>
    </div>
@@ -55,7 +54,9 @@
        </span> <span>text:string <span class="arrow">=&gt;</span></span> 
        <a href="Error/index.html#type-with_warnings"
         id="odoc.Odoc_parser.Error">Error.with_warnings
-       </a>(<span class="xref-unresolved">Ast</span>.docs);
+       </a>(
+       <a href="Ast/index.html#type-docs" id="odoc.Odoc_parser.Ast">Ast.docs
+       </a>);
       </span>
      </code>
     </div>

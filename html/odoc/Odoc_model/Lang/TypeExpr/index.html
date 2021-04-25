@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head><title>TypeExpr (odoc.Odoc_model.Lang.TypeExpr)</title>
+  <link rel="stylesheet" href="../../../../odoc.css"/><meta charset="utf-8"/>
+  <meta name="generator" content="odoc %%VERSION%%"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script src="../../../../highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body class="odoc">
+  <nav class="odoc-nav"><a href="../index.html">Up</a> – 
+   <a href="../../../index.html">odoc</a> &#x00BB; 
+   <a href="../../index.html">Odoc_model</a> &#x00BB; 
+   <a href="../index.html">Lang</a> &#x00BB; TypeExpr
+  </nav>
+  <header class="odoc-preamble">
+   <h1>Module <code><span>Lang.TypeExpr</span></code></h1>
+  </header>
+  <div class="odoc-content">
+   <div class="odoc-spec">
+    <div class="spec module" id="module-Polymorphic_variant" class="anchored">
+     <a href="#module-Polymorphic_variant" class="anchor"></a>
+     <code><span><span class="keyword">module</span> </span>
+      <span>
+       <a href="Polymorphic_variant/index.html"
+        id="odoc.Odoc_model.Lang.TypeExpr.Polymorphic_variant">
+        Polymorphic_variant
+       </a>
+      </span><span>: { ... }</span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec module" id="module-Object" class="anchored">
+     <a href="#module-Object" class="anchor"></a>
+     <code><span><span class="keyword">module</span> </span>
+      <span>
+       <a href="Object/index.html" id="odoc.Odoc_model.Lang.TypeExpr.Object">
+        Object
+       </a>
+      </span><span>: { ... }</span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec module" id="module-Package" class="anchored">
+     <a href="#module-Package" class="anchor"></a>
+     <code><span><span class="keyword">module</span> </span>
+      <span>
+       <a href="Package/index.html"
+        id="odoc.Odoc_model.Lang.TypeExpr.Package">Package
+       </a>
+      </span><span>: { ... }</span><span>;</span>
+     </code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-label" class="anchored">
+     <a href="#type-label" class="anchor"></a>
+     <code><span><span class="keyword">type</span> label</span>
+      <span> = </span>
+     </code>
+     <table>
+      <tr id="type-label.Label" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-label.Label" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Label</span>(string)</span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-label.Optional" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-label.Optional" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Optional</span>(string)</span>
+        </code>
+       </td>
+      </tr>
+     </table><code><span>;</span></code>
+    </div>
+   </div>
+   <div class="odoc-spec">
+    <div class="spec type" id="type-t" class="anchored">
+     <a href="#type-t" class="anchor"></a>
+     <code><span><span class="keyword">type</span> t</span><span> = </span>
+     </code>
+     <table>
+      <tr id="type-t.Var" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Var" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Var</span>(string)</span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Any" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Any" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Any</span></span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Alias" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Alias" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Alias</span>(
+          <a href="#type-t" id="odoc.Odoc_model.Lang.TypeExpr">t</a>, string)
+         </span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Arrow" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Arrow" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Arrow</span>(option(
+          <a href="#type-label" id="odoc.Odoc_model.Lang.TypeExpr">label</a>)
+          , <a href="#type-t" id="odoc.Odoc_model.Lang.TypeExpr">t</a>, 
+          <a href="#type-t" id="odoc.Odoc_model.Lang.TypeExpr">t</a>)
+         </span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Tuple" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Tuple" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Tuple</span>(list(
+          <a href="#type-t" id="odoc.Odoc_model.Lang.TypeExpr">t</a>))
+         </span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Constr" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Constr" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Constr</span>(
+          <a href="../../Paths/Path/Type/index.html#type-t"
+           id="odoc.Odoc_model.Paths.Path.Type">Paths.Path.Type.t
+          </a>, list(
+          <a href="#type-t" id="odoc.Odoc_model.Lang.TypeExpr">t</a>))
+         </span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Polymorphic_variant" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Polymorphic_variant" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Polymorphic_variant</span>(
+          <a href="Polymorphic_variant/index.html#type-t"
+           id="odoc.Odoc_model.Lang.TypeExpr.Polymorphic_variant">
+           TypeExpr.Polymorphic_variant.t
+          </a>)
+         </span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Object" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Object" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Object</span>(
+          <a href="Object/index.html#type-t"
+           id="odoc.Odoc_model.Lang.TypeExpr.Object">TypeExpr.Object.t
+          </a>)
+         </span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Class" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Class" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Class</span>(
+          <a href="../../Paths/Path/ClassType/index.html#type-t"
+           id="odoc.Odoc_model.Paths.Path.ClassType">Paths.Path.ClassType.t
+          </a>, list(
+          <a href="#type-t" id="odoc.Odoc_model.Lang.TypeExpr">t</a>))
+         </span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Poly" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Poly" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Poly</span>(list(string), 
+          <a href="#type-t" id="odoc.Odoc_model.Lang.TypeExpr">t</a>)
+         </span>
+        </code>
+       </td>
+      </tr>
+      <tr id="type-t.Package" class="anchored">
+       <td class="def variant constructor">
+        <a href="#type-t.Package" class="anchor"></a>
+        <code><span>| </span>
+         <span><span class="constructor">Package</span>(
+          <a href="Package/index.html#type-t"
+           id="odoc.Odoc_model.Lang.TypeExpr.Package">TypeExpr.Package.t
+          </a>)
+         </span>
+        </code>
+       </td>
+      </tr>
+     </table><code><span>;</span></code>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
