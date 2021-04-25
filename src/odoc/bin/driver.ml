@@ -102,7 +102,7 @@ let html_generate ~env file =
     ~syntax:Odoc_document.Renderer.Reason
     ~output:(Fs.Directory.of_string "html")
     {
-      semantic_uris = true;
+      semantic_uris = false;
       closed_details = false;
       indent = true;
       theme_uri = Odoc_html.Tree.Relative None;
@@ -165,7 +165,8 @@ let traverse_files dir =
   let files = Array.to_list files in
   List.fold_left (fun acc file -> if Sys.is_directory file then (List.append traverse_files file) else file :: files) *)
 
-let module_name_from_path path = Fpath.basename path |> String.capitalize_ascii
+let module_name_from_path path =
+  path |> Fpath.rem_ext |> Fpath.basename |> String.capitalize_ascii
 
 type unit_type = Cmti | Cmt | Cmi
 
@@ -191,7 +192,7 @@ let add_units units ~path ~namespace =
              path |> Fpath.get_ext |> extension_to_unit_type )
          with
          | Some Cmi, Cmt | Some Cmi, Cmti | Some Cmt, Cmti | None, _ ->
-             Hashtbl.add units module_name
+             Hashtbl.replace units module_name
                (match namespace with
                | Some namespace -> Unit_namespace (namespace, path)
                | None -> Unit_local path)
@@ -220,14 +221,14 @@ let is_hidden path = Astring.String.is_infix ~affix:"__" (Fpath.to_string path)
 
 type compile_deps = { digest : Digest.t; deps : (string * Digest.t) list }
 
-let compile_deps f =
+let list_compile_deps f =
   let l =
     Depends.for_compile_step f
     |> List.map (fun t ->
-           (Depends.Compile.name t, Digest.to_hex @@ Depends.Compile.digest t))
+           (Depends.Compile.name t, Digest.to_hex (Depends.Compile.digest t)))
   in
-  let basename = Fpath.(basename (f |> rem_ext)) |> String.capitalize_ascii in
-  match List.partition (fun (n, _) -> basename = n) l with
+  let module_name = module_name_from_path f in
+  match List.partition (fun (n, _) -> module_name = n) l with
   | [ (_, digest) ], deps -> Ok { digest; deps }
   | _ -> Error (`Msg "odd")
 
@@ -313,7 +314,7 @@ let compile_all ~config ~env ~directories =
     | Some true -> []
     | Some false | None ->
         Hashtbl.add already_compiled output true;
-        let deps = compile_deps file |> with_error CompileDeps in
+        let deps = list_compile_deps file |> with_error CompileDeps in
         let files =
           List.fold_left
             (fun acc (dep_name, digest) ->
@@ -324,7 +325,7 @@ let compile_all ~config ~env ~directories =
               | Some (Unit_namespace (lib, file)) -> rec_compile lib file @ acc)
             [] deps.deps
         in
-        ignore (compile ~env ~directories file ~parent:lib []);
+        let _ = compile ~env ~directories file ~parent:lib [] in
         output :: files
   in
   List.fold_left
@@ -361,6 +362,10 @@ let generate_all ~env odocl_files =
 
    documel.json
 *)
+(* let () =
+  print_endline
+    (Fpath.basename (Result.get_ok (Fpath.of_string "blab/bla.txt"))) *)
+
 let default_config =
   {
     unit_root = "_build/";
