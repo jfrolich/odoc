@@ -61,6 +61,8 @@ let mkpage x = "page-" ^ x
 
 let mkmod x = "module-" ^ x
 
+let is_hidden path = Astring.String.is_infix ~affix:"__" (Fpath.to_string path)
+
 let compile file ?parent ~env ~directories children =
   (* print_endline ("Compiling " ^ Fpath.to_string file); *)
   let output_file =
@@ -217,8 +219,6 @@ underscore that a module is intended to be hidden. The following predicate tests
 for that condition:
 *)
 
-let is_hidden path = Astring.String.is_infix ~affix:"__" (Fpath.to_string path)
-
 type compile_deps = { digest : Digest.t; deps : (string * Digest.t) list }
 
 let list_compile_deps f =
@@ -266,6 +266,7 @@ let compile_docs ~config ~units ~env ~directories =
       |> Seq.filter_map (function
            | Unit_local f -> Some f
            | Unit_namespace _ -> None)
+      (* |> Seq.filter (fun f -> not (is_hidden f)) *)
       |> Seq.map (fun child -> child |> Fpath.rem_ext |> Fpath.basename)
       |> List.of_seq)
   in
@@ -319,13 +320,16 @@ let compile_all ~config ~env ~directories =
           List.fold_left
             (fun acc (dep_name, digest) ->
               match Hashtbl.find_opt units dep_name with
-              | None -> acc
+              | None ->
+                  print_endline ("Dep unit " ^ dep_name ^ "not found");
+                  acc
               | Some (Unit_local file) ->
                   rec_compile config.root_page file @ acc
               | Some (Unit_namespace (lib, file)) -> rec_compile lib file @ acc)
             [] deps.deps
         in
         let _ = compile ~env ~directories file ~parent:lib [] in
+        (* if is_hidden output then () else link ~env output; *)
         output :: files
   in
   List.fold_left
@@ -340,12 +344,11 @@ let compile_all ~config ~env ~directories =
   @ mld_odocs
 
 let link_all ~env odoc_files =
-  let not_hidden f = not (is_hidden f) in
   List.map
     (fun odoc_file ->
-      ignore (link ~env odoc_file);
+      let _ = link ~env odoc_file in
       Fpath.set_ext "odocl" odoc_file)
-    (List.filter not_hidden odoc_files)
+    (List.filter (fun f -> not (is_hidden f)) odoc_files)
 
 let generate_all ~env odocl_files =
   List.iter
